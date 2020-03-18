@@ -66,7 +66,7 @@ declare interface JSONInfoTable<T> {
 }
 
 type INFOTABLE<T = any> = T & InfoTable<T>;
-type ValueCollectionConvertible<T> = T | ValueCollection<T>;
+type ValueCollectionConvertible<T> = Partial<T> | ValueCollection<T>;
 
 declare class InfoTable<T = any> {
     private constructor();
@@ -233,7 +233,7 @@ type VEC4 = string;
 type THINGCODE = string;
 type NOTIFICATIONCONTENTNAME = string;
 type NOTIFICATIONDEFINITIONNAME = string;
-type EVENT<T> = ({[_event]: true}) & ((eventData?: T) => void);
+type EVENT<T> = ({[_event]: true}) & ((eventData?: Partial<T>) => void);
 type THINGNAME<Template extends keyof ThingTemplates | undefined = undefined, Shape extends keyof ThingShapes | undefined = undefined> = 
     Template extends keyof ThingTemplates ? 
         (Shape extends keyof ThingShapes ? 
