@@ -1,0 +1,47 @@
+{
+    "name": "bm-thingworx-vscode",
+    "packageName": "bm-thingworx-vscode",
+    "moduleName": "bm-thingworx-vscode",
+    "version": "0.0.1-alpha.1",
+    "description": "Develop in ThingWorx with a proper IDE.",
+    "author": "Thingworx RoIcenter",
+    "thingworxServer": "http://localhost:8015",
+    "thingworxUser": "Administrator",
+    "thingworxPassword": "Administrator12345",
+    "minimumThingWorxVersion": "6.0.0",
+    "homepage": "https://github.com/BogdanMihaiciuc/",
+    "autoUpdate": {
+        "gitHubURL": "https://api.github.com/repos/ptc-iot-sharing/ThingworxVSCodeProject/releases/latest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ptc-iot-sharing/ThingworxVSCodeProject.git"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "gulp build",
+        "upload": "gulp upload"
+    },
+    "license": "MIT",
+    "files": [
+        "lib",
+        "build",
+        "LICENSE"
+    ],
+    "devDependencies": {
+        "@types/node": "^8.10.11",
+        "gulp": "^4.0.2",
+        "gulp-concat": "^2.6.1",
+        "gulp-terser": "^1.2.0",
+        "gulp-zip": "^5.0.0",
+        "gulp-babel": "^8.0.0",
+        "babel-plugin-remove-import-export": "^1.1.0",
+        "delete-empty": "^3.0.0",
+        "del": "^5.0.0",
+        "request": "^2.85.0",
+        "xml2js": "^0.4.19",
+        "typescript": "^3.4.3",
+        "gulp-typescript": "^6.0.0-alpha.1",
+        "bm-thing-transformer": "^0.0.1-alpha.3"
+    }
+}

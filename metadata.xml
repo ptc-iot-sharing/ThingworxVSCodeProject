@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Entities>
+  <ExtensionPackages>
+    <ExtensionPackage name="" description="" vendor="" packageVersion="" minimumThingWorxVersion="6.0.0" buildNumber="{&quot;giteaURL&quot;:&quot;https://api.github.com/repos/ptc-iot-sharing/MonacoEditorTWX/releases/latest&quot;}"/>
+  </ExtensionPackages>
+</Entities>

@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "ESNext",
+        "target": "es5",
+        "downlevelIteration": true,
+        "experimentalDecorators": true,
+        "strict": true,
+        "declaration": true,
+        "lib": [
+            "esnext"
+        ],
+        "typeRoots": [
+            "./typings/",
+            "./node_modules/@types/"
+        ]
+    },
+    "include": [
+        "./static/**/*.d.ts",
+        "./src/**/*.d.ts",
+        "./src/**/*.ts"
+    ]
+}
