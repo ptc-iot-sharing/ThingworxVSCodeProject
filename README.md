@@ -89,9 +89,10 @@ To build the extension and upload it to Thingworx, run `gulp upload` in the root
 
 Deployment to Thingworx is part of the build process as explained above. Alternatively, you can manually install the extension that is generated in the zip folder in the root of the project.
 
-# Credits and Aknowledgements
+# Credit/Acknowledgment
 
 [Petrisor Lacatus](https://github.com/stefan-lacatus), who had the original idea of using `tsc` to create Thingworx entities. This uses some definitions and ideas from [MonacoEditorTWX](https://github.com/ptc-iot-sharing/MonacoEditorTWX).
+[Bogdan Mihaiciuc](https://github.com/BogdanMihaiciuc) developer.
 
 # Disclaimer
 
