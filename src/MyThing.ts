@@ -89,7 +89,12 @@
      * The `@localSubscription(event[, property])` decorator is used to create subscription to an entity's own events.
      */
     @localSubscription('DataChange', 'streamToUse') streamToUseChanged(alertName: STRING, eventData: INFOTABLE<DataChangeEvent>, eventName: STRING, eventTime: DATETIME, source: STRING, sourceProperty: STRING) {
+        const table = Resources.InfoTableFunctions.CreateInfoTableFromDataShape({dataShapeName: 'EntityCount'});
 
+        table.AddRow({count: 3, name: 'EntityCount'});
+
+        const table2 = Resources.InfoTableFunctions.Clone({t1: table});
+        logger.info(`Count is ${table2.count}`);
     }
 
     /**

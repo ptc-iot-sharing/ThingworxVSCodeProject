@@ -76,6 +76,7 @@ Any TypeScript file you add to the `src` folder will be compiled into a Thingwor
  - Only Things, ThingTemplates, ThingShapes and DataShapes are supported currently. For other types of entities you will still need to use the composer.
  - Non-javascript services such as SQL or Flow services are not supported.
  - Projects and tags cannot be specified currently. Note that your project will however be packaged as an extension that can be easily installed, updated and removed.
+ - Configuration tables are not currently supported, but this likely to be supported in some manner soon.
 
 ## Build
 
@@ -91,8 +92,9 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 
 # Credit/Acknowledgment
 
-[Petrisor Lacatus](https://github.com/stefan-lacatus), who had the original idea of using `tsc` to create Thingworx entities. This uses some definitions and ideas from [MonacoEditorTWX](https://github.com/ptc-iot-sharing/MonacoEditorTWX).
-[Bogdan Mihaiciuc](https://github.com/BogdanMihaiciuc) developer.
+[Petrisor Lacatus](https://github.com/stefan-lacatus) - had the original idea of using `tsc` to create Thingworx entities. This uses some definitions and ideas from [MonacoEditorTWX](https://github.com/ptc-iot-sharing/MonacoEditorTWX).
+
+[Bogdan Mihaiciuc](https://github.com/BogdanMihaiciuc) - developer.
 
 # Disclaimer
 
