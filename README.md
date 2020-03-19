@@ -93,6 +93,10 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 
 [Petrisor Lacatus](https://github.com/stefan-lacatus), who had the original idea of using `tsc` to create Thingworx entities. This uses some definitions and ideas from [MonacoEditorTWX](https://github.com/ptc-iot-sharing/MonacoEditorTWX).
 
+# Disclaimer
+
+The Thingworx VSCode Project is not an official Thingworx product. It is something developed to improve the life of a Thingworx developer and he needs to understand that it is not supported and any issues encountered are his own responsability.
+
 # License
 
 [MIT License](LICENSE)
