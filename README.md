@@ -77,6 +77,7 @@ Any TypeScript file you add to the `src` folder will be compiled into a Thingwor
  - Non-javascript services such as SQL or Flow services are not supported.
  - Projects and tags cannot be specified currently. Note that your project will however be packaged as an extension that can be easily installed, updated and removed.
  - Configuration tables are not currently supported, but this likely to be supported in some manner soon.
+ - XML handling via E4X is not and will not be supported. Using E4X syntax will lead to a compilation error. You may either use `eval` with hardcoded strings or the various XML methods to work around this limitation.
 
 ## Build
 
