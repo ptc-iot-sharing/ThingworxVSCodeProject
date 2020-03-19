@@ -1,5 +1,8 @@
 /**
  * This example class demonstrates how Thing Shapes are created.
+ * 
+ * Thing shapes are classes that extend from the `ThingShapeBase` class; they follow
+ * the same general rules as things.
  */
 class ExampleThingShape extends ThingShapeBase {
 
