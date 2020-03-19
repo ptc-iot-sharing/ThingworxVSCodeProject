@@ -93,7 +93,7 @@ async function gen() {
         for (const key in global._TWEntities) {
             // @ts-ignore
             const entity = global._TWEntities[key];
-            definition += entity.toDefinition();
+            definition += `\n${entity.toDefinition()}\n`;
         }
     
         fs.mkdirSync('static/gen');
