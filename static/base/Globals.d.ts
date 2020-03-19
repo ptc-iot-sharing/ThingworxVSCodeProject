@@ -302,7 +302,7 @@ declare function formatNumber(value?: NUMBER, format?: STRING): STRING;
 
 /**
  * Pause for a specified number of milliseconds
- * @return Number of milliseconds
+ * @param value Number of milliseconds
  */
-declare function pause(): INTEGER;
+declare function pause(value: INTEGER): INTEGER;
 
