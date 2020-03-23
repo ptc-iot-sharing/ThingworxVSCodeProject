@@ -116,7 +116,7 @@ async function gen() {
     })
 }
 
-async function upload() {
+async function removeExtension() {
     const host = package.thingworxServer;
     const user = package.thingworxUser;
     const password = package.thingworxPassword;
@@ -134,6 +134,34 @@ async function upload() {
             json: true
         },
         function (err, httpResponse, body) {
+            if (err) {
+                console.error("Failed to delete widget from thingworx");
+                // Failing to remove the previous version shouldn't stop the upload process; this can happen, for example, during
+                // the first upload when the widget when no previous version exists
+                resolve();
+                return;
+            }
+
+            if (httpResponse.statusCode != 200) {
+                console.log(`Failed to delete widget from thingworx. We got status code ${httpResponse.statusCode} (${httpResponse.statusMessage})
+                body:
+                ${httpResponse.body}`);
+            } 
+            else {
+                console.log(`Deleted previous version of ${package.packageName} from Thingworx!`);
+            }
+            resolve();
+        })
+        .auth(user, password);
+    })
+}
+
+async function upload() {
+    const host = package.thingworxServer;
+    const user = package.thingworxUser;
+    const password = package.thingworxPassword;
+
+    return new Promise((resolve, reject) => {
             // load the file from the zip folder
             let formData = {
                 file: fs.createReadStream(
