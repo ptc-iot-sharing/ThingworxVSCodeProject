@@ -1,4 +1,21 @@
 /**
+ * Represents a configuration table. This type takes the data shape name as a type argument.
+ */
+declare type Table<T extends DataShapeBase> = undefined;
+
+/**
+ * Represents a configuration table. This type takes the data shape name as a type argument.
+ */
+declare type MultiRowTable<T extends DataShapeBase> = undefined;
+
+/**
+ * A decorator that can be applied to any entity to create a configuration table for it. This decorator
+ * takes a single argument that represents the configuration table definition as a class expression.
+ * @param tables        The configuration tables definition.
+ */
+declare function ConfigurationTables(tables: new (...args) => any): <T extends new (...args) => GenericThing>(target: T) => void;
+
+/**
  * Causes this class to be compiled into a Thing Template. The base class must be a class
  * that extends from `GenericThing` at some point.
  */
