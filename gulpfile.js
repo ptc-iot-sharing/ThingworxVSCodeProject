@@ -162,56 +162,44 @@ async function upload() {
     const password = package.thingworxPassword;
 
     return new Promise((resolve, reject) => {
-            // load the file from the zip folder
-            let formData = {
-                file: fs.createReadStream(
-                    path.join('zip', zipName)
-                )
-            };
-            // POST request to the ExtensionPackageUploader servlet
-            request
-                .post(
-                    {
-                        url: `${host}/Thingworx/ExtensionPackageUploader?purpose=import`,
-                        headers: {
-                            'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE'
-                        },
-                        formData: formData
+        // load the file from the zip folder
+        let formData = {
+            file: fs.createReadStream(
+                path.join('zip', zipName)
+            )
+        };
+        // POST request to the ExtensionPackageUploader servlet
+        request
+            .post(
+                {
+                    url: `${host}/Thingworx/ExtensionPackageUploader?purpose=import`,
+                    headers: {
+                        'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE'
                     },
-                    function (err, httpResponse, body) {
-                        if (err) {
-                            console.error("Failed to upload widget to thingworx");
-                            reject(err);
-                            return;
-                        }
-                        if (httpResponse.statusCode != 200) {
-                            reject(`Failed to upload widget to thingworx. We got status code ${httpResponse.statusCode} (${httpResponse.statusMessage})
+                    formData: formData
+                },
+                function (err, httpResponse, body) {
+                    if (err) {
+                        console.error("Failed to upload widget to thingworx");
+                        reject(err);
+                        return;
+                    }
+                    if (httpResponse.statusCode != 200) {
+                        reject(`Failed to upload widget to thingworx. We got status code ${httpResponse.statusCode} (${httpResponse.statusMessage})
 body:
 ${httpResponse.body}`);
-                        } else {
-                            console.log(`Uploaded widget version ${package.version} to Thingworx!`);
-                            resolve();
-                        }
+                    } else {
+                        console.log(`Uploaded widget version ${package.version} to Thingworx!`);
+                        resolve();
                     }
-                )
-                .auth(user, password);
+                }
+            )
+            .auth(user, password);
 
-            if (err) {
-                console.error("Failed to delete widget from thingworx");
-                return;
-            }
-            if (httpResponse.statusCode != 200) {
-                console.log(`Failed to delete widget from thingworx. We got status code ${httpResponse.statusCode} (${httpResponse.statusMessage})
-                body:
-                ${httpResponse.body}`);
-            } else {
-                console.log(`Deleted previous version of ${package.packageName} from Thingworx!`);
-            }
-        })
-        .auth(user, password);
     })
 }
 
 exports.build = series(clean, build, zip);
-exports.upload = series(clean, build, zip, upload);
+exports.upload = series(incrementVersion, clean, build, zip, upload);
+exports.removeAndUpload = series(clean, build, zip, removeExtension, upload);
 exports.default = series(gen);
