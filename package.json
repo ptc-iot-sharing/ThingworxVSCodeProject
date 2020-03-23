@@ -42,6 +42,6 @@
         "xml2js": "^0.4.19",
         "typescript": "^3.4.3",
         "gulp-typescript": "^6.0.0-alpha.1",
-        "bm-thing-transformer": "^0.0.1-alpha.3"
+        "bm-thing-transformer": "^0.0.1-alpha.4"
     }
 }
