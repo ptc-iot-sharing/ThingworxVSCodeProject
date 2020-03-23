@@ -17,6 +17,21 @@ const request = require('request');
 const package = require('./package.json');
 const zipName = `${package.packageName}-${package.version}.zip`;
 
+async function incrementVersion() {
+    const version = package.version.split('-');
+    const versionComponents = version[0].split('.');
+
+    const minorVersion = (parseInt(versionComponents[2]) || 0) + 1;
+    versionComponents[2] = minorVersion;
+
+    version[0] = versionComponents.join('.');
+    
+    package.version = version.join('-');
+    console.log(`Increased version number to ${package.version}`);
+
+    fs.writeFileSync('./package.json', JSON.stringify(package, undefined, '\t'));
+}
+
 async function clean() {
     await del('build');
 }
