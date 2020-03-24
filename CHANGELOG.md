@@ -1,3 +1,7 @@
+# 24 Mar 2020
+
+When declarations are generated, the generated directory is no longer deleted and recreated, instead the declarations file is overwritten in place. This resolves improper error messages being thrown by the typescript compiler during the declaration generation phase.
+
 # 23 Mar 2020
 
 The `upload` task no longer removes the current version of the extension before uploading the new one. Instead, it increments the version number then upgrades the existing extension in place. This is because removing and then reinstalling the extension would cause property and configuration table values to be lost during the upgrade.

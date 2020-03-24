@@ -90,7 +90,6 @@ async function zip() {
 
 async function gen() {
     return watch('src/**/*.ts', async function() {
-        await del('static/gen');
         const project = ts.createProject('./tsconfig.json', {
             getCustomTransformers: () => ({
                 before: [
@@ -111,7 +110,7 @@ async function gen() {
             definition += `\n${entity.toDefinition()}\n`;
         }
     
-        fs.mkdirSync('static/gen');
+        if (!fs.existsSync('static/gen')) fs.mkdirSync('static/gen');
         fs.writeFileSync('static/gen/Generated.d.ts', definition);
     })
 }
