@@ -109,6 +109,9 @@ async function gen() {
             const entity = global._TWEntities[key];
             definition += `\n${entity.toDefinition()}\n`;
         }
+
+        // @ts-ignore
+        global._TWEntities = {};
     
         if (!fs.existsSync('static/gen')) fs.mkdirSync('static/gen');
         fs.writeFileSync('static/gen/Generated.d.ts', definition);
