@@ -182,8 +182,8 @@ type QueryFilter<T> = AndOrQueryFilter<T> | SingleValueFilter<T, keyof T> | Betw
 declare const _event: unique symbol;
 
 type NOTHING = void;
-type STRING = string;
-type NUMBER = number;
+type STRING<T extends string = string> = T;
+type NUMBER<T extends number = number> = T;
 type BOOLEAN = boolean;
 type DATETIME = Date;
 type TIMESPAN = number;
@@ -200,8 +200,8 @@ type SCHEDULE = string;
 type VARIANT = any;
 type GUID = string;
 type BLOB = any;
-type INTEGER = number;
-type LONG = number;
+type INTEGER<T extends number = number> = T;
+type LONG<T extends number = number> = T;
 type PROPERTYNAME = string;
 type SERVICENAME = string;
 type EVENTNAME = string;
