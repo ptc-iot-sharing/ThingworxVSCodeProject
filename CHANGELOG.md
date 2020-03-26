@@ -2,6 +2,8 @@
 
 When declarations are generated, the generated directory is no longer deleted and recreated, instead the declarations file is overwritten in place. This resolves improper error messages being thrown by the typescript compiler during the declaration generation phase.
 
+The return types for `CreateValues` and `CreateValuesWithData` on data shapes now have the correct generics applied.
+
 ## Updates to Thing Transformer
 
 Resolves a crash when returning infotables or thingnames from services.
