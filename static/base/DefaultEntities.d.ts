@@ -1286,7 +1286,7 @@ declare class ThingShapeEntity<T extends ThingShapeBase> extends RootEntity {
 	 * @param tags Tags to search on
 	 * @return Implementing Things With Data
 	 */
-	QueryImplementingThingsWithData(args?:{maxItems?: NUMBER, nameMask?: STRING, query?: QUERY, tags?: TAGS}): INFOTABLE<RootEntityList>;
+	QueryImplementingThingsWithData(args?:{maxItems?: NUMBER, nameMask?: STRING, query?: QUERY<Struct<T>>, tags?: TAGS}): INFOTABLE<Struct<T>>;
 
 	/**
 	 * Set the property binding for a property
@@ -3005,7 +3005,7 @@ declare class ThingTemplateEntity<T extends GenericThing> extends RootEntity {
 	 * @param tags Tags to search on
 	 * @return Implementing Things With Data
 	 */
-	QueryImplementingThingsWithData(args?:{maxItems?: NUMBER, nameMask?: STRING, query?: QUERY, tags?: TAGS}): INFOTABLE<RootEntityList>;
+	QueryImplementingThingsWithData(args?:{maxItems?: NUMBER, nameMask?: STRING, query?: QUERY<Struct<T>>, tags?: TAGS}): INFOTABLE<Struct<T>>;
 
 	/**
 	 * Set an entire shared multi-row configuration table
