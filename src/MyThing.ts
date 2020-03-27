@@ -1,4 +1,24 @@
 /**
+ * Typescript enums can be used, if they are declared const.
+ * In Thingworx they will be fully erased.
+ */
+const enum Cards {
+    Spades = "Spades",
+    Hearts = "Hearts",
+    Diamonds = "Diamonds",
+    Clubs = "Clubs"
+}
+
+/**
+ * Numeric const enums are also supported.
+ */
+const enum Status {
+    Running = 0,
+    Idle = 1,
+    Error = 2
+}
+
+/**
  * This example file shows how to define a Thing using TypeScript.
  * NOTE: I am in the process of providing a nicer example.
  * 
@@ -24,6 +44,16 @@
      * The `readonly` aspect is specified via the regular `readonly` keyword.
      */
     @persistent @logged myProperty: STRING = "This is the default value";
+
+    /**
+     * We can constrain strings to enum values on the compiler side.
+     */
+    cardType: STRING<Cards> = Cards.Clubs;
+
+    /**
+     * Number types can be constrained in the same way as strings.
+     */
+    status: NUMBER<Status> = Status.Error;
 
     /**
      * Properties that don't have a default value must be implicitly unwrapped.
@@ -66,7 +96,16 @@
      * Service parameters must be specified as a destructured object like in the example below.
      */
     @final async asyncService({v = "wow", it}: {v: STRING, it?: INFOTABLE<GenericStringList>}) {
+        // `this` should be used in place of `me`, unlike in thingworx
+        // it will be compiled into `me`
         var x = Things[this.streamToUse];
+
+        // Constrained strings will cause a compiler error whenever anything other than
+        // an enum constant is assigned to it
+        this.cardType = Cards.Clubs;
+
+        // The numeric or string literal can be used directly instead of the enum member
+        this.status = 2;
 
         this.streamToUse = 'AnomalyMonitorStateStream';
 
@@ -103,7 +142,11 @@
      * Note that in this case, the name of the parameters used by this method cannot be changed or it will lead to runtime errors.
      */
     @subscription('AuditDataTable', 'DataChange', "thingTemplate") auditDataTableThingTemplateChanged(alertName: STRING, eventData: INFOTABLE<DataChangeEvent>, eventName: STRING, eventTime: DATETIME, source: STRING, sourceProperty: STRING) {
-
+        // Const enums will be fully erased in thingworx
+        // This condition will be compiled as this.status == 0
+        if (this.status == Status.Running) {
+            logger.debug('Thing is running');
+        }
     }
 
     /**
