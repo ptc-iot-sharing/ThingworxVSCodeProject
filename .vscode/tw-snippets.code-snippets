@@ -1,0 +1,12 @@
+{
+	"Subscription": {
+		"prefix": ["sub", "twsub"],
+		"body": "@subscription('${2:thingName}', '${3:eventName}')\n${1:name}(alertName: STRING, eventData: INFOTABLE<${4:dataShapeName}>, eventName: STRING, eventTime: DATETIME, source: STRING, sourceProperty: STRING) {\n\t$5\n}\n",
+		"description": "Inserts a subscription definition."
+	},
+	"Remote Property": {
+		"prefix": ["rprop", "twrprop"],
+		"body": "@remote('${3:remoteName}'${4: , {cacheTime: ${5:0}, foldType: '${6:NONE}', pushType: '${7:Value}'}})\n${1:propertyName}!: ${2:baseType};",
+		"description": "Inserts a remote property."
+	}
+}
