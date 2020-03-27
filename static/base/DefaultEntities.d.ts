@@ -1708,7 +1708,7 @@ declare class ThingShapeEntity<T extends ThingShapeBase> extends RootEntity {
 	 * @param tags Tags to search on
 	 * @return Implementing Things
 	 */
-	QueryImplementingThings(args?:{maxItems?: NUMBER, nameMask?: STRING, query?: QUERY, tags?: TAGS}): INFOTABLE<RootEntityList>;
+	QueryImplementingThings(args?:{maxItems?: NUMBER, nameMask?: STRING, query?: QUERY<RootEntityList>, tags?: TAGS}): INFOTABLE<RootEntityList>;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -3540,7 +3540,7 @@ declare class ThingTemplateEntity<T extends GenericThing> extends RootEntity {
 	 * @param tags Tags to search on
 	 * @return Implementing Things
 	 */
-	QueryImplementingThings(args?:{maxItems?: NUMBER, nameMask?: STRING, query?: QUERY, tags?: TAGS}): INFOTABLE<RootEntityList>;
+	QueryImplementingThings(args?:{maxItems?: NUMBER, nameMask?: STRING, query?: QUERY<RootEntityList>, tags?: TAGS}): INFOTABLE<RootEntityList>;
 
 	/**
 	 * Get a list of assigned runtime permissions
