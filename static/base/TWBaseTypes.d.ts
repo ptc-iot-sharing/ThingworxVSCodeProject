@@ -248,7 +248,15 @@ type THINGNAME<Template extends keyof ThingTemplates | undefined = undefined, Sh
             // None
             keyof Things);
 
+/**
+ * The union of all keys of the specified type from the given type.
+ */
 type KeysOfType<Source, Type> = { [K in keyof Source]: Source[K] extends Type ? K : never }[keyof Source];
+
+/**
+ * An object type containing all non-method properties of the specified type.
+ */
+type Struct<Source> = { [K in NonMethod<Source>] : Source[K] };
 
 // #endregion
 
