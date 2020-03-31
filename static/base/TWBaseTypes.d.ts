@@ -73,6 +73,8 @@ declare class InfoTable<T = any> {
 
     length: number;
     rows: ValueCollectionList<T>;
+    
+    [i: number]: ValueCollection<T>;
 
     clone(): INFOTABLE<T>;
     getLength(): number;
