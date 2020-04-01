@@ -1,4 +1,15 @@
 /**
+ * We can define and use interfaces throughout the project.
+ */
+interface StatusReponse {
+
+    pressure: number;
+
+    humidity: number;
+
+}
+
+/**
  * This example class demonstrates how Thing Shapes are created.
  * 
  * Thing shapes are classes that extend from the `ThingShapeBase` class; they follow
@@ -19,5 +30,17 @@ class ExampleThingShape extends ThingShapeBase {
     }
 
     @remoteService('SetHumidity') SetHumidity({humidity}: {humidity: NUMBER}): NOTHING {}
+
+    /**
+     * There are no interface types in Thingworx, but in a similar manner to string and number types,
+     * we can constrain the JSON (renamed to TWJSON to avoid conflicts with the standard JSON global) type
+     * to another interface via generics.
+     */
+    GetValues(): TWJSON<StatusReponse> {
+        return {
+            pressure: this.pressure,
+            humidity: this.humidity
+        }
+    }
 
 }
