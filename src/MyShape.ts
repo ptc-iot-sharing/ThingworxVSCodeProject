@@ -35,11 +35,15 @@ class ExampleThingShape extends ThingShapeBase {
      * There are no interface types in Thingworx, but in a similar manner to string and number types,
      * we can constrain the JSON (renamed to TWJSON to avoid conflicts with the standard JSON global) type
      * to another interface via generics.
+     * 
+     * Any JSDoc tags used will be converted into thingworx descriptions.
+     * @param factor    A factor by which to multiply the values.
+     * @return          An object containing the requested values.
      */
-    GetValues(): TWJSON<StatusReponse> {
+    GetValuesWithFactor({factor = 1}: {factor?: NUMBER}): TWJSON<StatusReponse> {
         return {
-            pressure: this.pressure,
-            humidity: this.humidity
+            pressure: factor * this.pressure,
+            humidity: factor * this.humidity
         }
     }
 
