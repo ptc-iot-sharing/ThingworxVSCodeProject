@@ -1,3 +1,13 @@
+# 1 Apr 2020
+
+Improved generics for `Stream` and `DataTable`.
+
+## Updates to Thing Transformer
+
+Added support for specifying Thingworx descriptions via JSDoc comments.
+
+Added support for using and inlining const enum members.
+
 # 24 Mar 2020
 
 When declarations are generated, the generated directory is no longer deleted and recreated, instead the declarations file is overwritten in place. This resolves improper error messages being thrown by the typescript compiler during the declaration generation phase.
