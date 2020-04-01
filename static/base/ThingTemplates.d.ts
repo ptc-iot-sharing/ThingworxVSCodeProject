@@ -101,7 +101,7 @@ declare class DataTable<T extends DataShapeBase> extends ThingTemplateWithShapes
 	 * @param values Data values (JSON Object)
 	 * @return Created Infotable
 	 */
-	CreateValuesWithData(args?:{values?: JSON}): INFOTABLE;
+	CreateValuesWithData(args?:{values?: Partial<T>}): INFOTABLE<T>;
 
 	/**
 	 * Update multiple data table entries
@@ -279,7 +279,7 @@ declare class StatisticalCalculationMicroserver extends RemoteThing {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -319,7 +319,7 @@ declare class StatisticalCalculationMicroserver extends RemoteThing {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -571,7 +571,7 @@ declare class ProfilingMicroserver extends AnalyticsJobServer {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -611,7 +611,7 @@ declare class ProfilingMicroserver extends AnalyticsJobServer {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -689,7 +689,7 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param values Data values (JSON Object)
 	 * @return Created Infotable
 	 */
-	CreateValuesWithData(args?:{values?: JSON}): INFOTABLE;
+	CreateValuesWithData(args?:{values?: TWJSON}): INFOTABLE;
 
 	/**
 	 * Update multiple data table entries
@@ -865,7 +865,7 @@ declare class ClusteringMicroserver extends AnalyticsJobServer {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -905,7 +905,7 @@ declare class ClusteringMicroserver extends AnalyticsJobServer {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -921,7 +921,7 @@ declare class TrainingMicroserver extends AnalyticsJobServer {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -961,7 +961,7 @@ declare class TrainingMicroserver extends AnalyticsJobServer {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -1091,7 +1091,7 @@ declare class RemoteThing extends ThingTemplateWithShapes(GenericThing, Connecta
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -1131,7 +1131,7 @@ declare class RemoteThing extends ThingTemplateWithShapes(GenericThing, Connecta
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -1147,7 +1147,7 @@ declare class PrescriptiveMicroserver extends AnalyticsJobServer {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -1187,7 +1187,7 @@ declare class PrescriptiveMicroserver extends AnalyticsJobServer {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -1287,7 +1287,7 @@ declare class ODataConnector extends HTTPConnector {
 	/**
 	 * Property to provide a JSON swagger specification
 	 */
-	SwaggerJSON: JSON;
+	SwaggerJSON: TWJSON;
 
 }
 declare class SwaggerConnector extends HTTPConnector {
@@ -1296,7 +1296,7 @@ declare class SwaggerConnector extends HTTPConnector {
 	/**
 	 * Property to provide a JSON swagger specification
 	 */
-	SwaggerJSON: JSON;
+	SwaggerJSON: TWJSON;
 
 }
 declare class DumperTemplate extends GenericThing {
@@ -1341,7 +1341,7 @@ declare class DumperTemplate extends GenericThing {
 	 * @param varName 
 	 * @return A JSON object containing the thing name and service name that were resolved.
 	 */
-	resolveVarAsService(args?:{varName?: STRING}): JSON;
+	resolveVarAsService(args?:{varName?: STRING}): TWJSON;
 
 	/**
 	 * Gets the call stack length.
@@ -1422,7 +1422,7 @@ declare class DumperTemplate extends GenericThing {
 	 * @param virtualFunction The VirtualFunction object to be resolved
 	 * @return A JSON object containing the thing name and service name that were resolved.
 	 */
-	resolveService(args?:{virtualFunction?: VARIANT}): JSON;
+	resolveService(args?:{virtualFunction?: VARIANT}): TWJSON;
 
 	/**
 	 * Dumps the top call.
@@ -1441,7 +1441,7 @@ declare class DumperTemplate extends GenericThing {
 	 * @param className 
 	 * @return A JSONObject containing the results.
 	 */
-	resolveClass(args?:{className?: STRING}): JSON;
+	resolveClass(args?:{className?: STRING}): TWJSON;
 
 	/**
 	 * Gets the tokens from the last patched script.
@@ -1583,7 +1583,7 @@ declare class AuditDataTableThing extends GenericThing {
 	 * @param values Data values (JSON Object)
 	 * @return Created Infotable
 	 */
-	CreateValuesWithData(args?:{values?: JSON}): INFOTABLE;
+	CreateValuesWithData(args?:{values?: TWJSON}): INFOTABLE;
 
 	/**
 	 * Update multiple data table entries
@@ -1761,7 +1761,7 @@ declare class StatisticalMonitoringMicroserver extends RemoteThing {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -1801,7 +1801,7 @@ declare class StatisticalMonitoringMicroserver extends RemoteThing {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -1816,13 +1816,13 @@ declare class GenericConnector extends GenericThing {
 	 * @param endpointId 
 	 * @return The resulting objects
 	 */
-	GetEndpointDefinition(args:{endpointId: STRING}): JSON;
+	GetEndpointDefinition(args:{endpointId: STRING}): TWJSON;
 
 	/**
 	 * Get local object/data model
 	 * @return The resulting objects
 	 */
-	GetEndpointList(args?:{}): JSON;
+	GetEndpointList(args?:{}): TWJSON;
 
 	/**
 	 *  Service to refresh the endpoint cache
@@ -1961,7 +1961,7 @@ declare class RemoteValueStream extends GenericThing {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -2001,7 +2001,7 @@ declare class RemoteValueStream extends GenericThing {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -2090,7 +2090,7 @@ declare class MachineTemplate extends GenericThing {
 	 * @param sourcePropertyName Source property name
 	 * @return result
 	 */
-	SetLocalPropertyBinding(args?:{propertyName?: STRING, aspects?: JSON, sourceThingName?: STRING, sourcePropertyName?: STRING}): NOTHING;
+	SetLocalPropertyBinding(args?:{propertyName?: STRING, aspects?: TWJSON, sourceThingName?: STRING, sourcePropertyName?: STRING}): NOTHING;
 
 	/**
 	 * Get the current property value
@@ -2202,7 +2202,7 @@ declare class MachineTemplate extends GenericThing {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove the remote service binding for a service
@@ -2430,7 +2430,7 @@ declare class MachineTemplate extends GenericThing {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Add multiple property definitions at once
@@ -2524,7 +2524,7 @@ declare class MachineTemplate extends GenericThing {
 	 * @param propertyNames List of property names
 	 * @return Property values
 	 */
-	GetNamedProperties(args?:{propertyNames?: JSON}): INFOTABLE;
+	GetNamedProperties(args?:{propertyNames?: TWJSON}): INFOTABLE;
 
 	/**
 	 * Set the remote property binding for a property
@@ -2538,7 +2538,7 @@ declare class MachineTemplate extends GenericThing {
 	 * @param pushType Push type
 	 * @return result
 	 */
-	SetRemotePropertyBinding(args?:{propertyName?: STRING, aspects?: JSON, pushThreshold?: NUMBER, foldType?: STRING, sourcePropertyName?: STRING, timeout?: INTEGER, cacheTime?: INTEGER, pushType?: STRING}): NOTHING;
+	SetRemotePropertyBinding(args?:{propertyName?: STRING, aspects?: TWJSON, pushThreshold?: NUMBER, foldType?: STRING, sourcePropertyName?: STRING, timeout?: INTEGER, cacheTime?: INTEGER, pushType?: STRING}): NOTHING;
 
 	/**
 	 * Get ann event definitions for this thing
@@ -2585,7 +2585,7 @@ declare class MachineTemplate extends GenericThing {
 	 * @param dataShape Data shape
 	 * @return result
 	 */
-	AddPropertyDefinition(args?:{defaultValue?: STRING, remoteBindingAspects?: JSON, description?: STRING, readOnly?: BOOLEAN, remote?: BOOLEAN, type?: BASETYPENAME, remotePropertyName?: STRING, timeout?: INTEGER, pushType?: STRING, dataChangeThreshold?: NUMBER, logged?: BOOLEAN, name?: STRING, pushThreshold?: NUMBER, dataChangeType?: STRING, category?: STRING, persistent?: BOOLEAN, dataShape?: DATASHAPENAME}): NOTHING;
+	AddPropertyDefinition(args?:{defaultValue?: STRING, remoteBindingAspects?: TWJSON, description?: STRING, readOnly?: BOOLEAN, remote?: BOOLEAN, type?: BASETYPENAME, remotePropertyName?: STRING, timeout?: INTEGER, pushType?: STRING, dataChangeThreshold?: NUMBER, logged?: BOOLEAN, name?: STRING, pushThreshold?: NUMBER, dataChangeType?: STRING, category?: STRING, persistent?: BOOLEAN, dataShape?: DATASHAPENAME}): NOTHING;
 
 	/**
 	 * Get a date alert parameter
@@ -2697,7 +2697,7 @@ declare class MachineTemplate extends GenericThing {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Save any changes to configuration tables
@@ -2972,7 +2972,7 @@ declare class MachineTemplate extends GenericThing {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -3016,7 +3016,7 @@ declare class MachineTemplate extends GenericThing {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -3097,7 +3097,7 @@ declare class MachineTemplate extends GenericThing {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Set the identifier for a thing
@@ -3160,7 +3160,7 @@ declare class MachineTemplate extends GenericThing {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get alert definition for a property
@@ -3206,7 +3206,7 @@ declare class MachineTemplate extends GenericThing {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Add a dynamic subscription
@@ -3532,13 +3532,13 @@ declare class MachineTemplate extends GenericThing {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get the incoming dependencies as a network
@@ -3568,7 +3568,7 @@ declare class MachineTemplate extends GenericThing {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Enable Subscription
@@ -3901,7 +3901,7 @@ declare class ResultsMicroserver extends AnalyticsServer {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -3941,7 +3941,7 @@ declare class ResultsMicroserver extends AnalyticsServer {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -4047,7 +4047,7 @@ declare class Stream<T extends DataShapeBase> extends ThingTemplateWithShapes(Ge
 	 * @param values Data values (JSON Object)
 	 * @return Created Infotable
 	 */
-	CreateValuesWithData(args?:{values?: JSON}): INFOTABLE;
+	CreateValuesWithData(args?:{values?: Partial<T>}): INFOTABLE<T>;
 
 	/**
 	 * Retrieve a list of field names for the data shape associated with this stream
@@ -4138,7 +4138,7 @@ declare class DataMicroserver extends AnalyticsJobServer {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -4178,7 +4178,7 @@ declare class DataMicroserver extends AnalyticsJobServer {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -4234,7 +4234,7 @@ declare class FileRepository extends GenericThing {
 	 * @param content JSON content
 	 * @return result
 	 */
-	SaveJSON(args?:{path?: STRING, content?: JSON}): NOTHING;
+	SaveJSON(args?:{path?: STRING, content?: TWJSON}): NOTHING;
 
 	/**
 	 * Create a zip file archive within this File Repository.  If specified path does not exist, it will be created inside the File Repository.
@@ -4384,7 +4384,7 @@ declare class FileRepository extends GenericThing {
 	 * @param path File path
 	 * @return Content
 	 */
-	LoadJSON(args?:{path?: STRING}): JSON;
+	LoadJSON(args?:{path?: STRING}): TWJSON;
 
 	/**
 	 * Get file system listing
@@ -4469,7 +4469,7 @@ declare class PropertyTransformMicroserver extends RemoteThing {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -4509,7 +4509,7 @@ declare class PropertyTransformMicroserver extends RemoteThing {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -4606,7 +4606,7 @@ declare class RemoteStream extends RemoteThing {
 	 * @param values Data values (JSON Object)
 	 * @return Created Infotable
 	 */
-	CreateValuesWithData(args?:{values?: JSON}): INFOTABLE;
+	CreateValuesWithData(args?:{values?: TWJSON}): INFOTABLE;
 
 	/**
 	 * Retrieve a list of field names for the data shape associated with this stream
@@ -4707,7 +4707,7 @@ declare class AnalyticsServer extends RemoteThing {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -4747,7 +4747,7 @@ declare class AnalyticsServer extends RemoteThing {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -4763,7 +4763,7 @@ declare class ValidationMicroserver extends AnalyticsJobServer {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -4803,7 +4803,7 @@ declare class ValidationMicroserver extends AnalyticsJobServer {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -4823,7 +4823,7 @@ declare class AnalyticsJobServer extends AnalyticsServer {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -4863,7 +4863,7 @@ declare class AnalyticsJobServer extends AnalyticsServer {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -5152,7 +5152,7 @@ declare class SignalsMicroserver extends AnalyticsJobServer {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -5192,7 +5192,7 @@ declare class SignalsMicroserver extends AnalyticsJobServer {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -5617,7 +5617,7 @@ declare class ContentCrawler extends GenericThing {
 	 * @param values Data values (JSON Object)
 	 * @return Created Infotable
 	 */
-	CreateValuesWithData(args?:{values?: JSON}): INFOTABLE;
+	CreateValuesWithData(args?:{values?: TWJSON}): INFOTABLE;
 
 	/**
 	 * Update multiple data table entries
@@ -6041,7 +6041,7 @@ declare class PredictionMicroserver extends AnalyticsJobServer {
 	 * Return the metadata for the connected thing
 	 * @return Connected Thing metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 	/**
 	 * Retrieve any tasks for this connected thing.
@@ -6081,7 +6081,7 @@ declare class PredictionMicroserver extends AnalyticsJobServer {
 	 * @param options Binding options supported by the calling SDK
 	 * @return The subscribed properties for the Remote Thing
 	 */
-	GetPropertySubscriptions(args?:{options?: JSON}): INFOTABLE<EdgeThingPropertyNotification>;
+	GetPropertySubscriptions(args?:{options?: TWJSON}): INFOTABLE<EdgeThingPropertyNotification>;
 
 
 }
@@ -6170,7 +6170,7 @@ declare class GenericThing {
 	 * @param sourcePropertyName Source property name
 	 * @return result
 	 */
-	SetLocalPropertyBinding(args?:{propertyName?: STRING, aspects?: JSON, sourceThingName?: STRING, sourcePropertyName?: STRING}): NOTHING;
+	SetLocalPropertyBinding(args?:{propertyName?: STRING, aspects?: TWJSON, sourceThingName?: STRING, sourcePropertyName?: STRING}): NOTHING;
 
 	/**
 	 * Get the current property value
@@ -6282,7 +6282,7 @@ declare class GenericThing {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove the remote service binding for a service
@@ -6510,7 +6510,7 @@ declare class GenericThing {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Add multiple property definitions at once
@@ -6604,7 +6604,7 @@ declare class GenericThing {
 	 * @param propertyNames List of property names
 	 * @return Property values
 	 */
-	GetNamedProperties(args?:{propertyNames?: JSON}): INFOTABLE;
+	GetNamedProperties(args?:{propertyNames?: TWJSON}): INFOTABLE;
 
 	/**
 	 * Set the remote property binding for a property
@@ -6618,7 +6618,7 @@ declare class GenericThing {
 	 * @param pushType Push type
 	 * @return result
 	 */
-	SetRemotePropertyBinding(args?:{propertyName?: STRING, aspects?: JSON, pushThreshold?: NUMBER, foldType?: STRING, sourcePropertyName?: STRING, timeout?: INTEGER, cacheTime?: INTEGER, pushType?: STRING}): NOTHING;
+	SetRemotePropertyBinding(args?:{propertyName?: STRING, aspects?: TWJSON, pushThreshold?: NUMBER, foldType?: STRING, sourcePropertyName?: STRING, timeout?: INTEGER, cacheTime?: INTEGER, pushType?: STRING}): NOTHING;
 
 	/**
 	 * Get ann event definitions for this thing
@@ -6665,7 +6665,7 @@ declare class GenericThing {
 	 * @param dataShape Data shape
 	 * @return result
 	 */
-	AddPropertyDefinition(args?:{defaultValue?: STRING, remoteBindingAspects?: JSON, description?: STRING, readOnly?: BOOLEAN, remote?: BOOLEAN, type?: BASETYPENAME, remotePropertyName?: STRING, timeout?: INTEGER, pushType?: STRING, dataChangeThreshold?: NUMBER, logged?: BOOLEAN, name?: STRING, pushThreshold?: NUMBER, dataChangeType?: STRING, category?: STRING, persistent?: BOOLEAN, dataShape?: DATASHAPENAME}): NOTHING;
+	AddPropertyDefinition(args?:{defaultValue?: STRING, remoteBindingAspects?: TWJSON, description?: STRING, readOnly?: BOOLEAN, remote?: BOOLEAN, type?: BASETYPENAME, remotePropertyName?: STRING, timeout?: INTEGER, pushType?: STRING, dataChangeThreshold?: NUMBER, logged?: BOOLEAN, name?: STRING, pushThreshold?: NUMBER, dataChangeType?: STRING, category?: STRING, persistent?: BOOLEAN, dataShape?: DATASHAPENAME}): NOTHING;
 
 	/**
 	 * Get a date alert parameter
@@ -6777,7 +6777,7 @@ declare class GenericThing {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Save any changes to configuration tables
@@ -7052,7 +7052,7 @@ declare class GenericThing {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -7096,7 +7096,7 @@ declare class GenericThing {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -7177,7 +7177,7 @@ declare class GenericThing {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Set the identifier for a thing
@@ -7240,7 +7240,7 @@ declare class GenericThing {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get alert definition for a property
@@ -7286,7 +7286,7 @@ declare class GenericThing {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Add a dynamic subscription
@@ -7612,13 +7612,13 @@ declare class GenericThing {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get the incoming dependencies as a network
@@ -7648,7 +7648,7 @@ declare class GenericThing {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Enable Subscription

@@ -71,7 +71,7 @@ declare class DataTableShape extends ThingShapeBase {
 	 * @param values Data values (JSON Object)
 	 * @return Created Infotable
 	 */
-	CreateValuesWithData(args?:{values?: JSON}): INFOTABLE;
+	CreateValuesWithData(args?:{values?: TWJSON}): INFOTABLE;
 
 	/**
 	 * Update multiple data table entries
@@ -476,7 +476,7 @@ declare class StreamShape extends ThingShapeBase {
 	 * @param values Data values (JSON Object)
 	 * @return Created Infotable
 	 */
-	CreateValuesWithData(args?:{values?: JSON}): INFOTABLE;
+	CreateValuesWithData(args?:{values?: TWJSON}): INFOTABLE;
 
 	/**
 	 * Retrieve a list of field names for the data shape associated with this stream
@@ -853,7 +853,7 @@ declare class ValueStreamShape extends ThingShapeBase {
 	 * @param startDate Start time
 	 * @return Table entries
 	 */
-	QueryMultiPropertyStreamEntries(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER, endDate?: DATETIME, query?: QUERY, propertyDefinitionCollection?: JSON, source?: STRING, startDate?: DATETIME}): INFOTABLE;
+	QueryMultiPropertyStreamEntries(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER, endDate?: DATETIME, query?: QUERY, propertyDefinitionCollection?: TWJSON, source?: STRING, startDate?: DATETIME}): INFOTABLE;
 
 	/**
 	 * Retrieve a specific Vec2 stream entry given a stream entry ID
