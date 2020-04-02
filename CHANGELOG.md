@@ -1,3 +1,11 @@
+# 2 Apr 2020
+
+Added example for using ES6 features.
+
+## Updates to Thing Transformer
+
+The transformer will now inline helpers when required by services, allowing syntax that requires them in ES5 to be used.
+
 # 1 Apr 2020
 
 Improved generics for `Stream` and `DataTable`.

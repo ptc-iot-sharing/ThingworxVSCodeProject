@@ -74,7 +74,7 @@ Any TypeScript file you add to the `src` folder will be compiled into a Thingwor
 ## Current Limitations
 
  - Only Things, ThingTemplates, ThingShapes and DataShapes are supported currently. For other types of entities you will still need to use the composer.
- - Description currently cannot be specified. In the future, JSDoc comments will be used for this purpose.
+ - <strike>Description currently cannot be specified. In the future, JSDoc comments will be used for this purpose.</strike> (1 Apr 2020)
  - Non-javascript services such as SQL or Flow services are not supported.
  - Projects and tags cannot be specified currently. Note that your project will however be packaged as an extension that can be easily installed, updated and removed.
  - <strike>Configuration tables are not currently supported, but this likely to be supported in some manner soon.</strike> (23 Mar 2020)
@@ -93,6 +93,13 @@ To build the extension and upload it to Thingworx, run `gulp upload` in the root
 Deployment to Thingworx is part of the build process as explained above. Alternatively, you can manually install the extension that is generated in the zip folder in the root of the project.
 
 # Recent Changes
+
+## 2 Apr 2020
+
+ - Added support for ES6 features that require helper functions
+ - Added support for using JSDoc as descriptions
+ - Added support for using and inlining const enums
+ - Added support for specifying constraints for string, number and JSON types
 
 ## 23 Mar 2020
 
