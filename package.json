@@ -2,7 +2,7 @@
 	"name": "bm-thingworx-vscode",
 	"packageName": "bm-thingworx-vscode",
 	"moduleName": "bm-thingworx-vscode",
-	"version": "0.0.3-alpha.1",
+	"version": "1.0.0-beta.1",
 	"description": "Develop in ThingWorx with a proper IDE.",
 	"author": "Thingworx RoIcenter",
 	"thingworxServer": "http://localhost:8015",
@@ -42,6 +42,6 @@
 		"xml2js": "^0.4.19",
 		"typescript": "^3.4.3",
 		"gulp-typescript": "^6.0.0-alpha.1",
-		"bm-thing-transformer": "^0.2.0-beta.1"
+		"bm-thing-transformer": "^0.3.0-beta.1"
 	}
 }
