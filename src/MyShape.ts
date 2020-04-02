@@ -47,4 +47,27 @@ class ExampleThingShape extends ThingShapeBase {
         }
     }
 
+    /**
+     * With TypeScript, it is possible to user certain newer javascript features through transpilation.
+     */
+    PrintValuesWithFactor({factor = 1}: {factor?: NUMBER}): NOTHING {
+        // An example is destructuring objects into variables
+        const {pressure, humidity} = this.GetValuesWithFactor({factor});
+
+        // Template literals are another feature that is very useful
+        logger.info(`The pressure is ${pressure} and the humidity is ${humidity}`);
+
+        // We can also the new for...of syntax for easier looping
+        for (const row of ThingTemplates.GenericThing.GetImplementingThings()) {
+            logger.info(`Thing is ${row.name}`);
+        }
+
+        // We can also easily convert infotables to arrays via the spread syntax
+        const things: GenericThing[] = [...ThingTemplates.GenericThing.GetImplementingThings()].map(row => Things[row.name]).filter(thing => thing.IsEnabled());
+        things.forEach(thing => logger.info(`Thing ${thing.name}'s template is ${thing.GetThingTemplate()}`));
+
+        // And easily combine object literals
+        const allValues = {...this.GetValuesWithFactor({factor}), altitude: 0};
+    }
+
 }
