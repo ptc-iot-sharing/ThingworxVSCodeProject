@@ -76,6 +76,8 @@ declare class InfoTable<T = any> {
     
     [i: number]: ValueCollection<T>;
 
+    [Symbol.iterator]: any;
+
     clone(): INFOTABLE<T>;
     getLength(): number;
     isEmpty(): boolean;
@@ -110,6 +112,8 @@ declare class ValueCollectionList<T = any> {
 
     length: number;
     [i: number]: ValueCollection<T>;
+
+    [Symbol.iterator]: any;
 
     getLength(): number;
     getLastRow(): ValueCollection<T> | undefined;
