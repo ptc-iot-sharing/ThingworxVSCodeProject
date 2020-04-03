@@ -41,6 +41,16 @@ In order to develop with this project you need to do the following:
 4. Run `gulp`. This will start a background process that is needed for generating certain files. **Don't forget this as compilation can fail if the generated files become stale.**
 5. Start working on the project.
 
+## Entity Dependencies
+
+By default, the project contains the declarations for all the out of the box entities available in a fresh installation of Thingworx, however there may be the case that you need to use some entities that had been previously created on the Thingworx instance using the composer. To handle this, it is possible to define entity dependencies in `twconfig.json`. There are two types of dependencies that can be specified there:
+ - `projectDependencies`: An array where you specify the Thingworx project names on which your local projects depends. This will download the declaration for all of the entities that are included in the project.
+ - `entityDependencies`: An array where you specify entity types and names (e.g. `"Things/MyThing"`). This can be used to download specific entities, such as extension templates.
+
+Whenever you change `twconfig.json`, run `gulp install` to pull the declarations from the Thingworx server specified in `package.json`.
+
+Whenever entities are downloaded in this way, all other dependencies are downloaded as well, so if your `MyThing` thing depends on the `MyDataShape` data shape, you don't need to specify both in `twconfig.json`.
+
 ## File Structure
 ```
 ThingworxVSCodeProject
@@ -53,6 +63,7 @@ ThingworxVSCodeProject
 │   │   file1.ts            // thingworx entity file
 |   |   ...
 └───static            // supporting files required for compilation. Don't change these.
+└───tw_imports        // entity dependencies downloaded from a Thingworx server
 └───build             // temporary folder used during compilation
 └───zip               // location of the built extension
 ```
@@ -93,6 +104,10 @@ To build the extension and upload it to Thingworx, run `gulp upload` in the root
 Deployment to Thingworx is part of the build process as explained above. Alternatively, you can manually install the extension that is generated in the zip folder in the root of the project.
 
 # Recent Changes
+
+## 3 Apr 2020
+
+ - Added support for importing declarations from Thingworx
 
 ## 2 Apr 2020
 

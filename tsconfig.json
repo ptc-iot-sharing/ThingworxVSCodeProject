@@ -20,6 +20,7 @@
     "include": [
         "./static/**/*.d.ts",
         "./src/**/*.d.ts",
-        "./src/**/*.ts"
+        "./src/**/*.ts",
+        "./tw_imports/**/*.d.ts"
     ]
 }

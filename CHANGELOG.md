@@ -1,3 +1,7 @@
+# 3 Apr 2020
+
+Added support for downloading entity declarations from Thingworx.
+
 # 2 Apr 2020
 
 Added example for using ES6 features.
