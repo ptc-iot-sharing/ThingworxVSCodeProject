@@ -716,12 +716,128 @@ async function getProjectEntities(name) {
     });
 }
 
+async function getExtension(name, slice) {
+    if (installedEntities.Extensions && installedEntities.Extensions[name]) {
+        return installProgress.progress += slice;
+    }
+
+    installProgress.entity = `Extensions/${name}/@types`;
+
+    const host = package.thingworxServer;
+    const user = package.thingworxUser;
+    const password = package.thingworxPassword;
+
+    // Try first to get the type definitions, if they exist
+    // TODO: This will always return 404 as it looks like only widget files are accessible in Common/extensions
+    // Will need another workaround for this
+    const definition = await new Promise((resolve, reject) => {
+        request.get(
+                {
+                    url: `${host}/Thingworx/Common/extensions/${name}/@types/index.d.ts`,
+                    headers: {'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE'}
+                },
+                async function (err, httpResponse, body) {
+                    if (err) {
+                        installProgress.progress += slice;
+                        console.error(`Could not get the extension details for ${name}.`);
+                        reject(err);
+                        return;
+                    }
+                    if (httpResponse.statusCode != 200) {
+                        if (httpResponse.statusCode == 404) {
+                            // If the extension does not export types, then get the entity list and import that
+                            resolve('');
+                        }
+                        else {
+                            installProgress.progress += slice;
+                            console.error(`Could not get the extension details for ${name}.\nServer returned status code ${httpResponse.statusCode}\nbody:\n${body}`);
+                            reject(new Error(`Server returned status code ${httpResponse.statusCode}`));
+                        }
+                    } 
+                    else {
+                        resolve(body);
+                    }
+                }
+            )
+            .auth(user, password);
+
+    });
+
+    if (definition) {
+        if (!fs.existsSync(`./tw_imports/Extensions/`)) {
+            fs.mkdirSync(`./tw_imports/Extensions/`);
+        }
+    
+        installedEntities.Extensions = installedEntities.Extensions || {};
+        installedEntities.Extensions[name] = true;
+    
+        fs.writeFileSync(`./tw_imports/Extensions/${name}.d.ts`, definition);
+
+        installProgress.progress += slice / 2;
+    }
+
+    installProgress.entity = `Extensions/${name}/Entities`;
+    // Regardless of whether the type definitions existed, it is necessary to load the entity list
+    // provided by the extension
+    const packageDetails = await new Promise((resolve, reject) => {
+        request.post(
+                {
+                    url: `${host}/Thingworx/Subsystems/PlatformSubsystem/Services/GetExtensionPackageDetails`,
+                    headers: {
+                        'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE',
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({packageName: name})
+                },
+                function (err, httpResponse, body) {
+                    if (err) {
+                        console.error(`Could not get the entity list for extension ${name}.`);
+                        reject(err);
+                        return;
+                    }
+                    if (httpResponse.statusCode != 200) {
+                        console.error(`Could not get the entity list for extension ${name}.\nServer returned status code ${httpResponse.statusCode}\nbody:\n${body}`);
+                        reject(new Error(`Server returned status code ${httpResponse.statusCode}`));
+                    } else {
+                        body = JSON.parse(body);
+                        resolve(body);
+                    }
+                }
+            )
+            .auth(user, password);
+
+    });
+
+    if (definition) {
+        // If the extension provided a definition, just mark the entities as imported
+        for (const row of packageDetails.rows) {
+            if (row.parentName == 'Resources' || row.parentName == 'ThingPackages' || row.parentName == 'Widgets') continue;
+
+            installedEntities[row.parentName] = installedEntities[row.parentName] || {};
+            installedEntities[row.parentName][row.name] = true;
+        }
+
+        installProgress.progress += slice / 2;
+    }
+    else {
+        // Otherwise, each entity has to be loaded separately
+        const entitiesToLoad = packageDetails.rows.filter(row => (row.parentName != 'Resources' && row.parentName != 'ThingPackages' && row.parentName != 'Widgets'));
+        const entitySlice = slice / (entitiesToLoad.length + 1);
+        installProgress.progress += entitySlice;
+
+        for (const row of entitiesToLoad) {
+            await getEntity(row.name, row.parentName, entitySlice);
+        }
+    }
+}
+
 async function install() {
     // @ts-ignore
     const twConfig = require('./twconfig.json');
 
     // Get total packages to install
-    const totalPackages = twConfig.projectDependencies.length + twConfig.entityDependencies.length;
+    const totalPackages = twConfig.projectDependencies.length + twConfig.entityDependencies.length + (twConfig.extensionDependencies || []).length;
     let progress = 0;
     let entity = '';
 
@@ -754,7 +870,13 @@ async function install() {
     // I may in the future be smarter about this, but for now this will just delete and
     // fully recreate the tw_imports folder
     await del('tw_imports');
-    fs.mkdirSync('./tw_imports')
+    fs.mkdirSync('./tw_imports');
+
+    for (const extension of twConfig.extensionDependencies) {
+        const slice = 1 / totalPackages;
+
+        await getExtension(extension, slice);
+    }
 
     for (const project of twConfig.projectDependencies) {
         const slice = 1 / totalPackages;
