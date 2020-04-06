@@ -1,6 +1,7 @@
 // @ts-check
 
 const { series, src, dest, watch } = require('gulp');
+const concat = require('gulp-concat');
 const del = require('del');
 
 const ts = require('gulp-typescript');
@@ -49,7 +50,7 @@ async function build(cb) {
     });
 
     // Prepare the transformers
-    await new Promise(resolve => project.src().pipe(project()).on('finish', resolve));
+    await new Promise(resolve => project.src().pipe(project()).dts.pipe(concat('index.d.ts')).pipe(dest('build/@types')).on('finish', resolve));
 
     // Write out the entity XML files
     // @ts-ignore
