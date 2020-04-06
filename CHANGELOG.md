@@ -1,3 +1,9 @@
+# 6 Apr 2020
+
+The build phase will now also emit declarations under `build/@types/index.d.ts`.
+
+Added support for specifying extensions as dependencies.
+
 # 3 Apr 2020
 
 Added support for downloading entity declarations from Thingworx.
