@@ -2676,7 +2676,7 @@ declare class DataShapeEntity<T extends DataShapeBase> extends RootEntity {
 	 * Create an empty info table of the correct datashape for this data table
 	 * @return Created Infotable
 	 */
-	CreateValues(args?:{}): INFOTABLE;
+	CreateValues(args?:{}): INFOTABLE<T>;
 
 	/**
 	 * Get a list of configuration tables
@@ -2866,7 +2866,7 @@ declare class DataShapeEntity<T extends DataShapeBase> extends RootEntity {
 	 * @param values Data values (JSON Object)
 	 * @return Created Infotable
 	 */
-	CreateValuesWithData(args?:{values?: JSON}): INFOTABLE;
+	CreateValuesWithData(args?:{values?: JSON}): INFOTABLE<T>;
 
 	/**
 	 * Get group permissions
