@@ -1,3 +1,9 @@
+# 8 Apr 2020
+
+## Updates to Thing Transformer
+
+Fixed import error when using infotables without a specified data shape.
+
 # 6 Apr 2020
 
 The build phase will now also emit declarations under `build/@types/index.d.ts`.
