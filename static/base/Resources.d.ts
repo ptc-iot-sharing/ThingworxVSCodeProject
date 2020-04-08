@@ -4738,7 +4738,7 @@ declare class InfoTableFunctions extends ResourceEntity {
 	 * @param query Query expression
 	 * @return Resultant data
 	 */
-	DeleteQuery(args?:{t?: INFOTABLE, query?: QUERY}): INFOTABLE;
+	DeleteQuery<T = any>(args?:{t?: INFOTABLE<T>, query?: QUERY<T>}): INFOTABLE<T>;
 
 	/**
 	 * 
