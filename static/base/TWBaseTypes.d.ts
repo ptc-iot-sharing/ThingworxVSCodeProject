@@ -191,11 +191,20 @@ type NOTHING = void;
 type STRING<T extends string = string> = T;
 type NUMBER<T extends number = number> = T;
 type BOOLEAN = boolean;
+
 type DATETIME = Date;
+type datetime = Date;
+
 type TIMESPAN = number;
+type timespan = number;
+
 type TWJSON<T = any> = T extends (...args: any[]) => any ? never : (T extends Object ? Struct<T> : T);
+type json<T = any> = TWJSON<T>;
+
 // This is technically a Location object, but it doesn't contain any relevant methods
 type LOCATION = {latitude: number, longitude: number, altitude?: number};
+type location = LOCATION;
+
 type IMAGE = string;
 type HYPERLINK = string;
 type IMAGELINK = string;
