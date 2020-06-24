@@ -41,10 +41,10 @@ async function build(cb) {
     const project = ts.createProject('./tsconfig.json', {
         getCustomTransformers: () => ({
             before: [
-                transformer.TWThingTransformerFactory(__dirname)
+                transformer.TWThingTransformerFactory(__dirname, false, false, package.thingworxProjectName)
             ],
             after: [
-                transformer.TWThingTransformerFactory(__dirname, true)
+                transformer.TWThingTransformerFactory(__dirname, true, false, package.thingworxProjectName)
             ]
         })
     });

@@ -5,6 +5,7 @@
 	"version": "1.0.4-beta.1",
 	"description": "Develop in ThingWorx with a proper IDE.",
 	"author": "Thingworx RoIcenter",
+	"thingworxProjectName": "MyProject",
 	"thingworxServer": "http://localhost:8015",
 	"thingworxUser": "Administrator",
 	"thingworxPassword": "Administrator12345",
