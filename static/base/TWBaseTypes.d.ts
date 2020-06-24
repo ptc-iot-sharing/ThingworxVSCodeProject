@@ -65,7 +65,7 @@ declare interface JSONInfoTable<T> {
     }
 }
 
-type INFOTABLE<T = any> = T & InfoTable<T>;
+type INFOTABLE<T = any> = T extends keyof DataShapes ? DataShapes[T]['__dataShapeType'] & InfoTable<DataShapes[T]['__dataShapeType']> : T & InfoTable<T>;
 type ValueCollectionConvertible<T> = Partial<T> | ValueCollection<T>;
 
 declare class InfoTable<T = any> {
@@ -249,7 +249,7 @@ type VEC4 = string;
 type THINGCODE = string;
 type NOTIFICATIONCONTENTNAME = string;
 type NOTIFICATIONDEFINITIONNAME = string;
-type EVENT<T> = ({[_event]: true}) & ((eventData?: Partial<T>) => void);
+type EVENT<T> = T extends keyof DataShapes ? ({[_event]: true}) & ((eventData?: Partial<DataShapes[T]['__dataShapeType']>) => void) : ({[_event]: true}) & ((eventData?: Partial<T>) => void);
 type THINGNAME<Template extends keyof ThingTemplates | undefined = undefined, Shape extends keyof ThingShapes | undefined = undefined> = 
     Template extends keyof ThingTemplates ? 
         (Shape extends keyof ThingShapes ? 
