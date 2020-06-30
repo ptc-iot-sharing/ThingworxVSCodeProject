@@ -46,6 +46,13 @@ const enum Status {
     @persistent @logged myProperty: STRING = "This is the default value";
 
     /**
+     * For certain types, it is possible to use the standard TypeScript type
+     * names such as `number`, `string`, `boolean` and `Date` and they will be
+     * converted into the appropriate Thingworx type.
+     */
+    @persistent numberProperty!: number;
+
+    /**
      * We can constrain strings to enum values on the compiler side.
      */
     cardType: STRING<Cards> = Cards.Clubs;
