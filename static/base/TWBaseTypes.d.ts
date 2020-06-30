@@ -346,6 +346,12 @@ type Statics<T> = {
     [P in keyof T]: T[P];
 }
 
+/**
+ * Allows referencing thing templates with non-standard names in extends clauses.
+ * @param name  The name of the ThingTemplate
+ */
+declare function ThingTemplateReference<K extends keyof ThingTemplates>(name: K): new (...args: any[]) => ThingTemplates[K]["__thingTemplateType"];
+
 // #region TS mixin
 
 declare function ThingTemplateWithShapes<
@@ -392,6 +398,45 @@ declare function ThingTemplateWithShapes<
         (T8 extends Constructor<ThingShapeBase> ? InstanceType<T8> : T8) &
         (T9 extends Constructor<ThingShapeBase> ? InstanceType<T9> : T9) &
         (T10 extends Constructor<ThingShapeBase> ? InstanceType<T10> : T10)
+    );
+
+type ThingTemplateInstance<T extends keyof ThingTemplates> = ThingTemplates[T]["__thingTemplateType"];
+type ThingShapeInstance<T extends keyof ThingShapes> = ThingShapes[T]["__thingShapeType"];
+
+declare function ThingTemplateWithShapes<
+    T1 extends keyof ThingTemplates, 
+    T2 extends keyof ThingShapes,
+    T3 extends keyof ThingShapes | {} = {},
+    T4 extends keyof ThingShapes | {} = {},
+    T5 extends keyof ThingShapes | {} = {},
+    T6 extends keyof ThingShapes | {} = {},
+    T7 extends keyof ThingShapes | {} = {},
+    T8 extends keyof ThingShapes | {} = {},
+    T9 extends keyof ThingShapes | {} = {},
+    T10 extends keyof ThingShapes | {} = {},
+    > (
+        mix1: T1,
+        mix2: T2,
+        mix3?: T3,
+        mix4?: T4,
+        mix5?: T5,
+        mix6?: T6,
+        mix7?: T7,
+        mix8?: T8,
+        mix9?: T9,
+        mix10?: T10,
+    ): 
+    (new (...args: any[]) =>
+        (ThingTemplateInstance<T1>) &
+        (ThingShapeInstance<T2>) &
+        (T3 extends keyof ThingShapes ? ThingShapeInstance<T3> : T3) &
+        (T4 extends keyof ThingShapes ? ThingShapeInstance<T4> : T4) &
+        (T5 extends keyof ThingShapes ? ThingShapeInstance<T5> : T5) &
+        (T6 extends keyof ThingShapes ? ThingShapeInstance<T6> : T6) &
+        (T7 extends keyof ThingShapes ? ThingShapeInstance<T7> : T7) &
+        (T8 extends keyof ThingShapes ? ThingShapeInstance<T8> : T8) &
+        (T9 extends keyof ThingShapes ? ThingShapeInstance<T9> : T9) &
+        (T10 extends keyof ThingShapes ? ThingShapeInstance<T10> : T10)
     );
 
 // #endregion
