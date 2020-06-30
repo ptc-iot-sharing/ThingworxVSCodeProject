@@ -346,7 +346,7 @@ function baseTypeOfPropertyDefinition(definition) {
     if (baseType == 'JSON') return 'TWJSON';
 
     if (baseType == 'INFOTABLE' && definition.aspects.dataShape) {
-        return `INFOTABLE<${definition.aspects.dataShape}>`
+        return `INFOTABLE<${definition.aspects.dataShape.indexOf('.') != -1 ? JSON.stringify(definition.aspects.dataShape) : definition.aspects.dataShape}>`
     }
 
     if (baseType == 'THINGNAME') {
@@ -423,17 +423,18 @@ function declarationOfService(service) {
 }
 
 function superclassOfEntity(entity) {
-    const shapes = Object.keys(entity.implementedShapes);
+    const shapes = Object.keys(entity.implementedShapes).map(shape => JSON.stringify(shape));
     if (!shapes.length) {
-        return entity.thingTemplate || entity.baseThingTemplate;
+        return `ThingTemplateReference(${JSON.stringify(entity.thingTemplate || entity.baseThingTemplate)})`;
     }
 
-    return `ThingTemplateWithShapes(${entity.thingTemplate || entity.baseThingTemplate}, ${shapes.join(', ')})`;
+    return `ThingTemplateWithShapes(${JSON.stringify(entity.thingTemplate || entity.baseThingTemplate)}, ${shapes.join(', ')})`;
 }
 
 function importThing(body) {
     const name = body.name;
-    let declaration = `declare class ${body.name} extends ${superclassOfEntity(body)} {\n\n`;
+    const sanitiziedName = body.name.replace(/\./g, '_');
+    let declaration = `declare class ${sanitiziedName} extends ${superclassOfEntity(body)} {\n\n`;
 
     for (const property of Object.values(body.thingShape.propertyDefinitions)) {
         // Don't include inherited properties
@@ -477,7 +478,7 @@ function importThing(body) {
     /**
      * ${body.description}
      */ 
-    ${name}: ${body.name}; 
+    ${JSON.stringify(name)}: ${sanitiziedName}; 
 }`
     );
 }
@@ -492,7 +493,8 @@ function memberIsPartOfThingTemplateDefinition(member, definition) {
 
 function importThingTemplate(body) {
     const name = body.name;
-    let declaration = `declare class ${body.name} extends ${superclassOfEntity(body)} {\n\n`;
+    const sanitiziedName = body.name.replace(/\./g, '_');
+    let declaration = `declare class ${sanitiziedName} extends ${superclassOfEntity(body)} {\n\n`;
 
     // For templates, the effective shape will be used to also include memebers
     // originating from the thing package
@@ -538,14 +540,15 @@ function importThingTemplate(body) {
     /**
      * ${body.description}
      */ 
-    ${name}: ThingTemplateEntity<${body.name}>; 
+    ${JSON.stringify(name)}: ThingTemplateEntity<${sanitiziedName}>; 
 }`
     );
 }
 
 function importThingShape(body) {
     const name = body.name;
-    let declaration = `declare class ${body.name} extends ThingShapeBase {\n\n`;
+    const sanitiziedName = body.name.replace(/\./g, '_');
+    let declaration = `declare class ${sanitiziedName} extends ThingShapeBase {\n\n`;
     
     for (const property of Object.values(body.propertyDefinitions)) {
         declaration += declarationOfProperty(property);
@@ -577,14 +580,15 @@ function importThingShape(body) {
     /**
      * ${body.description}
      */ 
-    ${name}: ThingShapeEntity<${body.name}>; 
+    ${JSON.stringify(name)}: ThingShapeEntity<${sanitiziedName}>; 
 }`
     );
 }
 
 function importDataShape(body) {
     const name = body.name;
-    let declaration = `declare class ${body.name} extends DataShapeBase {\n\n`;
+    const sanitiziedName = body.name.replace(/\./g, '_');
+    let declaration = `declare class ${sanitiziedName} extends DataShapeBase {\n\n`;
     
     for (const property of Object.values(body.fieldDefinitions)) {
         declaration += declarationOfProperty(property);
@@ -603,14 +607,15 @@ function importDataShape(body) {
     /**
      * ${body.description}
      */ 
-    ${name}: DataShapeEntity<${body.name}>; 
+    ${JSON.stringify(name)}: DataShapeEntity<${sanitiziedName}>; 
 }`
     );
 }
 
 function importResource(body) {
     const name = body.name;
-    let declaration = `declare class ${body.name} extends ResourceEntity {\n\n`;
+    const sanitiziedName = body.name.replace(/\./g, '_');
+    let declaration = `declare class ${sanitiziedName} extends ResourceEntity {\n\n`;
 
     for (const service of Object.values(body.effectiveShape.serviceDefinitions)) {
         declaration += `
@@ -637,7 +642,7 @@ function importResource(body) {
     /**
      * ${body.description}
      */ 
-    ${name}: ${body.name}; 
+    ${JSON.stringify(name)}: ${sanitiziedName}; 
 }`
     );
 }
@@ -654,7 +659,7 @@ function importEntityDeclaration(name, kind, description, genericArgument) {
     /**
      *  ${description}
      */
-    ${name}: ${kind.substring(0, kind.length - 1)}Entity${genericArgument ? `<${genericArgument}>` : ''}; 
+    ${JSON.stringify(name)}: ${kind.substring(0, kind.length - 1)}Entity${genericArgument ? `<${genericArgument}>` : ''}; 
 }`
     );
 }
