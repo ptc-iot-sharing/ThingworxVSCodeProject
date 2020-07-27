@@ -33,7 +33,7 @@ const enum Status {
  * - The first parameter represents the name of the base thing template
  * - One or more subsequent parameters are each the name of a thing shape that the thing will implement
  */
-@ThingDefinition @published class MyThing extends ThingTemplateWithShapes(RemoteThing, Connectable) {
+@ThingDefinition @published class MyThing extends ThingTemplateWithShapes(RemoteThing, Tunneling) {
 
     /**
      * Thing properties are specified as regular class properties.
