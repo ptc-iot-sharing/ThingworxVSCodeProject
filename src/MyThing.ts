@@ -102,7 +102,7 @@ const enum Status {
      * 
      * Service parameters must be specified as a destructured object like in the example below.
      */
-    @final async asyncService({v = "wow", it}: {v: STRING, it?: INFOTABLE<GenericStringList>}) {
+    @final async asyncService({stringParameter = "Parameter default value", infoTable}: {stringParameter: STRING, infoTable?: INFOTABLE<GenericStringList>}) {
         // `this` should be used in place of `me`, unlike in thingworx
         // it will be compiled into `me`
         var x = Things[this.streamToUse];
