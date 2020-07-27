@@ -20,7 +20,6 @@ const enum Status {
 
 /**
  * This example file shows how to define a Thing using TypeScript.
- * NOTE: I am in the process of providing a nicer example.
  * 
  * A Thing is identified via the `@ThingDefinition` decorator.
  * Additional aspects are also specified via decorators:
@@ -122,7 +121,7 @@ const enum Status {
         y.AnyAlertAck();
 
         this.customEvent({item: 'test'});
-        this.asyncService({v: 'test'});
+        this.asyncService({stringParameter: 'test'});
     }
 
     /**
