@@ -1,4 +1,6 @@
 {
+    "experimentalGlobals": false,
+    "projectName": "ExampleProject",
     "projectDependencies": [
     ],
     "entityDependencies": [

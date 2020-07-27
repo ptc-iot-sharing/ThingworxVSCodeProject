@@ -18,12 +18,15 @@ const request = require('request');
 const package = require('./package.json');
 const zipName = `${package.packageName}-${package.version}.zip`;
 
+// @ts-ignore
+const twConfig = require('./twconfig.json');
+
 async function incrementVersion() {
     const version = package.version.split('-');
     const versionComponents = version[0].split('.');
 
     const minorVersion = (parseInt(versionComponents[2]) || 0) + 1;
-    versionComponents[2] = minorVersion;
+    versionComponents[2] = minorVersion.toString();
 
     version[0] = versionComponents.join('.');
     
@@ -38,13 +41,16 @@ async function clean() {
 }
 
 async function build(cb) {
+    //@ts-ignore
+    twConfig.store = {};
+
     const project = ts.createProject('./tsconfig.json', {
         getCustomTransformers: () => ({
             before: [
-                transformer.TWThingTransformerFactory(__dirname, false, false, package.thingworxProjectName)
+                transformer.TWThingTransformerFactory(__dirname, false, false, twConfig)
             ],
             after: [
-                transformer.TWThingTransformerFactory(__dirname, true, false, package.thingworxProjectName)
+                transformer.TWThingTransformerFactory(__dirname, true, false, twConfig)
             ]
         })
     });
@@ -54,9 +60,10 @@ async function build(cb) {
 
     // Write out the entity XML files
     // @ts-ignore
-    for (const key in global._TWEntities) {
+    for (const key in twConfig.store) {
+        if (key == '@globalBlocks') continue;
         // @ts-ignore
-        const entity = global._TWEntities[key];
+        const entity = twConfig.store[key];
         entity.write();
     }
 
@@ -75,6 +82,10 @@ async function build(cb) {
 
     fs.writeFileSync('build/metadata.xml', outXML);
 
+    if (twConfig.experimentalGlobals) {
+        console.log('\x1b[1m\n\n🛑🛑🛑 Experimental support for global code is enabled.\n\nMake sure you understand the risks involved before using this feature and be aware the support is likely to break in future versions of Thingworx.\n\n\x1b[0m');
+    }
+
     cb();
 }
 
@@ -91,10 +102,13 @@ async function zip() {
 
 async function gen() {
     return watch('src/**/*.ts', async function() {
+        //@ts-ignore
+        twConfig.store = {};
+
         const project = ts.createProject('./tsconfig.json', {
             getCustomTransformers: () => ({
                 before: [
-                    transformer.TWThingTransformerFactory(__dirname)
+                    transformer.TWThingTransformerFactory(__dirname, false, true, twConfig)
                 ]
             })
         });
@@ -105,18 +119,16 @@ async function gen() {
         // Write out the entity XML files
         let definition = '';
         // @ts-ignore
-        for (const key in global._TWEntities) {
+        for (const key in twConfig.store) {
+            if (key == '@globalBlocks') continue;
             // @ts-ignore
-            const entity = global._TWEntities[key];
+            const entity = twConfig.store[key];
             definition += `\n${entity.toDefinition()}\n`;
         }
-
-        // @ts-ignore
-        global._TWEntities = {};
     
         if (!fs.existsSync('static/gen')) fs.mkdirSync('static/gen');
         fs.writeFileSync('static/gen/Generated.d.ts', definition);
-    })
+    });
 }
 
 async function removeExtension() {
@@ -838,8 +850,6 @@ async function getExtension(name, slice) {
 }
 
 async function install() {
-    // @ts-ignore
-    const twConfig = require('./twconfig.json');
 
     // Get total packages to install
     const totalPackages = twConfig.projectDependencies.length + twConfig.entityDependencies.length + (twConfig.extensionDependencies || []).length;
