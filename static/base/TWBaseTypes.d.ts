@@ -65,7 +65,8 @@ declare interface JSONInfoTable<T> {
     }
 }
 
-type INFOTABLE<T = any> = T extends keyof DataShapes ? DataShapes[T]['__dataShapeType'] & InfoTable<DataShapes[T]['__dataShapeType']> : T & InfoTable<T>;
+type INFOTABLE<T = any> = T & InfoTable<T>;
+type InfoTableReference<T extends keyof DataShapes> = DataShapes[T]['__dataShapeType'] & InfoTable<DataShapes[T]['__dataShapeType']>;
 type ValueCollectionConvertible<T> = Partial<T> | ValueCollection<T>;
 
 declare class InfoTable<T = any> {
@@ -403,7 +404,11 @@ declare function ThingTemplateWithShapes<
 type ThingTemplateInstance<T extends keyof ThingTemplates> = ThingTemplates[T]["__thingTemplateType"];
 type ThingShapeInstance<T extends keyof ThingShapes> = ThingShapes[T]["__thingShapeType"];
 
-declare function ThingTemplateWithShapes<
+/**
+ * A variant of the `ThingTemplateWithShapes` mixin that uses key names, making it possible to use templates
+ * and shapes whose names aren't valid typescript identifiers.
+ */
+declare function ThingTemplateWithShapesReference<
     T1 extends keyof ThingTemplates, 
     T2 extends keyof ThingShapes,
     T3 extends keyof ThingShapes | {} = {},

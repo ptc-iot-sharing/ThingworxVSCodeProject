@@ -198,7 +198,7 @@ declare function remoteEvent(identifier: string): <T extends GenericThing>(targe
  * @param property      If the event is `"DataChange"`, this is the name of the property.
  */
 declare function subscription<S extends keyof Things, E extends Events<Things[S]>, P extends NonMethod<Things[S]>>(source: S, event: E, property?: P): 
-        <T extends GenericThing, P extends (alertName: string, eventData: INFOTABLE, eventName: string, eventTime: DATETIME, source: string, sourceProperty: string) => void>(target: T, key: string, descriptor: TypedPropertyDescriptor<P>) => void;
+        <T extends GenericThing, P extends (alertName: string, eventData: INFOTABLE<any>, eventName: string, eventTime: DATETIME, source: string, sourceProperty: string) => void>(target: T, key: string, descriptor: TypedPropertyDescriptor<P>) => void;
 
 
 /**
