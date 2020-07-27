@@ -87,9 +87,9 @@ Any TypeScript file you add to the `src` folder will be compiled into a Thingwor
  - Only Things, ThingTemplates, ThingShapes and DataShapes are supported currently. For other types of entities you will still need to use the composer.
  - <strike>Description currently cannot be specified. In the future, JSDoc comments will be used for this purpose.</strike> (1 Apr 2020)
  - Non-javascript services such as SQL or Flow services are not supported.
- - Projects and tags cannot be specified currently. Note that your project will however be packaged as an extension that can be easily installed, updated and removed.
+ - <strike>Projects and </strike>tags cannot be specified currently. </strike>Note that your project will however be packaged as an extension that can be easily installed, updated and removed.</strike> (27 Jul 2020)
  - <strike>Configuration tables are not currently supported, but this likely to be supported in some manner soon.</strike> (23 Mar 2020)
- - XML handling via E4X is not and will not be supported. Using E4X syntax will lead to a compilation error. You may either use `eval` with hardcoded strings or the various XML methods to work around this limitation.
+ - XML handling via E4X is not and will not be supported. Using E4X syntax will lead to a compilation error. You should use the various XML methods to work around this limitation.
 
 ## Build
 
@@ -104,6 +104,13 @@ To build the extension and upload it to Thingworx, run `gulp upload` in the root
 Deployment to Thingworx is part of the build process as explained above. Alternatively, you can manually install the extension that is generated in the zip folder in the root of the project.
 
 # Recent Changes
+
+## 27 Jul 2020
+
+ - Resolves an issue that caused ThingShapes to not be applied properly
+ - Added support for external names and external reference types
+ - Added support for using regular TypeScript types (e.g. `number` instead of `NUMBER`)
+ - Added experimental support for global code
 
 ## 3 Apr 2020
 
