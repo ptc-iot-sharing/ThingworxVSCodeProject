@@ -358,7 +358,12 @@ function baseTypeOfPropertyDefinition(definition) {
     if (baseType == 'JSON') return 'TWJSON';
 
     if (baseType == 'INFOTABLE' && definition.aspects.dataShape) {
-        return `INFOTABLE<${definition.aspects.dataShape.indexOf('.') != -1 ? JSON.stringify(definition.aspects.dataShape) : definition.aspects.dataShape}>`
+        if (definition.aspects.dataShape.indexOf('.') != -1) {
+            return `InfoTableReference<${JSON.stringify(definition.aspects.dataShape)}>`;
+        }
+        else {
+            return `INFOTABLE<${definition.aspects.dataShape}>`;
+        }
     }
 
     if (baseType == 'THINGNAME') {
@@ -435,12 +440,27 @@ function declarationOfService(service) {
 }
 
 function superclassOfEntity(entity) {
-    const shapes = Object.keys(entity.implementedShapes).map(shape => JSON.stringify(shape));
+    const shapes = Object.keys(entity.implementedShapes);
+    const shapeReferences = shapes.map(shape => JSON.stringify(shape));
+    const superclassName = entity.thingTemplate || entity.baseThingTemplate;
+
     if (!shapes.length) {
-        return `ThingTemplateReference(${JSON.stringify(entity.thingTemplate || entity.baseThingTemplate)})`;
+        if (superclassName.indexOf('.') != -1) {
+            return `ThingTemplateReference(${JSON.stringify(superclassName)})`;
+        }
+        else {
+            return superclassName;
+        }
     }
 
-    return `ThingTemplateWithShapes(${JSON.stringify(entity.thingTemplate || entity.baseThingTemplate)}, ${shapes.join(', ')})`;
+    const isReferenceType = (superclassName.indexOf('.') != -1) || shapes.some(shape => shape.indexOf('.') != -1);
+    if (isReferenceType) {
+        return `ThingTemplateWithShapesReference(${JSON.stringify(superclassName)}, ${shapeReferences.join(', ')})`;
+    }
+    else {
+        return `ThingTemplateWithShapes(${superclassName}, ${shapes.join(', ')})`;
+    }
+
 }
 
 function importThing(body) {
