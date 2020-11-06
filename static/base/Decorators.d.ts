@@ -81,6 +81,11 @@ declare function logged<T extends GenericThing, P>(target: T, key: string, descr
  */
 declare function primaryKey<T extends DataShapeBase, P>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P extends Function ? never : P>): void;
 
+/**
+ * When applied to a data shape field, this controls the ordinal value of that field.
+ */
+declare function ordinal(ordinal: number): <T extends DataShapeBase, P>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P extends Function ? never : P>) => void;
+
 declare interface _remoteArgsLiteral {
     /**
      * How long the property should be cached on the server.

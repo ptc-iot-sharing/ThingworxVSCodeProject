@@ -9,5 +9,8 @@ class LinkedList extends DataShapeBase {
      */
     @primaryKey name!: STRING;
 
-    next!: INFOTABLE<LinkedList>
+    /**
+     * The `@ordinal` decorator can be used to specify ordinal values for data shape fields.
+     */
+    @ordinal(4) next!: INFOTABLE<LinkedList>
 }

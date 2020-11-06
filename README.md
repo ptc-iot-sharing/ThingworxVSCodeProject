@@ -1,4 +1,4 @@
-**NOTE: This is still an early work in progress.**
+**🖐 NOTE: This is still a work in progress.**
 
 # Intro
 
@@ -104,6 +104,11 @@ To build the extension and upload it to Thingworx, run `gulp upload` in the root
 Deployment to Thingworx is part of the build process as explained above. Alternatively, you can manually install the extension that is generated in the zip folder in the root of the project.
 
 # Recent Changes
+
+## 6 Nov 2020
+
+ - Support for specifying an ordinal value for data shape fields
+ - Support for automatically generating ordinal values for data shape fields
 
 ## 27 Jul 2020
 
