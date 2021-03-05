@@ -133,9 +133,9 @@ async function gen() {
 
 async function removeExtension() {
     const host = package.thingworxServer;
-    const user = package.thingworxUser;
-    const password = package.thingworxPassword;
-    const appKey = package.thingworxAppKey;
+    
+    
+    const appKey = package.thingworxappKey;
 
     return new Promise((resolve, reject) => {
         request.post({
@@ -175,9 +175,8 @@ async function removeExtension() {
 
 async function upload() {
     const host = package.thingworxServer;
-    const user = package.thingworxUser;
-    const password = package.thingworxPassword;
-    const appKey = package.thingworxAppKey;
+  
+    const appKey = package.thingworxappKey;
 
     console.log(`Uploading to ${package.thingworxServer}...`);
 
@@ -213,7 +212,7 @@ body:
 ${httpResponse.body}`);
                     } else {
                         console.log(`Uploaded widget version ${package.version} to Thingworx!`);
-                        
+                        console.log(body);
                         resolve();
                     }
                 }
@@ -245,9 +244,9 @@ async function getEntity(name, kind, slice) {
     if (installedEntities[kind] && installedEntities[kind][name]) return;
 
     const host = package.thingworxServer;
-    const user = package.thingworxUser;
-    const password = package.thingworxPassword;
-    const userAppKey = package.thingworxAppKey;
+   
+    
+    const userAppKey = package.thingworxappKey;
 
     installProgress.entity = `${kind}/${name}`;
 
@@ -329,9 +328,9 @@ async function getEntity(name, kind, slice) {
 
 async function getEntityDependencies(name, kind) {
     const host = package.thingworxServer;
-    const user = package.thingworxUser;
-    const password = package.thingworxPassword;
-    const userAppKey = package.thingworxAppKey;
+    
+    
+    const userAppKey = package.thingworxappKey;
 
     return await new Promise((resolve, reject) => {
         request.post(
@@ -712,8 +711,8 @@ function importEntityDeclaration(name, kind, description, genericArgument) {
 
 async function getProjectEntities(name) {
     const host = package.thingworxServer;
-    const user = package.thingworxUser;
-    const password = package.thingworxPassword;
+   
+    
 
     return await new Promise((resolve, reject) => {
         request.post(
@@ -775,9 +774,9 @@ async function getExtension(name, slice) {
     installProgress.entity = `Extensions/${name}/@types`;
 
     const host = package.thingworxServer;
-    const user = package.thingworxUser;
-    const password = package.thingworxPassword;
-    const userAppKey = package.thingworxAppKey;
+   
+    
+    const userAppKey = package.thingworxappKey;
 
     // Try first to get the type definitions, if they exist
     // TODO: This will always return 404 as it looks like only widget files are accessible in Common/extensions
