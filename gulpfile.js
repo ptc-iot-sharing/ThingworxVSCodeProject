@@ -133,8 +133,8 @@ async function gen() {
 
 async function removeExtension() {
     const host = package.thingworxServer;
-    const user = package.thingworxUser;
-    const password = package.thingworxPassword;
+    const userAppKey = package.thingworxAppKey;
+  
 
     return new Promise((resolve, reject) => {
         request.post({
@@ -143,7 +143,8 @@ async function removeExtension() {
                 'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE',
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-                'X-THINGWORX-SESSION': 'true'
+                'X-THINGWORX-SESSION': 'true',
+				'appkey':userAppKey
             },
             body: {packageName: package.packageName},
             json: true
@@ -167,14 +168,13 @@ async function removeExtension() {
             }
             resolve();
         })
-        .auth(user, password);
+        //.auth(user, password);
     })
 }
 
 async function upload() {
     const host = package.thingworxServer;
-    const user = package.thingworxUser;
-    const password = package.thingworxPassword;
+    const userAppKey = package.thingworxAppKey;
 
     console.log(`Uploading to ${package.thingworxServer}...`);
 
@@ -191,7 +191,8 @@ async function upload() {
                 {
                     url: `${host}/Thingworx/ExtensionPackageUploader?purpose=import`,
                     headers: {
-                        'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE'
+                        'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE',
+						'appkey':userAppKey
                     },
                     formData: formData
                 },
@@ -211,7 +212,7 @@ ${httpResponse.body}`);
                     }
                 }
             )
-            .auth(user, password);
+            //.auth(user, password);
 
     })
 }
@@ -219,6 +220,7 @@ ${httpResponse.body}`);
 exports.build = series(clean, build, zip);
 exports.upload = series(incrementVersion, clean, build, zip, upload);
 exports.removeAndUpload = series(clean, build, zip, removeExtension, upload);
+exports.remove =series(removeExtension);
 exports.default = series(gen);
 
 
