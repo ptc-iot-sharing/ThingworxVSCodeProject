@@ -135,7 +135,7 @@ async function removeExtension() {
     const host = package.thingworxServer;
     const user = package.thingworxUser;
     const password = package.thingworxPassword;
-    const appKey = package.thingworxappKey;
+    const appKey = package.thingworxAppKey;
 
     return new Promise((resolve, reject) => {
         request.post({
@@ -177,7 +177,7 @@ async function upload() {
     const host = package.thingworxServer;
     const user = package.thingworxUser;
     const password = package.thingworxPassword;
-    const appKey = package.thingworxappKey;
+    const appKey = package.thingworxAppKey;
 
     console.log(`Uploading to ${package.thingworxServer}...`);
 
@@ -213,7 +213,7 @@ body:
 ${httpResponse.body}`);
                     } else {
                         console.log(`Uploaded widget version ${package.version} to Thingworx!`);
-                        console.log(body);
+                        
                         resolve();
                     }
                 }
@@ -247,7 +247,7 @@ async function getEntity(name, kind, slice) {
     const host = package.thingworxServer;
     const user = package.thingworxUser;
     const password = package.thingworxPassword;
-    const userAppKey = package.thingworxappKey;
+    const userAppKey = package.thingworxAppKey;
 
     installProgress.entity = `${kind}/${name}`;
 
@@ -331,7 +331,7 @@ async function getEntityDependencies(name, kind) {
     const host = package.thingworxServer;
     const user = package.thingworxUser;
     const password = package.thingworxPassword;
-    const userAppKey = package.thingworxappKey;
+    const userAppKey = package.thingworxAppKey;
 
     return await new Promise((resolve, reject) => {
         request.post(
@@ -777,7 +777,7 @@ async function getExtension(name, slice) {
     const host = package.thingworxServer;
     const user = package.thingworxUser;
     const password = package.thingworxPassword;
-    const userAppKey = package.thingworxappKey;
+    const userAppKey = package.thingworxAppKey;
 
     // Try first to get the type definitions, if they exist
     // TODO: This will always return 404 as it looks like only widget files are accessible in Common/extensions
