@@ -133,8 +133,9 @@ async function gen() {
 
 async function removeExtension() {
     const host = package.thingworxServer;
-    const userAppKey = package.thingworxAppKey;
-  
+    const user = package.thingworxUser;
+    const password = package.thingworxPassword;
+    const appKey = package.thingworxappKey;
 
     return new Promise((resolve, reject) => {
         request.post({
@@ -144,7 +145,7 @@ async function removeExtension() {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'X-THINGWORX-SESSION': 'true',
-				'appkey':userAppKey
+                'appkey':appKey
             },
             body: {packageName: package.packageName},
             json: true
@@ -174,7 +175,9 @@ async function removeExtension() {
 
 async function upload() {
     const host = package.thingworxServer;
-    const userAppKey = package.thingworxAppKey;
+    const user = package.thingworxUser;
+    const password = package.thingworxPassword;
+    const appKey = package.thingworxappKey;
 
     console.log(`Uploading to ${package.thingworxServer}...`);
 
@@ -192,7 +195,9 @@ async function upload() {
                     url: `${host}/Thingworx/ExtensionPackageUploader?purpose=import`,
                     headers: {
                         'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE',
-						'appkey':userAppKey
+                        'accept':'application/json',
+                        'appkey':appKey
+
                     },
                     formData: formData
                 },
@@ -208,11 +213,12 @@ body:
 ${httpResponse.body}`);
                     } else {
                         console.log(`Uploaded widget version ${package.version} to Thingworx!`);
+                        console.log(body);
                         resolve();
                     }
                 }
             )
-            //.auth(user, password);
+          // .auth(user, password);
 
     })
 }
@@ -241,6 +247,7 @@ async function getEntity(name, kind, slice) {
     const host = package.thingworxServer;
     const user = package.thingworxUser;
     const password = package.thingworxPassword;
+    const userAppKey = package.thingworxappKey;
 
     installProgress.entity = `${kind}/${name}`;
 
@@ -251,7 +258,8 @@ async function getEntity(name, kind, slice) {
                     headers: {
                         'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE',
                         'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'appkey':userAppKey
                     }
                 },
                 async function (err, httpResponse, body) {
@@ -312,7 +320,8 @@ async function getEntity(name, kind, slice) {
                     }
                 }
             )
-            .auth(user, password);
+           
+              //  .auth(user, password);
 
     });
 }
@@ -322,6 +331,7 @@ async function getEntityDependencies(name, kind) {
     const host = package.thingworxServer;
     const user = package.thingworxUser;
     const password = package.thingworxPassword;
+    const userAppKey = package.thingworxappKey;
 
     return await new Promise((resolve, reject) => {
         request.post(
@@ -330,7 +340,8 @@ async function getEntityDependencies(name, kind) {
                     headers: {
                         'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE',
                         'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'appkey':userAppKey
                     },
                     body: '{}'
                 },
@@ -349,7 +360,8 @@ async function getEntityDependencies(name, kind) {
                     }
                 }
             )
-            .auth(user, password);
+            
+            //.auth(user, password);
 
     });
 }
@@ -750,7 +762,7 @@ async function getProjectEntities(name) {
                     }
                 }
             )
-            .auth(user, password);
+            //.auth(user, password);
 
     });
 }
@@ -765,6 +777,7 @@ async function getExtension(name, slice) {
     const host = package.thingworxServer;
     const user = package.thingworxUser;
     const password = package.thingworxPassword;
+    const userAppKey = package.thingworxappKey;
 
     // Try first to get the type definitions, if they exist
     // TODO: This will always return 404 as it looks like only widget files are accessible in Common/extensions
@@ -773,7 +786,8 @@ async function getExtension(name, slice) {
         request.get(
                 {
                     url: `${host}/Thingworx/Common/extensions/${name}/@types/index.d.ts`,
-                    headers: {'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE'}
+                    headers: {'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE',
+                                'appkey':userAppKey}
                 },
                 async function (err, httpResponse, body) {
                     if (err) {
@@ -798,7 +812,8 @@ async function getExtension(name, slice) {
                     }
                 }
             )
-            .auth(user, password);
+           
+            //.auth(user, password);
 
     });
 
@@ -844,7 +859,8 @@ async function getExtension(name, slice) {
                     }
                 }
             )
-            .auth(user, password);
+           
+                //.auth(user, password);
 
     });
 
