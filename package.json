@@ -9,6 +9,7 @@
 	"thingworxServer": "http://localhost:8014",
 	"thingworxUser": "Administrator",
 	"thingworxPassword": "Administrator12345",
+	"thingworxAppKey": "abc-acfdf",
 	"minimumThingWorxVersion": "6.0.0",
 	"homepage": "https://github.com/BogdanMihaiciuc/",
 	"autoUpdate": {

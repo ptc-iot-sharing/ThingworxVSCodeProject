@@ -1,4 +1,8 @@
-$ 6 Nov 2020
+# 8 Mar 2021
+
+Added support for using an app key instead of username and password for deployment.
+
+# 6 Nov 2020
 
 Added the `@ordinal(_)` decorator that can be used on data shape fields.
 
