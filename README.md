@@ -97,13 +97,17 @@ To build the extension, run `gulp build` in the root of the project. This will g
 
 To build the extension and upload it to Thingworx, run `gulp upload` in the root of the project. The details of the Thingworx server to which the script will upload the extension are declared in the project's `package.json` file. These are:
  * `thingworxServer` - The server to which the extension will be uploaded.
- * `thingworxUser` and `thingworxPassword` - The credentials used for uploading. This should be a user that has permission to install extensions.
+ * `thingworxAppKey` or `thingworxUser` and `thingworxPassword` - The credentials used for uploading. This should be a user that has permission to install extensions.
 
 ## Deployment
 
 Deployment to Thingworx is part of the build process as explained above. Alternatively, you can manually install the extension that is generated in the zip folder in the root of the project.
 
 # Recent Changes
+
+## 8 Mar 2021
+
+- Support for using an app key instead of username/password when deploying.
 
 ## 6 Nov 2020
 
@@ -139,6 +143,8 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 [Petrisor Lacatus](https://github.com/stefan-lacatus) - had the original idea of using `tsc` to create Thingworx entities. This uses some definitions and ideas from [MonacoEditorTWX](https://github.com/ptc-iot-sharing/MonacoEditorTWX).
 
 [Bogdan Mihaiciuc](https://github.com/BogdanMihaiciuc) - developer.
+
+[thomas-thomas-tfs](https://github.com/thomas-thomas-tfs) - deployment using app keys.
 
 # Disclaimer
 
