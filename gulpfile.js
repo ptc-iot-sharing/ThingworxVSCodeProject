@@ -452,7 +452,7 @@ function declarationOfService(service) {
      * ${argumentDocumentationsOfService(service)}
      * @return ${service.resultType.description}
      */
-    ${service.aspects.isAsync ? 'async ' : ''}${service.name}(args: ${argumentTypesOfService(service)}): ${baseTypeOfPropertyDefinition(service.resultType)};
+    ${service.name}(args: ${argumentTypesOfService(service)}): ${service.aspects.isAsync ? 'NOTHING' : baseTypeOfPropertyDefinition(service.resultType)};
 `;
 }
 
@@ -673,7 +673,7 @@ function importResource(body) {
      * ${argumentDocumentationsOfService(service)}
      * @return 
      */
-    ${service.aspects.isAsync ? 'async ' : ''}${service.name}(args: ${argumentTypesOfService(service)}): ${baseTypeOfPropertyDefinition(service.Outputs)};
+    ${service.name}(args: ${argumentTypesOfService(service)}): ${service.aspects.isAsync ? 'NOTHING' : baseTypeOfPropertyDefinition(service.Outputs)};
 `;
     }
 
