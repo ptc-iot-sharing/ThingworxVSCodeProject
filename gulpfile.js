@@ -248,6 +248,11 @@ let installProgress;
 
 const installedEntities = {};
 
+/**
+ * An array that contains the thing package names which require a generic argument.
+ */
+const GenericThingPackages = ['StreamThing', 'DataTableThing', 'RemoteStream', 'RemoteDataTable'];
+
 async function getEntity(name, kind, slice) {
     // Thing packages will be handled by templates
     if (kind == 'ThingPackages') return;
@@ -456,7 +461,7 @@ function declarationOfService(service) {
 `;
 }
 
-function superclassOfEntity(entity) {
+function superclassOfEntity(entity, genericArgument = '') {
     const shapes = Object.keys(entity.implementedShapes);
     const shapeReferences = shapes.map(shape => JSON.stringify(shape));
     const superclassName = entity.thingTemplate || entity.baseThingTemplate;
@@ -466,7 +471,7 @@ function superclassOfEntity(entity) {
             return `ThingTemplateReference(${JSON.stringify(superclassName)})`;
         }
         else {
-            return superclassName;
+            return superclassName + genericArgument;
         }
     }
 
@@ -475,7 +480,7 @@ function superclassOfEntity(entity) {
         return `ThingTemplateWithShapesReference(${JSON.stringify(superclassName)}, ${shapeReferences.join(', ')})`;
     }
     else {
-        return `ThingTemplateWithShapes(${superclassName}, ${shapes.join(', ')})`;
+        return `ThingTemplateWithShapes(${superclassName}${genericArgument}, ${shapes.join(', ')})`;
     }
 
 }
@@ -483,7 +488,12 @@ function superclassOfEntity(entity) {
 function importThing(body) {
     const name = body.name;
     const sanitiziedName = body.name.replace(/\./g, '_');
-    let declaration = `declare class ${sanitiziedName} extends ${superclassOfEntity(body)} {\n\n`;
+
+    // Things that inherit from generic thing packages must specify an instance of the generic argument
+    const hasGenericArgument = GenericThingPackages.includes(body.effectiveThingPackage);
+    const genericArgument = hasGenericArgument ? `<${body.configurationTables.Settings?.rows?.[0]?.dataShape ?? 'DataShapeBase'}>` : '';
+    
+    let declaration = `declare class ${sanitiziedName} extends ${superclassOfEntity(body, genericArgument)} {\n\n`;
 
     for (const property of Object.values(body.thingShape.propertyDefinitions)) {
         // Don't include inherited properties
@@ -543,7 +553,13 @@ function memberIsPartOfThingTemplateDefinition(member, definition) {
 function importThingTemplate(body) {
     const name = body.name;
     const sanitiziedName = body.name.replace(/\./g, '_');
-    let declaration = `declare class ${sanitiziedName} extends ${superclassOfEntity(body)} {\n\n`;
+
+    // Templates that inherit from generic thing packages must be defined with a generic argument
+    const hasGenericArgument = GenericThingPackages.includes(body.effectiveThingPackage);
+    const genericArgument = hasGenericArgument ? '<T extends DataShapeBase>' : '';
+    const superclassGenericArgument = hasGenericArgument ? '<T>' : '';
+
+    let declaration = `declare class ${sanitiziedName}${genericArgument} extends ${superclassOfEntity(body, superclassGenericArgument)} {\n\n`;
 
     // For templates, the effective shape will be used to also include memebers
     // originating from the thing package
@@ -589,7 +605,7 @@ function importThingTemplate(body) {
     /**
      * ${body.description}
      */ 
-    ${JSON.stringify(name)}: ThingTemplateEntity<${sanitiziedName}>; 
+    ${JSON.stringify(name)}: ThingTemplateEntity<${sanitiziedName}${hasGenericArgument ? '<any>' : ''}>; 
 }`
     );
 }
