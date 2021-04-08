@@ -1,3 +1,9 @@
+# 8 Apr 2021
+
+Fixed an import error when importing entities with async services.
+
+Fixed an import error when importing entities that required generic arguments, such as those extending `Stream` or `DataTable`.
+
 # 8 Mar 2021
 
 Added support for using an app key instead of username and password for deployment.
