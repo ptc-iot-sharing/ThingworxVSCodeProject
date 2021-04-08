@@ -619,13 +619,13 @@ declare class SDKGateway extends RemoteThing {
 
 
 }
-declare class RemoteDataTable extends RemoteThing {
+declare class RemoteDataTable<T extends DataShapeBase> extends RemoteThing {
 
 	/**
 	 * Create an empty info table of the correct datashape for this data table
 	 * @return Created Infotable
 	 */
-	CreateValues(args?:{}): INFOTABLE;
+	CreateValues(args?:{}): INFOTABLE<T>;
 
 	/**
 	 * Reindex the custom indexes on the data table
@@ -642,7 +642,7 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param tags Tags
 	 * @return Newly created id
 	 */
-	AddDataTableEntry(args?:{sourceType?: STRING, values?: INFOTABLE, location?: LOCATION, source?: STRING, tags?: TAGS}): STRING;
+	AddDataTableEntry(args?:{sourceType?: STRING, values?: INFOTABLE<T>, location?: LOCATION, source?: STRING, tags?: TAGS}): STRING;
 
 	/**
 	 * Update an existing data table entry
@@ -653,7 +653,7 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param tags Tags
 	 * @return result
 	 */
-	UpdateDataTableEntry(args?:{sourceType?: STRING, values?: INFOTABLE, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
+	UpdateDataTableEntry(args?:{sourceType?: STRING, values?: INFOTABLE<T>, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Add multiple data table entries
@@ -664,7 +664,7 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param tags Tags
 	 * @return result
 	 */
-	AddDataTableEntries(args?:{sourceType?: STRING, values?: INFOTABLE, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
+	AddDataTableEntries(args?:{sourceType?: STRING, values?: INFOTABLE<T>, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Sets the currently assigned data shape
@@ -682,7 +682,7 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param tags Tags
 	 * @return result
 	 */
-	AssignDataTableEntries(args?:{sourceType?: STRING, values?: INFOTABLE, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
+	AssignDataTableEntries(args?:{sourceType?: STRING, values?: INFOTABLE<T>, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Create an info table of the correct datashape for this stream and include data values
@@ -700,21 +700,21 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param tags Tags
 	 * @return result
 	 */
-	UpdateDataTableEntries(args?:{sourceType?: STRING, values?: INFOTABLE, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
+	UpdateDataTableEntries(args?:{sourceType?: STRING, values?: INFOTABLE<T>, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Retrieve all table entries up to max items number
 	 * @param maxItems Maximum number of items to return
 	 * @return Table entries
 	 */
-	GetDataTableEntries(args?:{maxItems?: NUMBER}): INFOTABLE;
+	GetDataTableEntries(args?:{maxItems?: NUMBER}): INFOTABLE<T>;
 
 	/**
 	 * Retrieve all table entries that match the provided values
 	 * @param values Data values
 	 * @return Table entries
 	 */
-	FindDataTableEntries(args?:{values?: INFOTABLE}): INFOTABLE;
+	FindDataTableEntries(args?:{values?: INFOTABLE<T>}): INFOTABLE<T>;
 
 	/**
 	 * Get an count of data table entries
@@ -733,14 +733,14 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param values Data values
 	 * @return Table entries
 	 */
-	GetDataTableEntry(args?:{values?: INFOTABLE}): INFOTABLE;
+	GetDataTableEntry(args?:{values?: INFOTABLE<T>}): INFOTABLE<T>;
 
 	/**
 	 * Delete all table entries that match the provided values
 	 * @param values Data values
 	 * @return result
 	 */
-	DeleteDataTableEntries(args?:{values?: INFOTABLE}): NOTHING;
+	DeleteDataTableEntries(args?:{values?: INFOTABLE<T>}): NOTHING;
 
 	/**
 	 * Add or update multiple data table entries based on a query
@@ -753,7 +753,7 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param tags Tags
 	 * @return result
 	 */
-	UpdateDataTableEntriesWithQuery(args?:{sourceType?: STRING, query?: QUERY, values?: INFOTABLE, location?: LOCATION, source?: STRING, updateValues?: INFOTABLE, tags?: TAGS}): NOTHING;
+	UpdateDataTableEntriesWithQuery(args?:{sourceType?: STRING, query?: QUERY<T>, values?: INFOTABLE<T>, location?: LOCATION, source?: STRING, updateValues?: INFOTABLE<T>, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Delete an existing data table entry using its key value
@@ -771,7 +771,7 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param tags Tags
 	 * @return Newly created ID
 	 */
-	AddOrUpdateDataTableEntry(args?:{sourceType?: STRING, values?: INFOTABLE, location?: LOCATION, source?: STRING, tags?: TAGS}): STRING;
+	AddOrUpdateDataTableEntry(args?:{sourceType?: STRING, values?: INFOTABLE<T>, location?: LOCATION, source?: STRING, tags?: TAGS}): STRING;
 
 	/**
 	 * Get the currently assigned data shape
@@ -795,7 +795,7 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param tags Tags (optional)
 	 * @return Table entries
 	 */
-	QueryDataTableEntries(args?:{maxItems?: NUMBER, query?: QUERY, values?: INFOTABLE, source?: STRING, tags?: TAGS}): INFOTABLE;
+	QueryDataTableEntries(args?:{maxItems?: NUMBER, query?: QUERY, values?: INFOTABLE<T>, source?: STRING, tags?: TAGS}): INFOTABLE<T>;
 
 	/**
 	 * Add or udpate multiple data table entries
@@ -806,7 +806,7 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param tags Tags
 	 * @return result
 	 */
-	AddOrUpdateDataTableEntries(args?:{sourceType?: STRING, values?: INFOTABLE, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
+	AddOrUpdateDataTableEntries(args?:{sourceType?: STRING, values?: INFOTABLE<T>, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Retrieve a list of field names for the data shape associated with this stream, of a specific type
@@ -831,14 +831,14 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param tags Tags
 	 * @return result
 	 */
-	DeleteDataTableEntriesWithQuery(args?:{sourceType?: STRING, query?: QUERY, values?: INFOTABLE, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
+	DeleteDataTableEntriesWithQuery(args?:{sourceType?: STRING, query?: QUERY<T>, values?: INFOTABLE<T>, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Delete an existing data table entry
 	 * @param values Data values
 	 * @return result
 	 */
-	DeleteDataTableEntry(args?:{values?: INFOTABLE}): NOTHING;
+	DeleteDataTableEntry(args?:{values?: INFOTABLE<T>}): NOTHING;
 
 	/**
 	 * Retrieve all table entries that match the search query parameters
@@ -849,7 +849,7 @@ declare class RemoteDataTable extends RemoteThing {
 	 * @param tags Tags (optional)
 	 * @return Table entries
 	 */
-	SearchDataTableEntries(args?:{maxItems?: NUMBER, searchExpression?: STRING, query?: QUERY, source?: STRING, tags?: TAGS}): INFOTABLE;
+	SearchDataTableEntries(args?:{maxItems?: NUMBER, searchExpression?: STRING, query?: QUERY<T>, source?: STRING, tags?: TAGS}): INFOTABLE<T>;
 
 
 }
@@ -4517,14 +4517,14 @@ declare class HTTPConnector extends GenericConnector {
 
 
 }
-declare class RemoteStream extends RemoteThing {
+declare class RemoteStream<T extends DataShapeBase> extends RemoteThing {
 
 	/**
 	 * Retrieve a specific stream entry given a stream entry ID
 	 * @param streamEntryId Stream entry ID
 	 * @return Stream entry
 	 */
-	GetStreamEntry(args?:{streamEntryId?: STRING}): INFOTABLE;
+	GetStreamEntry(args?:{streamEntryId?: STRING}): INFOTABLE<T>;
 
 	/**
 	 * Query stream entries (with data), along with filter and sort criteria
@@ -4538,7 +4538,7 @@ declare class RemoteStream extends RemoteThing {
 	 * @param tags Tags
 	 * @return Table entries
 	 */
-	QueryStreamEntriesWithData(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER, sourceTags?: TAGS, endDate?: DATETIME, query?: QUERY, source?: STRING, startDate?: DATETIME, tags?: TAGS}): INFOTABLE;
+	QueryStreamEntriesWithData(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER, sourceTags?: TAGS, endDate?: DATETIME, query?: QUERY<T>, source?: STRING, startDate?: DATETIME, tags?: TAGS}): INFOTABLE<T>;
 
 	/**
 	 * Delete a specific stream entry given a stream entry ID
@@ -4551,7 +4551,7 @@ declare class RemoteStream extends RemoteThing {
 	 * Create an empty info table of the correct datashape for this stream
 	 * @return Created Infotable
 	 */
-	CreateValues(args?:{}): INFOTABLE;
+	CreateValues(args?:{}): INFOTABLE<T>;
 
 	/**
 	 * Update an existing stream entry
@@ -4562,7 +4562,7 @@ declare class RemoteStream extends RemoteThing {
 	 * @param tags Tags (optional)
 	 * @return result
 	 */
-	UpdateStreamEntry(args?:{values?: INFOTABLE, streamEntryId?: STRING, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
+	UpdateStreamEntry(args?:{values?: INFOTABLE<T>, streamEntryId?: STRING, location?: LOCATION, source?: STRING, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Retrieve a count of stream entries
@@ -4576,7 +4576,7 @@ declare class RemoteStream extends RemoteThing {
 	 * @param maxItems Maximum number of items to return
 	 * @return Table entries
 	 */
-	GetStreamEntriesWithData(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER}): INFOTABLE;
+	GetStreamEntriesWithData(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER}): INFOTABLE<T>;
 
 	/**
 	 * Add multiple stream entries
@@ -4606,7 +4606,7 @@ declare class RemoteStream extends RemoteThing {
 	 * @param values Data values (JSON Object)
 	 * @return Created Infotable
 	 */
-	CreateValuesWithData(args?:{values?: TWJSON}): INFOTABLE;
+	CreateValuesWithData(args?:{values?: TWJSON}): INFOTABLE<T>;
 
 	/**
 	 * Retrieve a list of field names for the data shape associated with this stream
@@ -4620,7 +4620,7 @@ declare class RemoteStream extends RemoteThing {
 	 * @param maxItems Maximum number of items to return
 	 * @return Table entries
 	 */
-	GetStreamEntries(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER}): INFOTABLE;
+	GetStreamEntries(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER}): INFOTABLE<T>;
 
 	/**
 	 * Add a new stream entry
@@ -4632,7 +4632,7 @@ declare class RemoteStream extends RemoteThing {
 	 * @param timestamp Event time (optional)
 	 * @return result
 	 */
-	AddStreamEntry(args?:{sourceType?: STRING, values?: INFOTABLE, location?: LOCATION, source?: STRING, tags?: TAGS, timestamp?: DATETIME}): NOTHING;
+	AddStreamEntry(args?:{sourceType?: STRING, values?: INFOTABLE<T>, location?: LOCATION, source?: STRING, tags?: TAGS, timestamp?: DATETIME}): NOTHING;
 
 	/**
 	 * Query stream data (no stream entry details), along with filter and sort criteria
@@ -4646,7 +4646,7 @@ declare class RemoteStream extends RemoteThing {
 	 * @param tags Tags
 	 * @return Table entries
 	 */
-	QueryStreamData(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER, sourceTags?: TAGS, endDate?: DATETIME, query?: QUERY, source?: STRING, startDate?: DATETIME, tags?: TAGS}): INFOTABLE<StreamData>;
+	QueryStreamData(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER, sourceTags?: TAGS, endDate?: DATETIME, query?: QUERY<T>, source?: STRING, startDate?: DATETIME, tags?: TAGS}): INFOTABLE<T & StreamData>;
 
 	/**
 	 * Get the currently assigned data shape
@@ -4660,7 +4660,7 @@ declare class RemoteStream extends RemoteThing {
 	 * @param maxItems Maximum number of items to return
 	 * @return Table entries
 	 */
-	GetStreamData(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER}): INFOTABLE<StreamData>;
+	GetStreamData(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER}): INFOTABLE<T & StreamData>;
 
 	/**
 	 * Retrieve a list of field names for the data shape associated with this stream, of a specific type
@@ -4681,7 +4681,7 @@ declare class RemoteStream extends RemoteThing {
 	 * @param tags Tags
 	 * @return Table entries
 	 */
-	QueryStreamEntries(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER, sourceTags?: TAGS, endDate?: DATETIME, query?: QUERY, source?: STRING, startDate?: DATETIME, tags?: TAGS}): INFOTABLE;
+	QueryStreamEntries(args?:{oldestFirst?: BOOLEAN, maxItems?: NUMBER, sourceTags?: TAGS, endDate?: DATETIME, query?: QUERY<T>, source?: STRING, startDate?: DATETIME, tags?: TAGS}): INFOTABLE<T>;
 
 
 }
