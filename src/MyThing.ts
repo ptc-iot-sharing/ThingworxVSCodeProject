@@ -36,8 +36,8 @@ const enum Status {
 
     /**
      * Thing properties are specified as regular class properties.
-     * Note that a type annotation is required and must be one of the Thingworx
-     * base types (e.g. `STRING` instead of `string`).
+     * Note that a type annotation is required and can be one of the standard
+     * Typescript types or Thingworx base types (e.g. `STRING` instead of `string`).
      * 
      * Aspects such as `persistent` and `logged` are specified as decorators.
      * The `readonly` aspect is specified via the regular `readonly` keyword.
@@ -52,12 +52,14 @@ const enum Status {
     @persistent numberProperty!: number;
 
     /**
-     * We can constrain strings to enum values on the compiler side.
+     * We can constrain strings to enum values on the compiler side. The ThingWorx type
+     * (ie. `STRING` not `string`) must be used when constraining properties like this.
      */
     cardType: STRING<Cards> = Cards.Clubs;
 
     /**
-     * Number types can be constrained in the same way as strings.
+     * Number types can be constrained in the same way as strings. The ThingWorx type
+     * (ie. `NUMBER` not `number`) must be used when constraining properties like this.
      */
     status: NUMBER<Status> = Status.Error;
 
@@ -68,7 +70,7 @@ const enum Status {
      *  - The first parameter is the name of the source thing.
      *  - The second parameter is the name of the property to bind to.
      */
-    @local('AuditArchiveCleanupScheduler', 'Enabled') readonly locallyBoundProperty!: STRING;
+    @local('AuditArchiveCleanupScheduler', 'Enabled') readonly locallyBoundProperty!: string;
 
     /**
      * Remotely bound properties are specified via the 
@@ -76,7 +78,7 @@ const enum Status {
      * the first parameter is required. It represents the name of the remote property.
      */
     @remote('test', {cacheTime: 0, foldType: 'NONE', pushType: "Value"}) 
-    remotelyBoundProperty!: NUMBER;
+    remotelyBoundProperty!: number;
 
     /**
      * The data change type is specified via the `@dataChangeType(type)` decorator.
@@ -101,10 +103,10 @@ const enum Status {
      * 
      * Service parameters must be specified as a destructured object like in the example below.
      */
-    @final async asyncService({stringParameter = "Parameter default value", infoTable}: {stringParameter: STRING, infoTable?: INFOTABLE<GenericStringList>}) {
+    @final async asyncService({stringParameter = "Parameter default value", infoTable}: {stringParameter: string, infoTable?: INFOTABLE<GenericStringList>}) {
         // `this` should be used in place of `me`, unlike in thingworx
         // it will be compiled into `me`
-        var x = Things[this.streamToUse];
+        const x = Things[this.streamToUse];
 
         // Constrained strings will cause a compiler error whenever anything other than
         // an enum constant is assigned to it
@@ -115,9 +117,9 @@ const enum Status {
 
         this.streamToUse = 'AnomalyMonitorStateStream';
 
-        var data = x.QueryStreamEntriesWithData();
+        const data = x.QueryStreamEntriesWithData();
 
-        var y = Things.DownloadedSolutions;
+        const y = Things.DownloadedSolutions;
         y.AnyAlertAck();
 
         this.customEvent({item: 'test'});
@@ -128,7 +130,7 @@ const enum Status {
      * Remote services are specified via `@remoteService` decorator. Just like with properties, only the first parameter
      * of this decorator is required.
      */
-    @remoteService('remoteService', {enableQueue: true}) remoteService(): NOTHING {}
+    @remoteService('remoteService', {enableQueue: true}) remoteService(): void {}
 
     /**
      * The `@localSubscription(event[, property])` decorator is used to create subscription to an entity's own events.
@@ -147,7 +149,7 @@ const enum Status {
      * 
      * Note that in this case, the name of the parameters used by this method cannot be changed or it will lead to runtime errors.
      */
-    @subscription('AuditDataTable', 'DataChange', "thingTemplate") auditDataTableThingTemplateChanged(alertName: STRING, eventData: INFOTABLE<DataChangeEvent>, eventName: STRING, eventTime: DATETIME, source: STRING, sourceProperty: STRING) {
+    @subscription('AuditDataTable', 'DataChange', "thingTemplate") auditDataTableThingTemplateChanged(alertName: string, eventData: INFOTABLE<DataChangeEvent>, eventName: string, eventTime: Date, source: string, sourceProperty: string) {
         // Const enums will be fully erased in thingworx
         // This condition will be compiled as this.status == 0
         if (this.status == Status.Running) {

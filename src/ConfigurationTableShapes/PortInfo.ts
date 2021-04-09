@@ -1,9 +1,9 @@
 class PortInfo extends DataShapeBase {
 
-    server: STRING = 'localhost';
+    server: string = 'localhost';
 
-    port: NUMBER = 80;
+    port: number = 80;
 
-    useSSL: BOOLEAN = false;
+    useSSL: boolean = false;
 
 }

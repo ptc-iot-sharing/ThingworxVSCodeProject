@@ -7,7 +7,7 @@ class LinkedList extends DataShapeBase {
      * Data shape fields are specified as properties. The `@primaryKey` decorator
      * can be used to mark fields as primary keys.
      */
-    @primaryKey name!: STRING;
+    @primaryKey name!: string;
 
     /**
      * The `@ordinal` decorator can be used to specify ordinal values for data shape fields.
