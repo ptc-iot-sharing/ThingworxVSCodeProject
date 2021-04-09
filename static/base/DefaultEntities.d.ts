@@ -14322,7 +14322,7 @@ declare interface ThingTemplates {
 	/**
 	 * Remote Data Table
 	 */
-	RemoteDataTable: ThingTemplateEntity<RemoteDataTable>;
+	RemoteDataTable: ThingTemplateEntity<RemoteDataTable<any>>;
 
 	/**
 	 * 
@@ -14467,7 +14467,7 @@ declare interface ThingTemplates {
 	/**
 	 * Remote Stream
 	 */
-	RemoteStream: ThingTemplateEntity<RemoteStream>;
+	RemoteStream: ThingTemplateEntity<RemoteStream<any>>;
 
 	/**
 	 * Template for a Thing that sends notifications when an event occurs
