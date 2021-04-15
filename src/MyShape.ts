@@ -1,7 +1,7 @@
 /**
  * We can define and use interfaces throughout the project.
  */
-interface StatusReponse {
+interface StatusResponse {
 
     pressure: number;
 
@@ -17,9 +17,17 @@ interface StatusReponse {
  */
 class ExampleThingShape extends ThingShapeBase {
 
+    /**
+     * For most types, the standard TypeScript types such as `string` and `number` can be used.
+     */
     @logged @persistent pressure: number = 10;
 
-    @remote('humidity') humidity!: number;
+    /**
+     * Thingworx type names are also supported and can be used interchangeably. Note that some Thingworx
+     * types such as `INTEGER` map to primitive types like `number` on the compiler side but may have additional
+     * semantics or behaviours at runtime.
+     */
+    @remote('humidity') humidity!: NUMBER;
 
     GetPressure(): number {
         return this.pressure;
@@ -40,7 +48,7 @@ class ExampleThingShape extends ThingShapeBase {
      * @param factor    A factor by which to multiply the values.
      * @return          An object containing the requested values.
      */
-    GetValuesWithFactor({factor = 1}: {factor?: number}): TWJSON<StatusReponse> {
+    GetValuesWithFactor({factor = 1}: {factor?: number}): TWJSON<StatusResponse> {
         return {
             pressure: factor * this.pressure,
             humidity: factor * this.humidity
