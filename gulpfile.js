@@ -114,35 +114,44 @@ async function zip() {
     await new Promise(resolve => zipStream.on('end', resolve));
 }
 
-async function gen() {
-    return watch('src/**/*.ts', async function() {
-        //@ts-ignore
-        twConfig.store = {};
+/**
+ * Generates and writes out the Thingworx declarations to `/static/gen/Generated.d.ts`.
+ * This makes it possible to use syntax like `ThingTemplates.GenericThing.GetImplementingThings()`.
+ */
+async function buildDeclarations() {
+    //@ts-ignore
+    twConfig.store = {};
 
-        const project = ts.createProject('./tsconfig.json', {
-            getCustomTransformers: () => ({
-                before: [
-                    transformer.TWThingTransformerFactory(__dirname, false, true, twConfig)
-                ]
-            })
-        });
-    
-        // Prepare the transformers
-        await new Promise(resolve => project.src().pipe(project()).on('finish', resolve));
-    
-        // Write out the entity XML files
-        let definition = '';
-        // @ts-ignore
-        for (const key in twConfig.store) {
-            if (key == '@globalBlocks') continue;
-            // @ts-ignore
-            const entity = twConfig.store[key];
-            definition += `\n${entity.toDefinition()}\n`;
-        }
-    
-        if (!fs.existsSync('static/gen')) fs.mkdirSync('static/gen');
-        fs.writeFileSync('static/gen/Generated.d.ts', definition);
+    const project = ts.createProject('./tsconfig.json', {
+        getCustomTransformers: () => ({
+            before: [
+                transformer.TWThingTransformerFactory(__dirname, false, true, twConfig)
+            ]
+        })
     });
+
+    // Prepare the transformers
+    await new Promise(resolve => project.src().pipe(project()).on('finish', resolve).on('error', resolve));
+
+    // Write out the entity XML files
+    let definition = '';
+    // @ts-ignore
+    for (const key in twConfig.store) {
+        if (key == '@globalBlocks') continue;
+        // @ts-ignore
+        const entity = twConfig.store[key];
+        definition += `\n${entity.toDefinition()}\n`;
+    }
+
+    if (!fs.existsSync('static/gen')) fs.mkdirSync('static/gen');
+    fs.writeFileSync('static/gen/Generated.d.ts', definition);
+}
+
+/**
+ * Starts a watch process that generates Thingworx declarations whenever any source file is changed.
+ */
+async function gen() {
+    return watch('src/**/*.ts', buildDeclarations);
 }
 
 async function removeExtension() {
