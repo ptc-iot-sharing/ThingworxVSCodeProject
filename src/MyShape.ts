@@ -17,19 +17,19 @@ interface StatusReponse {
  */
 class ExampleThingShape extends ThingShapeBase {
 
-    @logged @persistent pressure: NUMBER = 10;
+    @logged @persistent pressure: number = 10;
 
-    @remote('humidity') humidity!: NUMBER;
+    @remote('humidity') humidity!: number;
 
-    GetPressure(): NUMBER {
+    GetPressure(): number {
         return this.pressure;
     }
 
-    SetPressure({pressure}: {pressure: NUMBER}): NOTHING {
+    SetPressure({pressure}: {pressure: number}): void {
         this.pressure = pressure;
     }
 
-    @remoteService('SetHumidity') SetHumidity({humidity}: {humidity: NUMBER}): NOTHING {}
+    @remoteService('SetHumidity') SetHumidity({humidity}: {humidity: number}): void {}
 
     /**
      * There are no interface types in Thingworx, but in a similar manner to string and number types,
@@ -40,7 +40,7 @@ class ExampleThingShape extends ThingShapeBase {
      * @param factor    A factor by which to multiply the values.
      * @return          An object containing the requested values.
      */
-    GetValuesWithFactor({factor = 1}: {factor?: NUMBER}): TWJSON<StatusReponse> {
+    GetValuesWithFactor({factor = 1}: {factor?: number}): TWJSON<StatusReponse> {
         return {
             pressure: factor * this.pressure,
             humidity: factor * this.humidity
