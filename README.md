@@ -25,7 +25,7 @@ There are many advantages to this, and here are some of them:
 
 The following software is required:
 
-* [NodeJS](https://nodejs.org/en/): needs to be installed and added to the `PATH`. You should use the LTS version.
+* [NodeJS](https://nodejs.org/en/): needs to be installed and added to the `PATH`. You should use the LTS version (v14+).
 * [gulp command line utility](https://gulpjs.com/docs/en/getting-started/quick-start): is needed to run the build script.
 
 The following software is recommended:
@@ -59,7 +59,7 @@ ThingworxVSCodeProject
 │   metadata.xml      // thingworx metadata file for this widget. This is automatically updated based on your package.json and build settings
 │   LICENSE           // license file
 │   gulpfile.js       // build script
-└───src               // main folder where your developement will take place
+└───src               // main folder where your development will take place
 │   │   file1.ts            // thingworx entity file
 |   |   ...
 └───static            // supporting files required for compilation. Don't change these.
@@ -78,7 +78,7 @@ Any TypeScript file you add to the `src` folder will be compiled into a Thingwor
     - Interface definitions
     - Enums, but only if they are declared `const` since these are erased at runtime
     - Comments
- - Property, method argument and return types must only be Thingworx base types. You can only use TypeScript standard types such as `string`, `number` and others in method bodies
+ - Property, method argument and return types can use either Thingworx base types or TypeScript standard types such as `string`, `number`. 
  - Imports and modules are ignored; these will lead to runtime errors if used
 
 
