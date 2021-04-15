@@ -1,3 +1,9 @@
+# 15 Apr 2021
+
+Improved documentation and example.
+
+Declarations are now also generated prior to building.
+
 # 8 Apr 2021
 
 Fixed an import error when importing entities with async services.
