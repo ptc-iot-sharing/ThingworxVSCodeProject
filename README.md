@@ -146,9 +146,11 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 
 [thomas-thomas-tfs](https://github.com/thomas-thomas-tfs) - deployment using app keys.
 
+[carlo-quinonez](https://github.com/carlo-quinonez) - bug fixes and documentation improvements
+
 # Disclaimer
 
-The Thingworx VSCode Project is not an official Thingworx product. It is something developed to improve the life of a Thingworx developer and he needs to understand that it is not supported and any issues encountered are his own responsability.
+The Thingworx VSCode Project is not an official Thingworx product. It is something developed to improve the life of a Thingworx developer and they need to understand that it is not supported and any issues encountered are their own responsibility.
 
 # License
 
