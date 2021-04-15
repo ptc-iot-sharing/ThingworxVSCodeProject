@@ -243,9 +243,9 @@ ${httpResponse.body}`);
     })
 }
 
-exports.build = series(clean, build, zip);
-exports.upload = series(incrementVersion, clean, build, zip, upload);
-exports.removeAndUpload = series(clean, build, zip, removeExtension, upload);
+exports.build = series(buildDeclarations, clean, build, zip);
+exports.upload = series(buildDeclarations, incrementVersion, clean, build, zip, upload);
+exports.removeAndUpload = series(buildDeclarations, clean, build, zip, removeExtension, upload);
 exports.remove =series(removeExtension);
 exports.default = series(gen);
 
