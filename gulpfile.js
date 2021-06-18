@@ -81,12 +81,12 @@ async function build(cb) {
     twConfig.store = {};
 
     const project = ts.createProject('./tsconfig.json', {
-        getCustomTransformers: () => ({
+        getCustomTransformers: (program) => ({
             before: [
-                transformer.TWThingTransformerFactory(__dirname, false, false, twConfig)
+                transformer.TWThingTransformerFactory(program, __dirname, false, false, twConfig)
             ],
             after: [
-                transformer.TWThingTransformerFactory(__dirname, true, false, twConfig)
+                transformer.TWThingTransformerFactory(program, __dirname, true, false, twConfig)
             ]
         })
     });
@@ -145,9 +145,9 @@ async function buildDeclarations() {
     twConfig.store = {};
 
     const project = ts.createProject('./tsconfig.json', {
-        getCustomTransformers: () => ({
+        getCustomTransformers: (program) => ({
             before: [
-                transformer.TWThingTransformerFactory(__dirname, false, true, twConfig)
+                transformer.TWThingTransformerFactory(program, __dirname, false, true, twConfig)
             ]
         })
     });
@@ -261,6 +261,7 @@ ${httpResponse.body}`);
     })
 }
 
+exports.buildDeclarations = series(buildDeclarations);
 exports.build = series(buildDeclarations, clean, build, zip);
 exports.upload = series(buildDeclarations, incrementVersion, clean, build, zip, upload);
 exports.removeAndUpload = series(buildDeclarations, clean, build, zip, removeExtension, upload);
