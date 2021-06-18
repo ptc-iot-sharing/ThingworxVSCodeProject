@@ -4,6 +4,8 @@ Cleaned up `.DS_Store` files from the repo and placeholder values from the `meta
 
 Add support for specifying connection details in an `.env` file that can be excluded from git. If present, this file will have priority over the connection details specified in `package.json`.
 
+Add support for specifying the types of a service's arguments using an interface instead of a type literal.
+
 # 15 Apr 2021
 
 Improved documentation and example.
