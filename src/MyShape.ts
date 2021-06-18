@@ -56,6 +56,16 @@ class ExampleThingShape extends ThingShapeBase {
     }
 
     /**
+     * In addition to specifying the types of each parameter as a literal type, interfaces may also be used.
+     * @param pressure  The pressure.
+     * @param humidity  The humidity.
+     * @returns         A copy of the input parameters.
+     */
+    GetStatusResponse({pressure, humidity}: StatusResponse): TWJSON<StatusResponse> {
+        return {pressure, humidity};
+    }
+
+    /**
      * With TypeScript, it is possible to user certain newer javascript features through transpilation.
      */
     PrintValuesWithFactor({factor = 1}: {factor?: NUMBER}): NOTHING {
