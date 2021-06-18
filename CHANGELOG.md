@@ -1,3 +1,9 @@
+# 18 Jun 2021
+
+Cleaned up `.DS_Store` files from the repo and placeholder values from the `metadata.xml` file.
+
+Add support for specifying connection details in an `.env` file that can be excluded from git. If present, this file will have priority over the connection details specified in `package.json`.
+
 # 15 Apr 2021
 
 Improved documentation and example.
