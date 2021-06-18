@@ -21,6 +21,28 @@ const zipName = `${package.packageName}-${package.version}.zip`;
 // @ts-ignore
 const twConfig = require('./twconfig.json');
 
+require('dotenv').config();
+
+const thingworxConnectionDetails = (() => {
+    if (!process.env.THINGWORX_SERVER) {
+        console.error('The thingworx server is not defined in your environment, defaulting to loading from package.json');
+        return ({
+            thingworxServer: package.thingworxServer,
+            thingworxUser: package.thingworxUser,
+            thingworxPassword: package.thingworxPassword,
+            thingworxAppKey: package.thingworxAppKey
+        });
+    }
+    else {
+        return ({
+            thingworxServer: process.env.THINGWORX_SERVER,
+            thingworxUser: process.env.THINGWORX_USER,
+            thingworxPassword: process.env.THINGWORX_PASSWORD,
+            thingworxAppKey: process.env.THINGWORX_APPKEY
+        });
+    }
+})();
+
 async function incrementVersion() {
     const version = package.version.split('-');
     const versionComponents = version[0].split('.');
@@ -42,11 +64,11 @@ async function incrementVersion() {
  * @param {request.Request} request 
  */
 function authorizeRequest(request) {
-    if (package.thingworxAppKey) {
-        request.setHeader('appKey', package.thingworxAppKey);
+    if (thingworxConnectionDetails.thingworxAppKey) {
+        request.setHeader('appKey', thingworxConnectionDetails.thingworxAppKey);
     }
     else {
-        request.auth(package.thingworxUser, package.thingworxPassword);
+        request.auth(thingworxConnectionDetails.thingworxUser, thingworxConnectionDetails.thingworxPassword);
     }
 }
 
@@ -195,13 +217,9 @@ async function removeExtension() {
 }
 
 async function upload() {
-    const host = package.thingworxServer;
-  
-    const appKey = package.thingworxAppKey;
-    const user = package.thingworxUser;
-    const password = package.thingworxPassword;
+    const host = thingworxConnectionDetails.thingworxServer;
 
-    console.log(`Uploading to ${package.thingworxServer}...`);
+    console.log(`Uploading to ${thingworxConnectionDetails.thingworxServer}...`);
 
     return new Promise((resolve, reject) => {
         // load the file from the zip folder
@@ -269,7 +287,7 @@ async function getEntity(name, kind, slice) {
     // Skip if already installed
     if (installedEntities[kind] && installedEntities[kind][name]) return;
 
-    const host = package.thingworxServer;
+    const host = thingworxConnectionDetails.thingworxServer;
 
     installProgress.entity = `${kind}/${name}`;
 
@@ -349,7 +367,7 @@ async function getEntity(name, kind, slice) {
 
 
 async function getEntityDependencies(name, kind) {
-    const host = package.thingworxServer;
+    const host = thingworxConnectionDetails.thingworxServer;
 
     return await new Promise((resolve, reject) => {
         const twRequest = request.post(
@@ -739,7 +757,7 @@ function importEntityDeclaration(name, kind, description, genericArgument) {
 }
 
 async function getProjectEntities(name) {
-    const host = package.thingworxServer;
+    const host = thingworxConnectionDetails.thingworxServer;
    
     
 
@@ -803,7 +821,7 @@ async function getExtension(name, slice) {
 
     installProgress.entity = `Extensions/${name}/@types`;
 
-    const host = package.thingworxServer;
+    const host = thingworxConnectionDetails.thingworxServer;
 
     // Try first to get the type definitions, if they exist
     // TODO: This will always return 404 as it looks like only widget files are accessible in Common/extensions
@@ -921,7 +939,7 @@ async function install() {
 
 
     console.log('');
-    console.log(`Downloading TWX dependencies from ${package.thingworxServer}...`);
+    console.log(`Downloading TWX dependencies from ${thingworxConnectionDetails.thingworxServer}...`);
 
     const cliProgrss = require('cli-progress');
     const bar = new cliProgrss.SingleBar({hideCursor: true, format: '{bar} | {percentage}% | {entity}'}, cliProgrss.Presets.shades_classic);
