@@ -3,3 +3,5 @@ node_modules
 static/gen
 zip
 tw_imports
+.DS_Store
+.env
