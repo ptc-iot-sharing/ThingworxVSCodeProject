@@ -337,6 +337,17 @@ THINGCODE;
 
 // #endregion
 
+declare type UserExtensionLiteral = Partial<Omit<UserExtensions, keyof ThingShapeBase>>;
+
+declare type GroupLiteral = (UserEntity | GroupEntity)[];
+
+/**
+ * A base class that can be extended to specify a list of users.
+ */
+declare class UserList {
+    [key: string]: UserExtensionLiteral | GroupLiteral;
+}
+
 declare function ThingTemplate<T extends new(...args: {}[]) => GenericThing>(object: T): void;
 
 interface Constructor<T = {}> {
