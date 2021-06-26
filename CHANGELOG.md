@@ -1,3 +1,9 @@
+# 26 Jun 2021
+
+Added support for the `@allow`, `@allowInstance`, `@deny` and `@denyInstance` decorators which can be used to specify permissions at the entity or property, service or event levels.
+
+Added support for creating users and groups via a new `UserList` class.
+
 # 18 Jun 2021
 
 Cleaned up `.DS_Store` files from the repo and placeholder values from the `metadata.xml` file.
