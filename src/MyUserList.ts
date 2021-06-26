@@ -22,6 +22,6 @@ class MyUserList extends UserList {
      * 
      * If the group should be empty, the default value should be an empty array.
      */
-    ExampleGroup = [Users.System]
+    ExampleGroup = [Users.System, Users.JohnDoe]
 
 }
