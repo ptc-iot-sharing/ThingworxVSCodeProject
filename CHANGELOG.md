@@ -1,8 +1,16 @@
-# 26 Jun 2021
+# 28 Jun 2021
 
 Added support for the `@allow`, `@allowInstance`, `@deny` and `@denyInstance` decorators which can be used to specify permissions at the entity or property, service or event levels.
 
+Added support for the `@visible` and `@visibleInstance` decorators which can be used to specify visibility permissions for entities.
+
 Added support for creating users and groups via a new `UserList` class.
+
+Added support for creating organizations via the new `OrganizationBase` class.
+
+Added support for using environment variables in service code or for default values. Like const enums, these are inlined at compile time. Note that these are based on the environment variables of the system used to build the application and not the target thingworx server.
+
+Added two new `deploy` and `removeAndDeploy` tasks. Added a new `@deploy` decorator that can be added to thing services. When using either of those two tasks, after a successful installation, the services marked with that decorator will be invoked.
 
 # 18 Jun 2021
 
