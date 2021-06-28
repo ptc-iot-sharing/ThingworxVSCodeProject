@@ -1,5 +1,6 @@
 declare const _isThingShape: unique symbol;
 declare const _isDataShape: unique symbol;
+declare const _isOrganization: unique symbol;
 
 declare class ThingShapeBase extends GenericThing {
     private [_isThingShape]: true;
@@ -8,6 +9,38 @@ declare class ThingShapeBase extends GenericThing {
 declare class DataShapeBase {
     private [_isDataShape]: true;
 }
+
+declare class OrganizationBase {
+    private [_isOrganization]: true;
+
+    units: OrganizationUnit;
+}
+
+declare interface OrganizationUnit {
+
+    /**
+     * The organization unit's name.
+     */
+    name: string;
+
+    /**
+     * The members that are part of the organization unit.
+     */
+    members?: (UserEntity | GroupEntity)[];
+
+    /**
+     * Organization units contained by this organization.
+     */
+    units?: OrganizationUnit[];
+}
+
+/**
+ * A utility function that can be used to specify a type checked organization unit in a `@visible` or `@visibleInstance` decorator.
+ * You should not invoke this function at runtime.
+ * @param org       The organization to which the unit belongs.
+ * @param unit      The name of the organization unit.
+ */
+declare function Unit<T extends OrganizationEntity>(org: T, unit: T['__units']): OrganizationEntity;
 
 declare interface FieldDefinitionCore {
     name: string;
