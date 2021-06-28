@@ -240,16 +240,16 @@ async function upload() {
                 },
                 function (err, httpResponse, body) {
                     if (err) {
-                        console.error("Failed to upload widget to thingworx");
+                        console.error("Failed to upload project to thingworx");
                         reject(err);
                         return;
                     }
                     if (httpResponse.statusCode != 200) {
-                        reject(`Failed to upload widget to thingworx. We got status code ${httpResponse.statusCode} (${httpResponse.statusMessage})
+                        reject(`Failed to upload project to thingworx. We got status code ${httpResponse.statusCode} (${httpResponse.statusMessage})
 body:
 ${httpResponse.body}`);
                     } else {
-                        console.log(`Uploaded widget version ${package.version} to Thingworx!`);
+                        console.log(`Uploaded project version ${package.version} to Thingworx!`);
                         console.log(body);
                         resolve();
                     }
