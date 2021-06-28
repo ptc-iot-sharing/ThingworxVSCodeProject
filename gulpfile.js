@@ -193,15 +193,15 @@ async function removeExtension() {
         },
         function (err, httpResponse, body) {
             if (err) {
-                console.error("Failed to delete widget from thingworx");
+                console.error("Failed to delete project from thingworx");
                 // Failing to remove the previous version shouldn't stop the upload process; this can happen, for example, during
-                // the first upload when the widget when no previous version exists
+                // the first upload when the project when no previous version exists
                 resolve();
                 return;
             }
 
             if (httpResponse.statusCode != 200) {
-                console.log(`Failed to delete widget from thingworx. We got status code ${httpResponse.statusCode} (${httpResponse.statusMessage})
+                console.log(`Failed to delete project from thingworx. We got status code ${httpResponse.statusCode} (${httpResponse.statusMessage})
                 body:
                 ${httpResponse.body}`);
             } 
@@ -261,10 +261,62 @@ ${httpResponse.body}`);
     })
 }
 
+async function deploy() {
+    // Discover any deployment endpoints and invoke them one by one
+    let deploymentEndpoints = [];
+
+    // @ts-ignore
+    for (const key in twConfig.store) {
+        if (key == '@globalBlocks') continue;
+        // @ts-ignore
+        const entity = twConfig.store[key];
+        
+        if (entity.deploymentEndpoints?.length) {
+            deploymentEndpoints = deploymentEndpoints.concat(entity.deploymentEndpoints);
+        }
+    }
+
+    const host = thingworxConnectionDetails.thingworxServer;
+
+    for (const endpoint of deploymentEndpoints) {
+        await new Promise((resolve, reject) => {
+            console.log(`Running deployment script "${endpoint}...`);
+            const twRequest = request.post(
+                {
+                    url: `${host}/Thingworx/${endpoint}`,
+                    headers: {
+                        'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE',
+                        'Accept':'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                },
+                function (err, httpResponse, body) {
+                    if (err) {
+                        console.error(`Deployment script "${endpoint}" failed:`);
+                        reject(err);
+                        return;
+                    }
+                    if (httpResponse.statusCode != 200) {
+                        reject(`Deployment script "${endpoint}" failed with status code ${httpResponse.statusCode} (${httpResponse.statusMessage})
+    body:
+    ${httpResponse.body}`);
+                    } else {
+                        resolve();
+                    }
+                }
+            );
+
+            authorizeRequest(twRequest);
+        });
+    }
+}
+
 exports.buildDeclarations = series(buildDeclarations);
 exports.build = series(buildDeclarations, clean, build, zip);
 exports.upload = series(buildDeclarations, incrementVersion, clean, build, zip, upload);
+exports.deploy = series(buildDeclarations, incrementVersion, clean, build, zip, upload, deploy);
 exports.removeAndUpload = series(buildDeclarations, clean, build, zip, removeExtension, upload);
+exports.removeAndDeploy = series(buildDeclarations, clean, build, zip, removeExtension, upload, deploy);
 exports.remove =series(removeExtension);
 exports.default = series(gen);
 
