@@ -165,6 +165,11 @@ declare function final<T extends GenericThing>(target: T, key: string, descripto
  */
 declare function override<T extends GenericThing>(target: T, key: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => any>): void;
 
+/**
+ * When applied to service on a thing, this service will be invoked after installation when using the `deploy` gulp task.
+ */
+declare function deploy<T extends GenericThing>(target: T, key: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => any>): void;
+
 declare interface _remoteServiceArgsLiteral {
     /**
      * Enables queueing for this remote service.
