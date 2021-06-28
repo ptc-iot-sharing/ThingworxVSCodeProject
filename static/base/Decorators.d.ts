@@ -313,3 +313,9 @@ declare function allowInstance(...args: (UserEntity | GroupEntity | Permission)[
  * @param args      A comma separated list of organizations.
  */
  declare function visible(...args: (OrganizationEntity)[]): <T extends new (...args) => unknown>(target: T) => void;
+
+ /**
+  * A decorator that can be used to make an entity visible for a set of given organizations.
+  * @param args      A comma separated list of organizations.
+  */
+  declare function visibleInstance(...args: (OrganizationEntity)[]): <T extends new (...args) => unknown>(target: T) => void;
