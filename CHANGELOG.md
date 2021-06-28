@@ -1,3 +1,7 @@
+# 28 Jun 2021
+
+Updates the transformer version which resolves a critical issue resulting from the upgrade to Typescript 4 that caused replacement to fail for references to `this` or constant values in service code.
+
 # 18 Jun 2021
 
 Cleaned up `.DS_Store` files from the repo and placeholder values from the `metadata.xml` file.

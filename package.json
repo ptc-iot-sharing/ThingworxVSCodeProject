@@ -33,7 +33,7 @@
 	"devDependencies": {
 		"@types/node": "^8.10.11",
 		"babel-plugin-remove-import-export": "^1.1.0",
-		"bm-thing-transformer": "^0.12.1-beta.1",
+		"bm-thing-transformer": "^0.11.3-beta.1",
 		"cli-progress": "^3.6.1",
 		"del": "^5.0.0",
 		"delete-empty": "^3.0.0",
