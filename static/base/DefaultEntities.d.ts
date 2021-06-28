@@ -9002,7 +9002,13 @@ declare class LocalizationTableEntity extends RootEntity {
 
 
 
-declare class OrganizationEntity extends RootEntity {
+declare class OrganizationEntity<T extends string = string> extends RootEntity {
+
+	/**
+	 * A field that is used to provide compile time information about the units that are available in this
+	 * organization entity. You should not access this value at runtime.
+	 */
+	__units: T;
 
 	/**
 	 * Get the outgoing dependencies as a network
