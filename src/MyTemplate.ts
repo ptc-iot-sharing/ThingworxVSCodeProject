@@ -24,7 +24,8 @@
 // These decorators can be used to change the permissions for the ThingTemplate itself
 @allow(Permission.PropertyRead, Users.Administrator)
 // This decorator can be used to add visibility for organizations
-@visible(Organizations.Development, Organizations.Composer)
+@visible(Organizations.Development, Unit(Organizations.MyOrganization, 'MyUnit'))
+@visibleInstance(Unit(Organizations.MyOrganization, 'MyUnit2'))
 @ThingTemplateDefinition class ExampleThingTemplate extends GenericThing {
 
     /**
