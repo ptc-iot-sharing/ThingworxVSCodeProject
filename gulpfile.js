@@ -389,6 +389,9 @@ async function getEntity(name, kind, slice) {
                             case 'Resources':
                                 importResource(body);
                                 break;
+                            case 'Organizations':
+                                importEntityDeclaration(name, kind, body.description, Object.keys(body.organizationalUnits).map(o => JSON.stringify(o)).join(' | '));
+                                break;
                             default:
                                 importEntityDeclaration(name, kind, body.description);
                         }
