@@ -165,6 +165,11 @@ declare function final<T extends GenericThing>(target: T, key: string, descripto
  */
 declare function override<T extends GenericThing>(target: T, key: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => any>): void;
 
+/**
+ * When applied to service on a thing, this service will be invoked after installation when using the `deploy` gulp task.
+ */
+declare function deploy<T extends GenericThing>(target: T, key: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => any>): void;
+
 declare interface _remoteServiceArgsLiteral {
     /**
      * Enables queueing for this remote service.
@@ -230,3 +235,87 @@ declare function localSubscription(event: string): <T extends GenericThing, P ex
  */
 declare function localSubscription(event: 'DataChange', property: string): <T extends GenericThing, P extends Function>(target: T, key: string, descriptor: TypedPropertyDescriptor<P>) => void;
 
+/**
+ * An enum that contains the available runtime permission kinds.
+ */
+declare enum Permission {
+
+    /**
+     * A permission that allows users to read property values at runtime.
+     */
+    PropertyRead,
+
+    /**
+     * A permission that allows users to write property values at runtime.
+     */
+    PropertyWrite,
+
+    /**
+     * A permission that allows users to invoke services at runtime.
+     */
+    ServiceInvoke,
+
+    /**
+     * A permission that allows users to trigger events at runtime.
+     */
+    EventInvoke,
+
+    /**
+     * A permission that allows users to listen for events at runtime.
+     */
+    EventSubscribe
+}
+
+/**
+ * A decorator that can be used to deny specific permissions on an entity or entity member for a list of users or user groups
+ * that is applied to a built-in method, property or event.
+ * @param name      The name of the member to which the permission applies.
+ * @param args      A comma separated list of users, user groups and permissions, in any order.
+ */
+declare function deny<T extends new (...args) => unknown>(name: string, ...args: (UserEntity | GroupEntity | Permission)[]): (target: T) => void;
+
+/**
+ * A decorator that can be used to deny specific permissions on an entity or entity member for a list of users or user groups
+ * that is applied to a built-in method, property or event.
+ * @param name      The name of the member to which the permission applies.
+ * @param args      A comma separated list of users, user groups and permissions, in any order.
+ */
+declare function allow<T extends new (...args) => unknown>(name: string, ...args: (UserEntity | GroupEntity | Permission)[]): (target: T) => void;
+ 
+
+/**
+ * A decorator that can be used to deny specific permissions on an entity or entity member for a list of users or user groups.
+ * @param args      A comma separated list of users, user groups and permissions, in any order.
+ */
+declare function deny(...args: (UserEntity | GroupEntity | Permission)[]): <T extends {}>(target: T, key?: string, descriptor?: PropertyDescriptor) => void;
+
+/**
+ * A decorator that can be used to allow specific permissions on an entity or entity member for a list of users or user groups.
+ * @param args      A comma separated list of users, user groups and permissions, in any order.
+ */
+declare function allow(...args: (UserEntity | GroupEntity | Permission)[]): <T extends {}>(target: T, key?: string, descriptor?: PropertyDescriptor) => void;
+
+
+/**
+ * A decorator that can be used to deny specific permissions on an instance of an entity.
+ * @param args      A comma separated list of users, user groups and permissions, in any order.
+ */
+declare function denyInstance(...args: (UserEntity | GroupEntity | Permission)[]): <T extends new (...args) => unknown>(target: T) => void;
+
+/**
+ * A decorator that can be used to allow specific permissions on an instance of an entity.
+ * @param args      A comma separated list of users, user groups and permissions, in any order.
+ */
+declare function allowInstance(...args: (UserEntity | GroupEntity | Permission)[]): <T extends new (...args) => unknown>(target: T) => void;
+
+/**
+ * A decorator that can be used to make an entity visible for a set of given organizations.
+ * @param args      A comma separated list of organizations.
+ */
+ declare function visible(...args: (OrganizationEntity)[]): <T extends new (...args) => unknown>(target: T) => void;
+
+ /**
+  * A decorator that can be used to make an entity visible for a set of given organizations.
+  * @param args      A comma separated list of organizations.
+  */
+  declare function visibleInstance(...args: (OrganizationEntity)[]): <T extends new (...args) => unknown>(target: T) => void;

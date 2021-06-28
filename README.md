@@ -84,7 +84,7 @@ Any TypeScript file you add to the `src` folder will be compiled into a Thingwor
 
 ## Current Limitations
 
- - Only Things, ThingTemplates, ThingShapes and DataShapes are supported currently. For other types of entities you will still need to use the composer.
+ - Only Things, ThingTemplates, ThingShapes, DataShapes, Users, Groups and Organizations are supported currently. For other types of entities you will still need to use the composer.
  - <strike>Description currently cannot be specified. In the future, JSDoc comments will be used for this purpose.</strike> (1 Apr 2020)
  - Non-javascript services such as SQL or Flow services are not supported.
  - <strike>Projects and </strike>tags cannot be specified currently. </strike>Note that your project will however be packaged as an extension that can be easily installed, updated and removed.</strike> (27 Jul 2020)
@@ -104,6 +104,14 @@ To build the extension and upload it to Thingworx, run `gulp upload` in the root
 Deployment to Thingworx is part of the build process as explained above. Alternatively, you can manually install the extension that is generated in the zip folder in the root of the project.
 
 # Recent Changes
+
+## 28 Jun 2021
+
+- Support for using an `.env` file for thingworx connection details and other variables.
+- Support for inlining environment variables.
+- Support for specifying runtime and visibility permissions.
+- Support for creating users, groups and organizations.
+- Support for automatically invoking certain services after installation.
 
 ## 8 Mar 2021
 

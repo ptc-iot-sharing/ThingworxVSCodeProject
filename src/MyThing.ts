@@ -162,4 +162,16 @@ const enum Status {
      */
     @remoteEvent('remoteEvent') remoteEvent!: EVENT<GenericStringList>;
 
+    /**
+     * Services can be marked with the `@deploy` decorator. These services are invoked by the build script after installation
+     * when using the `deploy` task.
+     */
+    @deploy init(): void {
+        this.cardType = Cards.Diamonds;
+
+        // In addition to using const enums, any environment variables referenced will also be replaced by their values by the transformer
+        logger.debug(`Deployment finished on ${process.env.THINGWORX_SERVER}`);
+        logger.debug(`The value of my custom variable is ${process.env.MY_CUSTOM_VARIABLE}`);
+    }
+
 }
