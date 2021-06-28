@@ -12,6 +12,8 @@ Added support for using environment variables in service code or for default val
 
 Added two new `deploy` and `removeAndDeploy` tasks. Added a new `@deploy` decorator that can be added to thing services. When using either of those two tasks, after a successful installation, the services marked with that decorator will be invoked.
 
+Updates the transformer version which resolves a critical issue resulting from the upgrade to Typescript 4 that caused replacement to fail for references to `this` or constant values in service code.
+
 # 18 Jun 2021
 
 Cleaned up `.DS_Store` files from the repo and placeholder values from the `metadata.xml` file.
