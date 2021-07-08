@@ -154,6 +154,8 @@ declare class ValueCollectionList<T = any> {
     getFirstRow(): ValueCollection<T> | undefined;
     getRow(index: number): ValueCollection<T> | undefined;
 
+    toArray(): T[];
+
     // TODO: Maybe add base ArrayList<T> methods?
 }
 
