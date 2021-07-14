@@ -103,6 +103,54 @@ async function build(cb) {
         entity.write();
     }
 
+    // If project entity generation is enabled, create the project entity
+    if (twConfig.generateProjectEntity) {
+        const builder = new xml2js.Builder();
+        const dependencies = {extensions: '', projects: ''};
+
+        if (twConfig.includeProjectDependencies) {
+            dependencies.extensions = (twConfig.extensionDependencies || []).join(',');
+            dependencies.projects = (twConfig.projectDependencies || []).join(',');
+        }
+
+        const projectEntity = {
+            Entities: {
+                Projects: [
+                    {
+                        Project: [
+                            {
+                                $: {
+                                    artifactId: "",
+                                    "aspect.projectType": "Component",
+                                    dependsOn: JSON.stringify(dependencies),
+                                    description: "",
+                                    documentationContent: "",
+                                    groupId: "",
+                                    homeMashup: "",
+                                    minPlatformVersion: "",
+                                    name: twConfig.projectName,
+                                    packageVersion: "1.0.0",
+                                    projectName: twConfig.projectName,
+                                    publishResult: "",
+                                    state: "DRAFT",
+                                    tags: "",
+                                },
+                            },
+                        ],
+                    },
+                ],
+            },
+        };
+
+        const projectXML = builder.buildObject(projectEntity);
+        
+        if (!fs.existsSync(`build`)) fs.mkdirSync(`build`);
+        if (!fs.existsSync(`build/Entities`)) fs.mkdirSync(`build/Entities`);
+        if (!fs.existsSync(`build/Entities/Projects`)) fs.mkdirSync(`build/Entities/Projects`);
+
+        fs.writeFileSync('build/Entities/Projects/Project.xml', projectXML);
+    }
+
     // Copy and update the metadata file
     const metadataFile = await new Promise(resolve => fs.readFile('./metadata.xml', 'utf8', (err, data) => resolve(data)));
     const metadataXML = await new Promise(resolve => xml2js.parseString(metadataFile, (err, result) => resolve(result)));
@@ -317,7 +365,7 @@ exports.upload = series(buildDeclarations, incrementVersion, clean, build, zip, 
 exports.deploy = series(buildDeclarations, incrementVersion, clean, build, zip, upload, deploy);
 exports.removeAndUpload = series(buildDeclarations, clean, build, zip, removeExtension, upload);
 exports.removeAndDeploy = series(buildDeclarations, clean, build, zip, removeExtension, upload, deploy);
-exports.remove =series(removeExtension);
+exports.remove = series(removeExtension);
 exports.default = series(gen);
 
 
@@ -871,6 +919,11 @@ async function getProjectEntities(name) {
 }
 
 async function getExtension(name, slice) {
+    // Extensions may optionally have a version number attached to them, remove that before processing
+    if (name.indexOf(':')) {
+        name = name.substring(0, name.indexOf(':'))
+    }
+
     if (installedEntities.Extensions && installedEntities.Extensions[name]) {
         return installProgress.progress += slice;
     }
