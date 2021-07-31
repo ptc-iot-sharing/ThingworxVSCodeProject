@@ -170,6 +170,12 @@ declare function override<T extends GenericThing>(target: T, key: string, descri
  */
 declare function deploy<T extends GenericThing>(target: T, key: string, descriptor: TypedPropertyDescriptor<(...args: any[]) => any>): void;
 
+/**
+ * When applied to an entity, this causes a configuration table to be emitted for it.
+ * @param config        A map of configuration tables.
+ */
+declare function config(config: Record<string, any>): (target: new (...args) => any) => void;
+
 declare interface _remoteServiceArgsLiteral {
     /**
      * Enables queueing for this remote service.
