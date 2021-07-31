@@ -393,6 +393,11 @@ type Statics<T> = {
     [P in keyof T]: T[P];
 }
 
+declare function DataThing<D extends DataShapeBase>(type: Constructor<Stream<DataShapeBase>>, shape: Constructor<D>): Constructor<Stream<D>>;
+declare function DataThing<D extends DataShapeBase>(type: Constructor<RemoteStream<DataShapeBase>>, shape: Constructor<D>): Constructor<RemoteStream<D>>;
+declare function DataThing<D extends DataShapeBase>(type: Constructor<DataTable<DataShapeBase>>, shape: Constructor<D>): Constructor<DataTable<D>>;
+declare function DataThing<D extends DataShapeBase>(type: Constructor<RemoteDataTable<DataShapeBase>>, shape: Constructor<D>): Constructor<RemoteDataTable<D>>;
+
 /**
  * Allows referencing thing templates with non-standard names in extends clauses.
  * @param name  The name of the ThingTemplate
@@ -434,7 +439,7 @@ declare function ThingTemplateWithShapes<
     (T8 extends Constructor<ThingShapeBase> ? Statics<T8> : {}) &
     (T9 extends Constructor<ThingShapeBase> ? Statics<T9> : {}) &
     (T10 extends Constructor<ThingShapeBase> ? Statics<T10> : {}) &
-    (new (...args: T1 extends Constructor<GenericThing> ? ConstructorParameters<T1> : never[]) =>
+    (new (...args: T1 extends Constructor<GenericThing> ? ConstructorParameters<T1> : never[]) => (
         (T1 extends Constructor<GenericThing> ? InstanceType<T1> : T1) &
         (T2 extends Constructor<ThingShapeBase> ? InstanceType<T2> : T2) &
         (T3 extends Constructor<ThingShapeBase> ? InstanceType<T3> : T3) &
@@ -445,7 +450,7 @@ declare function ThingTemplateWithShapes<
         (T8 extends Constructor<ThingShapeBase> ? InstanceType<T8> : T8) &
         (T9 extends Constructor<ThingShapeBase> ? InstanceType<T9> : T9) &
         (T10 extends Constructor<ThingShapeBase> ? InstanceType<T10> : T10)
-    );
+    ));
 
 type ThingTemplateInstance<T extends keyof ThingTemplates> = ThingTemplates[T]["__thingTemplateType"];
 type ThingShapeInstance<T extends keyof ThingShapes> = ThingShapes[T]["__thingShapeType"];
