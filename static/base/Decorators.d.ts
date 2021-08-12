@@ -77,6 +77,16 @@ declare function persistent<T extends GenericThing, P>(target: T, key: string, d
 declare function logged<T extends GenericThing, P>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P extends Function ? never : P>): void;
 
 /**
+ * When applied to a property or data shape field, this sets the property's minimum value aspect.
+ */
+ declare function minimumValue(minimumValue: number): <T extends GenericThing | DataShapeBase, P>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P extends Function ? never : P>) => void;
+
+ /**
+  * When applied to a property or data shape field, this sets the property's maximum value aspect.
+  */
+ declare function maximumValue(maximumValue: number): <T extends GenericThing | DataShapeBase, P>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P extends Function ? never : P>) => void;
+ 
+/**
  * When applied to a data shape field, this makes the property a primary key.
  */
 declare function primaryKey<T extends DataShapeBase, P>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P extends Function ? never : P>): void;
