@@ -150,11 +150,13 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 
 [Petrisor Lacatus](https://github.com/stefan-lacatus) - had the original idea of using `tsc` to create Thingworx entities. This uses some definitions and ideas from [MonacoEditorTWX](https://github.com/ptc-iot-sharing/MonacoEditorTWX).
 
-[Bogdan Mihaiciuc](https://github.com/BogdanMihaiciuc) - developer.
+[Bogdan Mihaiciuc](https://github.com/BogdanMihaiciuc) - main developer.
 
 [thomas-thomas-tfs](https://github.com/thomas-thomas-tfs) - deployment using app keys.
 
-[carlo-quinonez](https://github.com/carlo-quinonez) - bug fixes and documentation improvements
+[carlo-quinonez](https://github.com/carlo-quinonez) - bug fixes and documentation improvements.
+
+[dwil618](https://github.com/dwil618): support for min/max aspects and date initializers.
 
 # Disclaimer
 
