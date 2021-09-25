@@ -920,7 +920,7 @@ async function getProjectEntities(name) {
 
 async function getExtension(name, slice) {
     // Extensions may optionally have a version number attached to them, remove that before processing
-    if (name.indexOf(':')) {
+    if (name.indexOf(':') >= 0) {
         name = name.substring(0, name.indexOf(':'))
     }
 
