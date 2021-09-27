@@ -1854,11 +1854,12 @@ declare class EntityServices extends ResourceEntity {
 	 * Create a new network
 	 * @param name New network name
 	 * @param description New network description
+	 * @param projectName Name of the Project to add this entity to
 	 * @param connections Connections
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateNetwork(args?:{name?: STRING, description?: STRING, connections?: INFOTABLE<NetworkConnection>, tags?: TAGS}): NOTHING;
+	CreateNetwork(args?:{name?: STRING, description?: STRING, projectName?: PROJECTNAME, connections?: INFOTABLE<NetworkConnection>, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -1931,11 +1932,12 @@ declare class EntityServices extends ResourceEntity {
 	 * Create a new style definition
 	 * @param name New style definition name
 	 * @param description New style definition description
+	 * @param projectName Name of the Project to add this entity to
 	 * @param content Style definition content in JSON format: { "content": {} }
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateStyleDefinition(args?:{name?: STRING, description?: STRING, content?: JSON, tags?: TAGS}): NOTHING;
+	CreateStyleDefinition(args?:{name?: STRING, description?: STRING, projectName?: PROJECTNAME, content?: JSON, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Delete a style definition
@@ -1964,10 +1966,23 @@ declare class EntityServices extends ResourceEntity {
 	 * @param name New thing template name
 	 * @param description New thing template description
 	 * @param thingTemplateName Base thing template name
+	 * @param projectName Name of the Project to add this entity to
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateThingTemplate(args?:{name?: STRING, description?: STRING, thingTemplateName?: THINGTEMPLATENAME, tags?: TAGS}): NOTHING;
+	CreateThingTemplate(args?:{name?: STRING, description?: STRING, thingTemplateName?: THINGTEMPLATENAME, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
+
+	/**
+	 * Create a new thing template from a base template
+	 * @param name New thing template name
+	 * @param description New thing template description
+	 * @param ownerUserName The User Name to set as owner of this ThingTemplate
+	 * @param thingTemplateName Base thing template name
+	 * @param projectName Name of the Project to add this entity to
+	 * @param tags Tags
+	 * @return result
+	 */
+	CreateThingTemplateWithOwner(args?:{name?: STRING, description?: STRING, ownerUserName?: USERNAME, thingTemplateName?: THINGTEMPLATENAME, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Set run time permissions on a set of Things. This replaces all existing permissions for the Things.
@@ -2059,6 +2074,17 @@ declare class EntityServices extends ResourceEntity {
 	CloneThingTemplate(args?:{sourceThingTemplateName?: THINGTEMPLATENAME, name?: STRING, description?: STRING, tags?: TAGS}): NOTHING;
 
 	/**
+	 * Clone an existing thing template with a new name and ownerName.
+	 * @param sourceThingTemplateName Thing template name
+	 * @param name - New thing name
+	 * @param description - New thing description
+	 * @param tags - Tags
+	 * @param ownerUserName - the user name to set as owner of newly thing
+	 * @return result
+	 */
+	CloneThingTemplateWithOwner(args?:{sourceThingTemplateName?: THINGTEMPLATENAME, name?: STRING, description?: STRING, tags?: TAGS, ownerUserName?: USERNAME}): NOTHING;
+
+	/**
 	 * Updates a user
 	 * @param userOptions Update the user for the given user options. The userName in the UserOptions is required.
 	 * @return result
@@ -2070,10 +2096,11 @@ declare class EntityServices extends ResourceEntity {
 	 * @param dependsOn New extension description
 	 * @param name New project name
 	 * @param description New project description
+	 * @param type New project Type
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateProject(args?:{dependsOn?: STRING, name?: STRING, description?: STRING, tags?: TAGS}): NOTHING;
+	CreateProject(args?:{dependsOn?: STRING, name?: STRING, description?: STRING, type?: STRING, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Delete visibility on a set of entities for multiple Organizations/OrganizationalUnits
@@ -2161,6 +2188,17 @@ declare class EntityServices extends ResourceEntity {
 	CloneThing(args?:{name?: STRING, description?: STRING, sourceThingName?: THINGNAME, tags?: TAGS}): NOTHING;
 
 	/**
+	 * Clone thing and set owner if provided.
+	 * @param sourceThingName - Existing thing name
+	 * @param name - New thing name
+	 * @param description - New thing description
+	 * @param tags - Tags
+	 * @param ownerUserName - the user name to set as owner of newly thing
+	 * @return result
+	 */
+	CloneThingWithOwner(args?:{sourceThingName?: THINGNAME, name?: STRING, description?: STRING, tags?: TAGS, ownerUserName?: USERNAME}): NOTHING;
+
+	/**
 	 * Clone an existing thing shape with a new name
 	 * @param name New thing name
 	 * @param description New thing description
@@ -2169,6 +2207,17 @@ declare class EntityServices extends ResourceEntity {
 	 * @return result
 	 */
 	CloneThingShape(args?:{name?: STRING, description?: STRING, sourceThingShapeName?: THINGSHAPENAME, tags?: TAGS}): NOTHING;
+
+	/**
+	 * Clone an existing thing shape with a new name and set owner if provided.
+	 * @param sourceThingShapeName Existing thing shape name
+	 * @param name New thing name
+	 * @param description New thing description
+	 * @param tags Tags
+	 * @param ownerUserName the user name to set as owner of newly cloned thingShape
+	 * @return result
+	 */
+	CloneThingShapeWithOwner(args?:{sourceThingShapeName?: THINGSHAPENAME, name?: STRING, description?: STRING, tags?: TAGS, ownerUserName?: USERNAME}): NOTHING;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -2190,10 +2239,11 @@ declare class EntityServices extends ResourceEntity {
 	 * @param handlerID New notification content handler ID
 	 * @param name New notification content name
 	 * @param description New notification content description
+	 * @param projectName Name of the Project to add this entity to
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateNotificationContent(args?:{handlerEntity?: STRING, handlerID?: STRING, name?: STRING, description?: STRING, tags?: TAGS}): NOTHING;
+	CreateNotificationContent(args?:{handlerEntity?: STRING, handlerID?: STRING, name?: STRING, description?: STRING, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Delete an application key
@@ -2206,10 +2256,11 @@ declare class EntityServices extends ResourceEntity {
 	 * Create a new group
 	 * @param name New group name
 	 * @param description New group description
+	 * @param projectName Name of the Project to add this entity to
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateGroup(args?:{name?: STRING, description?: STRING, tags?: TAGS}): NOTHING;
+	CreateGroup(args?:{name?: STRING, description?: STRING, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Delete a model tag vocabulary
@@ -2223,10 +2274,11 @@ declare class EntityServices extends ResourceEntity {
 	 * @param password New user password
 	 * @param name New user name
 	 * @param description New user description
+	 * @param projectName Name of the Project to add this entity to
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateUser(args?:{password?: STRING, name?: STRING, description?: STRING, tags?: TAGS}): NOTHING;
+	CreateUser(args?:{password?: STRING, name?: STRING, description?: STRING, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Return list of locked users
@@ -2248,14 +2300,27 @@ declare class EntityServices extends ResourceEntity {
 	GetAvatarURL(args?:{}): IMAGELINK;
 
 	/**
+	 * Create a new thing and set owner if provided
+	 * @param name New thing name
+	 * @param description New thing description
+	 * @param ownerUserName The user name to set as owner of new thing
+	 * @param thingTemplateName Thing template name
+	 * @param projectName Name of the Project to add this entity to
+	 * @param tags Tags
+	 * @return result
+	 */
+	CreateThing(args?:{name?: STRING, description?: STRING, ownerUserName?: USERNAME, thingTemplateName?: THINGTEMPLATENAME, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
+
+	/**
 	 * Create a new thing
 	 * @param name New thing name
 	 * @param description New thing description
 	 * @param thingTemplateName Thing template name
+	 * @param projectName Name of the Project to add this entity to
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateThing(args?:{name?: STRING, description?: STRING, thingTemplateName?: THINGTEMPLATENAME, tags?: TAGS}): NOTHING;
+	CreateThingWithOwner(args?:{name?: STRING, description?: STRING, thingTemplateName?: THINGTEMPLATENAME, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Get the difference between this entity and another
@@ -2278,10 +2343,11 @@ declare class EntityServices extends ResourceEntity {
 	 * @param name New vocabulary name
 	 * @param description New vocabulary description
 	 * @param dynamic Make the vocabulary dynamic
+	 * @param projectName Name of the Project to add this entity to
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateDataTagVocabulary(args?:{name?: STRING, description?: STRING, dynamic?: BOOLEAN, tags?: TAGS}): NOTHING;
+	CreateDataTagVocabulary(args?:{name?: STRING, description?: STRING, dynamic?: BOOLEAN, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Check to see if a remote thing is bound
@@ -2306,12 +2372,13 @@ declare class EntityServices extends ResourceEntity {
 	 * @param name Application key name
 	 * @param description Application key description
 	 * @param whitelist IP whitelist
+	 * @param projectName Name of the Project to add this entity to
 	 * @param user Associated user name
 	 * @param tags Tags
 	 * @param expirationDate Expiration date
 	 * @return result
 	 */
-	CreateApplicationKey(args?:{clientName?: STRING, name?: STRING, description?: STRING, whitelist?: STRING, user?: USERNAME, tags?: TAGS, expirationDate?: DATETIME}): NOTHING;
+	CreateApplicationKey(args?:{clientName?: STRING, name?: STRING, description?: STRING, whitelist?: STRING, projectName?: PROJECTNAME, user?: USERNAME, tags?: TAGS, expirationDate?: DATETIME}): NOTHING;
 
 	/**
 	 * Get summary information
@@ -2347,10 +2414,11 @@ declare class EntityServices extends ResourceEntity {
 	 * @param name New notification definition name
 	 * @param description New notification definition description
 	 * @param notificationContents List of NotificationContents for the new notification definition
+	 * @param projectName Name of the Project to add this entity to
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateNotificationDefinition(args?:{name?: STRING, description?: STRING, notificationContents?: INFOTABLE<EntityReference>, tags?: TAGS}): NOTHING;
+	CreateNotificationDefinition(args?:{name?: STRING, description?: STRING, notificationContents?: INFOTABLE<EntityReference>, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Set visibility on a set of entities for multiple Organizations/OrganizationalUnits. This replaces all existing visibility for the Entities.
@@ -2397,6 +2465,16 @@ declare class EntityServices extends ResourceEntity {
 	 * @return Matching entries
 	 */
 	GetEntityList(args?:{maxItems?: NUMBER, nameMask?: STRING, type?: STRING, tags?: TAGS}): INFOTABLE<RootEntityList>;
+
+	/**
+	 * Retrieve a list of all model entities
+	 * @param maxItems Maximum number of items to return
+	 * @param nameMask Entity name pattern to match
+	 * @param type Entity Type (Thing, Mashup, User, etc)
+	 * @param tags Tags
+	 * @return Matching entries
+	 */
+	GetEntityListByRegEx(args?:{maxItems?: NUMBER, nameMask?: STRING, type?: STRING, tags?: TAGS}): INFOTABLE<RootEntityList>;
 
 	/**
 	 * Get the outgoing dependencies as a network
@@ -2595,11 +2673,12 @@ declare class EntityServices extends ResourceEntity {
 	 * @param topOUName Top level organizational unit in the Organization
 	 * @param name New organization name
 	 * @param description New organization description
+	 * @param projectName Name of the Project to add this entity to
 	 * @param topOUDescription Description for the top level organizational unit
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateOrganization(args?:{topOUName?: STRING, name?: STRING, description?: STRING, topOUDescription?: STRING, tags?: TAGS}): NOTHING;
+	CreateOrganization(args?:{topOUName?: STRING, name?: STRING, description?: STRING, projectName?: PROJECTNAME, topOUDescription?: STRING, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Set run time permissions for a resource on a set of entities. This replaces all existing permissions for the entities.
@@ -2666,11 +2745,12 @@ declare class EntityServices extends ResourceEntity {
 	 * Create a new media entity
 	 * @param name New media name
 	 * @param description New media description
+	 * @param projectName Name of the Project to add this entity to
 	 * @param content Media content
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateMediaEntity(args?:{name?: STRING, description?: STRING, content?: IMAGE, tags?: TAGS}): NOTHING;
+	CreateMediaEntity(args?:{name?: STRING, description?: STRING, projectName?: PROJECTNAME, content?: IMAGE, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Has incoming dependencies
@@ -2696,11 +2776,12 @@ declare class EntityServices extends ResourceEntity {
 	 * Create a new data shape
 	 * @param name New data shape name
 	 * @param description New data shape description
+	 * @param projectName Name of the Project to add this entity to
 	 * @param fields Info table with field definitions
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateDataShape(args?:{name?: STRING, description?: STRING, fields?: INFOTABLE, tags?: TAGS}): NOTHING;
+	CreateDataShape(args?:{name?: STRING, description?: STRING, projectName?: PROJECTNAME, fields?: INFOTABLE, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Delete an organization
@@ -2729,6 +2810,18 @@ declare class EntityServices extends ResourceEntity {
 	 * @return Matching entries
 	 */
 	GetEntityListWithPermissionMask(args?:{permissionType?: STRING, maxItems?: NUMBER, nameMask?: STRING, permissionTarget?: STRING, type?: STRING, tags?: TAGS}): INFOTABLE<RootEntityList>;
+
+	/**
+	 * Retrieve a list of all model entities for which the current user has a specific permission
+	 * @param permissionType Permission Type (ServiceInvoke, PropertyRead, PropertyWrite, etc.)
+	 * @param maxItems Maximum number of items to return
+	 * @param nameMask Entity name pattern to match
+	 * @param permissionTarget Permission target
+	 * @param type Entity Type (Thing, Mashup, User, etc)
+	 * @param tags Tags
+	 * @return Matching entries
+	 */
+	GetEntityListWithPermissionMaskByRegEx(args?:{permissionType?: STRING, maxItems?: NUMBER, nameMask?: STRING, permissionTarget?: STRING, type?: STRING, tags?: TAGS}): INFOTABLE<RootEntityList>;
 
 	/**
 	 * Get the thing name associated with an identifier
@@ -2808,10 +2901,11 @@ declare class EntityServices extends ResourceEntity {
 	 * Create a new localization table
 	 * @param name New localization table name, i.e. language
 	 * @param description New localization table description
+	 * @param projectName Name of the Project to add this entity to
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateLocalizationTable(args?:{name?: STRING, description?: STRING, tags?: TAGS}): NOTHING;
+	CreateLocalizationTable(args?:{name?: STRING, description?: STRING, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Set the project name of this entity
@@ -2932,10 +3026,11 @@ declare class EntityServices extends ResourceEntity {
 	 * @param name New vocabulary name
 	 * @param description New vocabulary description
 	 * @param dynamic Make the vocabulary dynamic
+	 * @param projectName Name of the Project to add this entity to
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateModelTagVocabulary(args?:{name?: STRING, description?: STRING, dynamic?: BOOLEAN, tags?: TAGS}): NOTHING;
+	CreateModelTagVocabulary(args?:{name?: STRING, description?: STRING, dynamic?: BOOLEAN, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -2976,10 +3071,22 @@ declare class EntityServices extends ResourceEntity {
 	 * Create a new thing shape
 	 * @param name New thing shape name
 	 * @param description New thing shape description
+	 * @param projectName Name of the Project to add this entity to
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateThingShape(args?:{name?: STRING, description?: STRING, tags?: TAGS}): NOTHING;
+	CreateThingShape(args?:{name?: STRING, description?: STRING, projectName?: PROJECTNAME, tags?: TAGS}): NOTHING;
+	
+	/**
+	 * Create a new thingShape and set owner if provided
+	 * @param name New thing shape name
+	 * @param description New thing shape description
+	 * @param projectName Name of the Project to add this entity to
+	 * @param tags Tags
+	 * @param ownerUserName The user name to set as owner of newly thingShape
+	 * @return result
+	 */
+	CreateThingShapeWithOwner(args?:{name?: STRING, description?: STRING, projectName?: PROJECTNAME, tags?: TAGS, ownerUserName?: USERNAME}): NOTHING;
 
 	/**
 	 * Delete a notification content
