@@ -77,15 +77,23 @@ declare function persistent<T extends GenericThing, P>(target: T, key: string, d
 declare function logged<T extends GenericThing, P>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P extends Function ? never : P>): void;
 
 /**
- * When applied to a property or data shape field, this sets the property's minimum value aspect.
+ * When applied to a numeric property or data shape field, this sets the property's minimum value aspect.
+ * @param minimumValue      The minimum value to set. This must be a numeric literal.
  */
- declare function minimumValue(minimumValue: number): <T extends GenericThing | DataShapeBase, P>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P extends Function ? never : P>) => void;
+declare function minimumValue(minimumValue: number): <T extends GenericThing | DataShapeBase, P extends number>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P>) => void;
 
- /**
-  * When applied to a property or data shape field, this sets the property's maximum value aspect.
-  */
- declare function maximumValue(maximumValue: number): <T extends GenericThing | DataShapeBase, P>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P extends Function ? never : P>) => void;
- 
+/**
+ * When applied to a numeric property or data shape field, this sets the property's maximum value aspect.
+ * @param maximumValue      The maximum value to set. This must be a numeric literal.
+ */
+declare function maximumValue(maximumValue: number): <T extends GenericThing | DataShapeBase, P extends number>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P>) => void;
+
+/**
+ * When applied to a numeric property or data shape field, this sets the property's unit aspect.
+ * @param unit      The unit to use. This must be a string literal.
+ */
+declare function unit(unit: string): <T extends GenericThing | DataShapeBase, P extends number>(target: T, key: string, descriptor?: TypedPropertyDescriptor<P>) => void;
+
 /**
  * When applied to a data shape field, this makes the property a primary key.
  */
