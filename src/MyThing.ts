@@ -73,6 +73,11 @@ const enum Status {
     @local('AuditArchiveCleanupScheduler', 'Enabled') readonly locallyBoundProperty!: string;
 
     /**
+     * Numeric properties can use some specific decorators such as `minimumValue`, `maximumValue` and `unit`.
+     */
+    @minimumValue(32) @maximumValue(64) @unit('bytes') bytes!: number;
+
+    /**
      * Remotely bound properties are specified via the 
      * `@remote(name, {cacheTime?, pushType?, pushThreshold?, startType?,foldType?, imeout?})` decorator. From this decorator only
      * the first parameter is required. It represents the name of the remote property.
