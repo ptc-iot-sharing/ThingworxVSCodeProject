@@ -1,3 +1,7 @@
+# 13 Oct 2021
+
+Added support for the `@unit` decorator which can be used to specify a unit for numeric properties.
+
 # 28 Jun 2021
 
 Added support for the `@allow`, `@allowInstance`, `@deny` and `@denyInstance` decorators which can be used to specify permissions at the entity or property, service or event levels.
