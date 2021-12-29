@@ -20,6 +20,31 @@ const zipName = `${package.packageName}-${package.version}.zip`;
 
 // @ts-ignore
 const twConfig = require('./twconfig.json');
+const { randomUUID } = require('crypto');
+
+/**
+ * Command line arguments; the following are supported:
+ * * __--debug__: Creates a debug build with additional debug information
+ */
+ const args = (argList => {
+    let arg = {}, a, opt, thisOpt, curOpt;
+    for (a = 0; a < argList.length; a++) {
+        thisOpt = argList[a].trim();
+        opt = thisOpt.replace(/^\-+/, '');
+        
+        if (opt === thisOpt) {
+            // argument value
+            if (curOpt) arg[curOpt] = opt;
+            curOpt = null;
+        }
+        else {
+            // argument name
+            curOpt = opt;
+            arg[curOpt] = true;
+        }
+    }
+    return arg;
+})(process.argv);
 
 require('dotenv').config();
 
@@ -94,6 +119,7 @@ async function build(cb) {
     // Prepare the transformers
     await new Promise(resolve => project.src().pipe(project()).dts.pipe(concat('index.d.ts')).pipe(dest('build/@types')).on('finish', resolve));
 
+    const entities = [];
     // Write out the entity XML files
     // @ts-ignore
     for (const key in twConfig.store) {
@@ -101,6 +127,7 @@ async function build(cb) {
         // @ts-ignore
         const entity = twConfig.store[key];
         entity.write();
+        entities.push(entity);
     }
 
     // If project entity generation is enabled, create the project entity
@@ -151,6 +178,13 @@ async function build(cb) {
         fs.writeFileSync('build/Entities/Projects/Project.xml', projectXML);
     }
 
+    // If this is a debug build, create a notifier thing that informs the debugger runtime that new source files are available
+    if (args.debug) {
+        const debugEntityName = randomUUID();
+        const debugEntity = transformer.TWThingTransformer.projectDebugThingXML(debugEntityName, entities, package.thingworxProjectName);
+        writeDebugInformationEntity(debugEntityName, debugEntity);
+    }
+
     // Copy and update the metadata file
     const metadataFile = await new Promise(resolve => fs.readFile('./metadata.xml', 'utf8', (err, data) => resolve(data)));
     const metadataXML = await new Promise(resolve => xml2js.parseString(metadataFile, (err, result) => resolve(result)));
@@ -191,6 +225,10 @@ async function zip() {
 async function buildDeclarations() {
     //@ts-ignore
     twConfig.store = {};
+    if (args.debug) {
+        //@ts-ignore
+        twConfig.debug = true;
+    }
 
     const project = ts.createProject('./tsconfig.json', {
         getCustomTransformers: (program) => ({
@@ -363,11 +401,25 @@ exports.buildDeclarations = series(buildDeclarations);
 exports.build = series(buildDeclarations, clean, build, zip);
 exports.upload = series(buildDeclarations, incrementVersion, clean, build, zip, upload);
 exports.deploy = series(buildDeclarations, incrementVersion, clean, build, zip, upload, deploy);
-exports.removeAndUpload = series(buildDeclarations, clean, build, zip, removeExtension, upload);
-exports.removeAndDeploy = series(buildDeclarations, clean, build, zip, removeExtension, upload, deploy);
+exports.removeAndUpload = series(buildDeclarations, clean, build, zip, removeExtension, upload);
+exports.removeAndDeploy = series(buildDeclarations, clean, build, zip, removeExtension, upload, deploy);
 exports.remove = series(removeExtension);
 exports.default = series(gen);
 
+/**
+ * Writes the thing that represents the debug information entity, providing information
+ * about the available breakpoint locations in each file.
+ * @param {string} name     The name of the entity.
+ * @param {string} xml      The entity's XML content.
+ */
+function writeDebugInformationEntity(name, xml) {
+    if (!fs.existsSync(`build`)) fs.mkdirSync(`build`);
+    if (!fs.existsSync(`build/Entities`)) fs.mkdirSync(`build/Entities`);
+
+    if (!fs.existsSync(`build/Entities/Things`)) fs.mkdirSync(`build/Entities/Things`);
+
+    fs.writeFileSync(`build/Entities/Things/${name}.xml`, xml);
+}
 
 
 // ************************************************** THINGWORX DEPENDENCIES ***********************************************
