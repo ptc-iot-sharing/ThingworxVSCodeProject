@@ -1,3 +1,7 @@
+# 29 Dec 2021
+
+Added the ability to generate debug builds by using the `--debug` argument.
+
 # 13 Oct 2021
 
 Added support for the `@unit` decorator which can be used to specify a unit for numeric properties.
