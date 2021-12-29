@@ -18,6 +18,7 @@ There are many advantages to this, and here are some of them:
  * **Developer friendly**: Creating entities in thingworx isn't very comfortable for developers. Common features found in IDEs, such as finding references, project-wide searching for code and even having multiple services open at the same time are not really possible. Since this project is just a typescript project, you can make use of all of your IDE's features.
  * **Typescript features**: You can also make use of typescript features that don't exist in thingworx, such as creating and using interfaces, marking methods and properties as private and using newer javascript features that can be transpiled. Note that some of these are erased on the Thingworx side, but they can nevertheless be useful while developing.
  * **Separate development and runtime**: In thingworx, any change happens immediately and can affect the system. When using this project template, you have to first build & publish your updated code for it to take effect.
+ * **Debug support**: By using the `ThingworxVSCodeDebugger` visual studio code extension and the `BMDebugServer` thingworx extension, developers can also debug their thingworx typescript projects directly from visual studio code. The debugger supports most common features including setting breakpoints, exception breakpoints, stepping, evaluating expressions and changing variable values. For more information about setting up debugging, see [Usage Guide](https://github.com/BogdanMihaiciuc/ThingworxVSCodeDebugger/wiki/Usage-Guide)
 
 # Development
 
@@ -99,11 +100,17 @@ To build the extension and upload it to Thingworx, run `gulp upload` in the root
  * `thingworxServer` - The server to which the extension will be uploaded.
  * `thingworxAppKey` or `thingworxUser` and `thingworxPassword` - The credentials used for uploading. This should be a user that has permission to install extensions.
 
+To create a debug build that can be used for debugging, add the `--debug` argument to any task. For example, to create and upload a debug build, run `gulp upload --debug`. For more information about debugging and debug builds, see [BMDebugServer](https://github.com/BogdanMihaiciuc/BMDebugServer) and [ThingworxVSCodeDebugger](https://github.com/BogdanMihaiciuc/ThingworxVSCodeDebugger).
+
 ## Deployment
 
 Deployment to Thingworx is part of the build process as explained above. Alternatively, you can manually install the extension that is generated in the zip folder in the root of the project.
 
 # Recent Changes
+
+## 28 Dec 2021
+
+- Support for creating debug builds.
 
 ## 28 Jun 2021
 
