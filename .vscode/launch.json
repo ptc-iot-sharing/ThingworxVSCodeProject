@@ -26,6 +26,15 @@
                 "--nolazy"
             ],
             "console": "internalConsole",
-        }
+        },
+		{
+			"type": "thingworx-vscode",
+			"request": "attach",
+            "name": "Attach to Thingworx",
+            "thingworxDomain": "localhost",
+            "thingworxPort": 8015,
+            "thingworxAppKey": "abc-def",
+            "useSSL": false
+		}
     ]
 }
