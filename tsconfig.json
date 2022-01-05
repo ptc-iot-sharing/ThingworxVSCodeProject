@@ -21,6 +21,6 @@
         "./static/**/*.d.ts",
         "./src/**/*.d.ts",
         "./src/**/*.ts",
-        "./tw_imports/**/*.d.ts"
+        "./tw_imports/**/*.ts"
     ]
 }

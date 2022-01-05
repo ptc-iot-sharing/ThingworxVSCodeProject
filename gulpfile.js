@@ -9,6 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 const transformer = require('bm-thing-transformer');
+const jsonToTsTransformer = require('bm-thing-transformer/dist/JsonToTsTransformer');
 
 const xml2js = require('xml2js');
 const gulpZip = require('gulp-zip');
@@ -670,43 +671,53 @@ function superclassOfEntity(entity, genericArgument = '') {
 
 function importThing(body) {
     const name = body.name;
-    const sanitiziedName = body.name.replace(/\./g, '_');
+    let sanitizedName = body.name.replace(/\./g, '_');
+    let declaration;
+    const targetFileName = `${name}${twConfig.generateOnlyTypesForDependencies ? '.d' : ''}.ts`;
 
-    // Things that inherit from generic thing packages must specify an instance of the generic argument
-    const hasGenericArgument = GenericThingPackages.includes(body.effectiveThingPackage);
-    const genericArgument = hasGenericArgument ? `<${body.configurationTables.Settings?.rows?.[0]?.dataShape ?? 'DataShapeBase'}>` : '';
-    
-    let declaration = `declare class ${sanitiziedName} extends ${superclassOfEntity(body, genericArgument)} {\n\n`;
+    if (twConfig.generateOnlyTypesForDependencies) {
+        sanitizedName = body.name.replace(/\./g, '_');
+        // Things that inherit from generic thing packages must specify an instance of the generic argument
+        const hasGenericArgument = GenericThingPackages.includes(body.effectiveThingPackage);
+        const genericArgument = hasGenericArgument ? `<${body.configurationTables.Settings?.rows?.[0]?.dataShape ?? 'DataShapeBase'}>` : '';
+        
+        declaration = `declare class ${sanitizedName} extends ${superclassOfEntity(body, genericArgument)} {\n\n`;
 
-    for (const property of Object.values(body.thingShape.propertyDefinitions)) {
-        // Don't include inherited properties
-        if (property.sourceType != 'Unknown' && property.sourceType != 'Thing') continue;
+        for (const property of Object.values(body.thingShape.propertyDefinitions)) {
+            // Don't include inherited properties
+            if (property.sourceType != 'Unknown' && property.sourceType != 'Thing') continue;
 
-        declaration += declarationOfProperty(property);
+            declaration += declarationOfProperty(property);
+        }
+
+        for (const subscription of Object.values(body.thingShape.subscriptions)) {
+            // Don't include inherited subscriptions
+            if (subscription.sourceType != 'Thing' || subscription.source != '') continue;
+
+            declaration += declarationOfSubscription(subscription);
+        }
+
+        for (const event of Object.values(body.thingShape.eventDefinitions)) {
+            // Don't include inherited events
+            if (event.sourceType != 'Unknown' && event.sourceType != 'Thing') continue;
+
+            declaration += declarationOfEvent(event);
+        }
+
+        for (const service of Object.values(body.thingShape.serviceDefinitions)) {
+            // Don't include inherited services
+            if (service.sourceType != 'Unknown' && service.sourceType != 'Thing') continue;
+
+            declaration += declarationOfService(service);
+        }
+
+        declaration += '\n}\n';
+    } else {
+        const jsonTransformer = new jsonToTsTransformer.JsonThingToTsTransformer();
+        let data = jsonTransformer.createTsDeclarationForEntity(body, 'Thing');
+        sanitizedName = data.className;
+        declaration = data.declaration;
     }
-
-    for (const subscription of Object.values(body.thingShape.subscriptions)) {
-        // Don't include inherited subscriptions
-        if (subscription.sourceType != 'Thing' || subscription.source != '') continue;
-
-        declaration += declarationOfSubscription(subscription);
-    }
-
-    for (const event of Object.values(body.thingShape.eventDefinitions)) {
-        // Don't include inherited events
-        if (event.sourceType != 'Unknown' && event.sourceType != 'Thing') continue;
-
-        declaration += declarationOfEvent(event);
-    }
-
-    for (const service of Object.values(body.thingShape.serviceDefinitions)) {
-        // Don't include inherited services
-        if (service.sourceType != 'Unknown' && service.sourceType != 'Thing') continue;
-
-        declaration += declarationOfService(service);
-    }
-
-    declaration += '\n}\n';
 
     // Write out the thing
     if (!fs.existsSync(`./tw_imports/Things/`)) {
@@ -716,11 +727,11 @@ function importThing(body) {
     installedEntities.Things = installedEntities.Things || {};
     installedEntities.Things[name] = true;
 
-    fs.writeFileSync(`./tw_imports/Things/${name}.d.ts`, `${declaration}\n\ndeclare interface Things {
+    fs.writeFileSync(`./tw_imports/Things/${targetFileName}`, `${declaration}\n\ndeclare interface Things {
     /**
      * ${body.description}
      */ 
-    ${JSON.stringify(name)}: ${sanitiziedName}; 
+    ${JSON.stringify(name)}: ${sanitizedName}; 
 }`
     );
 }
@@ -735,47 +746,53 @@ function memberIsPartOfThingTemplateDefinition(member, definition) {
 
 function importThingTemplate(body) {
     const name = body.name;
-    const sanitiziedName = body.name.replace(/\./g, '_');
-
+    let sanitizedName = body.name.replace(/\./g, '_');
+    let declaration;
+    const targetFileName = `${name}${twConfig.generateOnlyTypesForDependencies ? '.d' : ''}.ts`;
     // Templates that inherit from generic thing packages must be defined with a generic argument
     const hasGenericArgument = GenericThingPackages.includes(body.effectiveThingPackage);
     const genericArgument = hasGenericArgument ? '<T extends DataShapeBase>' : '';
     const superclassGenericArgument = hasGenericArgument ? '<T>' : '';
+    if (twConfig.generateOnlyTypesForDependencies) {    
+        declaration = `declare class ${sanitizedName}${genericArgument} extends ${superclassOfEntity(body, superclassGenericArgument)} {\n\n`;
 
-    let declaration = `declare class ${sanitiziedName}${genericArgument} extends ${superclassOfEntity(body, superclassGenericArgument)} {\n\n`;
+        // For templates, the effective shape will be used to also include memebers
+        // originating from the thing package
+        for (const property of Object.values(body.effectiveShape.propertyDefinitions)) {
+            // Don't include inherited properties
+            if (!(memberIsPartOfThingTemplateDefinition(property, body))) continue;
 
-    // For templates, the effective shape will be used to also include memebers
-    // originating from the thing package
-    for (const property of Object.values(body.effectiveShape.propertyDefinitions)) {
-        // Don't include inherited properties
-        if (!(memberIsPartOfThingTemplateDefinition(property, body))) continue;
+            declaration += declarationOfProperty(property);
+        }
 
-        declaration += declarationOfProperty(property);
+        for (const subscription of Object.values(body.effectiveShape.subscriptions)) {
+            // Don't include inherited subscriptions
+            if (subscription.sourceType != 'Thing' || subscription.source != '') continue;
+
+            declaration += declarationOfSubscription(subscription);
+        }
+
+        for (const event of Object.values(body.effectiveShape.eventDefinitions)) {
+            // Don't include inherited events
+            if (!(memberIsPartOfThingTemplateDefinition(event, body))) continue;
+
+            declaration += declarationOfEvent(event);
+        }
+
+        for (const service of Object.values(body.effectiveShape.serviceDefinitions)) {
+            // Don't include inherited services
+            if (!(memberIsPartOfThingTemplateDefinition(service, body))) continue;
+
+            declaration += declarationOfService(service);
+        }
+
+        declaration += '\n}\n';
+    } else {
+        const jsonTransformer = new jsonToTsTransformer.JsonThingToTsTransformer();
+        let data = jsonTransformer.createTsDeclarationForEntity(body, 'ThingTemplate');
+        sanitizedName = data.className;
+        declaration = data.declaration;
     }
-
-    for (const subscription of Object.values(body.effectiveShape.subscriptions)) {
-        // Don't include inherited subscriptions
-        if (subscription.sourceType != 'Thing' || subscription.source != '') continue;
-
-        declaration += declarationOfSubscription(subscription);
-    }
-
-    for (const event of Object.values(body.effectiveShape.eventDefinitions)) {
-        // Don't include inherited events
-        if (!(memberIsPartOfThingTemplateDefinition(event, body))) continue;
-
-        declaration += declarationOfEvent(event);
-    }
-
-    for (const service of Object.values(body.effectiveShape.serviceDefinitions)) {
-        // Don't include inherited services
-        if (!(memberIsPartOfThingTemplateDefinition(service, body))) continue;
-
-        declaration += declarationOfService(service);
-    }
-
-    declaration += '\n}\n';
-
     // Write out the thing
     if (!fs.existsSync(`./tw_imports/ThingTemplates/`)) {
         fs.mkdirSync(`./tw_imports/ThingTemplates/`);
@@ -784,37 +801,47 @@ function importThingTemplate(body) {
     installedEntities.ThingTemplates = installedEntities.ThingTemplates || {};
     installedEntities.ThingTemplates[name] = true;
 
-    fs.writeFileSync(`./tw_imports/ThingTemplates/${name}.d.ts`, `${declaration}\n\ndeclare interface ThingTemplates {
+    fs.writeFileSync(`./tw_imports/ThingTemplates/${targetFileName}`, `${declaration}\n\ndeclare interface ThingTemplates {
     /**
      * ${body.description}
      */ 
-    ${JSON.stringify(name)}: ThingTemplateEntity<${sanitiziedName}${hasGenericArgument ? '<any>' : ''}>; 
+    ${JSON.stringify(name)}: ThingTemplateEntity<${sanitizedName}${hasGenericArgument ? '<any>' : ''}>; 
 }`
     );
 }
 
 function importThingShape(body) {
     const name = body.name;
-    const sanitiziedName = body.name.replace(/\./g, '_');
-    let declaration = `declare class ${sanitiziedName} extends ThingShapeBase {\n\n`;
-    
-    for (const property of Object.values(body.propertyDefinitions)) {
-        declaration += declarationOfProperty(property);
-    }
+    let sanitizedName = body.name.replace(/\./g, '_');
+    let declaration;
+    const targetFileName = `${name}${twConfig.generateOnlyTypesForDependencies ? '.d' : ''}.ts`;
 
-    for (const subscription of Object.values(body.subscriptions)) {
-        declaration += declarationOfSubscription(subscription);
-    }
+    if (twConfig.generateOnlyTypesForDependencies) {
+        declaration = `declare class ${sanitizedName} extends ThingShapeBase {\n\n`;
+        
+        for (const property of Object.values(body.propertyDefinitions)) {
+            declaration += declarationOfProperty(property);
+        }
 
-    for (const event of Object.values(body.eventDefinitions)) {
-        declaration += declarationOfEvent(event);
-    }
+        for (const subscription of Object.values(body.subscriptions)) {
+            declaration += declarationOfSubscription(subscription);
+        }
 
-    for (const service of Object.values(body.serviceDefinitions)) {
-        declaration += declarationOfService(service);
-    }
+        for (const event of Object.values(body.eventDefinitions)) {
+            declaration += declarationOfEvent(event);
+        }
 
-    declaration += '\n}\n';
+        for (const service of Object.values(body.serviceDefinitions)) {
+            declaration += declarationOfService(service);
+        }
+
+        declaration += '\n}\n';
+    } else {
+        const jsonTransformer = new jsonToTsTransformer.JsonThingToTsTransformer();
+        let data = jsonTransformer.createTsDeclarationForEntity(body, 'ThingShape');
+        sanitizedName = data.className;
+        declaration = data.declaration;
+    }
 
     // Write out the thing
     if (!fs.existsSync(`./tw_imports/ThingShapes/`)) {
@@ -824,25 +851,34 @@ function importThingShape(body) {
     installedEntities.ThingShapes = installedEntities.ThingShapes || {};
     installedEntities.ThingShapes[name] = true;
 
-    fs.writeFileSync(`./tw_imports/ThingShapes/${name}.d.ts`, `${declaration}\n\ndeclare interface ThingShapes {
+    fs.writeFileSync(`./tw_imports/ThingShapes/${targetFileName}`, `${declaration}\n\ndeclare interface ThingShapes {
     /**
      * ${body.description}
      */ 
-    ${JSON.stringify(name)}: ThingShapeEntity<${sanitiziedName}>; 
+    ${JSON.stringify(name)}: ThingShapeEntity<${sanitizedName}>; 
 }`
     );
 }
 
 function importDataShape(body) {
     const name = body.name;
-    const sanitiziedName = body.name.replace(/\./g, '_');
-    let declaration = `declare class ${sanitiziedName} extends DataShapeBase {\n\n`;
-    
-    for (const property of Object.values(body.fieldDefinitions)) {
-        declaration += declarationOfProperty(property);
-    }
-    declaration += '\n}\n';
+    let sanitizedName = body.name.replace(/\./g, '_');
+    let declaration;
+    const targetFileName = `${name}${twConfig.generateOnlyTypesForDependencies ? '.d' : ''}.ts`;
 
+    if (twConfig.generateOnlyTypesForDependencies) {
+        declaration = `declare class ${sanitizedName} extends DataShapeBase {\n\n`;
+        
+        for (const property of Object.values(body.fieldDefinitions)) {
+            declaration += declarationOfProperty(property);
+        }
+        declaration += '\n}\n';
+    } else {
+        const jsonTransformer = new jsonToTsTransformer.JsonThingToTsTransformer();
+        let data = jsonTransformer.createTsDeclarationForEntity(body, 'DataShape');
+        sanitizedName = data.className;
+        declaration = data.declaration;
+    }
     // Write out the thing
     if (!fs.existsSync(`./tw_imports/DataShapes/`)) {
         fs.mkdirSync(`./tw_imports/DataShapes/`);
@@ -851,11 +887,11 @@ function importDataShape(body) {
     installedEntities.DataShapes = installedEntities.DataShapes || {};
     installedEntities.DataShapes[name] = true;
 
-    fs.writeFileSync(`./tw_imports/DataShapes/${name}.d.ts`, `${declaration}\n\ndeclare interface DataShapes {
+    fs.writeFileSync(`./tw_imports/DataShapes/${targetFileName}`, `${declaration}\n\ndeclare interface DataShapes {
     /**
      * ${body.description}
      */ 
-    ${JSON.stringify(name)}: DataShapeEntity<${sanitiziedName}>; 
+    ${JSON.stringify(name)}: DataShapeEntity<${sanitizedName}>; 
 }`
     );
 }
