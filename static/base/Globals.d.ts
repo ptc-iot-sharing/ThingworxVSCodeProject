@@ -176,7 +176,7 @@ declare function enableDiagnosticTrace(): BOOLEAN;
  * @param value String value
  * @return Decoded value as JSON array
  */
-declare function base64DecodeBytes(value?: STRING): JSON;
+declare function base64DecodeBytes(value?: STRING): TWJSON;
 
 
 /**
@@ -184,7 +184,7 @@ declare function base64DecodeBytes(value?: STRING): JSON;
  * @param value Array value
  * @return Encoded value
  */
-declare function base64EncodeBytes(value?: JSON): STRING;
+declare function base64EncodeBytes(value?: TWJSON): STRING;
 
 
 /**

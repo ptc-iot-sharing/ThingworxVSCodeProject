@@ -35,7 +35,7 @@ declare class ValueStreamProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -86,7 +86,7 @@ declare class ValueStreamProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -105,7 +105,7 @@ declare class ValueStreamProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -126,14 +126,14 @@ declare class ValueStreamProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -145,7 +145,7 @@ declare class ValueStreamProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -212,7 +212,7 @@ declare class ValueStreamProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -252,7 +252,7 @@ declare class ValueStreamProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -444,7 +444,7 @@ declare class ValueStreamProcessingSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -465,7 +465,7 @@ declare class ValueStreamProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -524,7 +524,7 @@ declare class ValueStreamProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -641,7 +641,7 @@ declare class WSCommunicationsSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -698,7 +698,7 @@ declare class WSCommunicationsSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -717,7 +717,7 @@ declare class WSCommunicationsSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -738,14 +738,14 @@ declare class WSCommunicationsSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -757,7 +757,7 @@ declare class WSCommunicationsSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -824,7 +824,7 @@ declare class WSCommunicationsSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -864,7 +864,7 @@ declare class WSCommunicationsSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -1063,7 +1063,7 @@ declare class WSCommunicationsSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -1084,7 +1084,7 @@ declare class WSCommunicationsSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -1150,7 +1150,7 @@ declare class WSCommunicationsSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -1266,7 +1266,7 @@ declare class LoggingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -1317,7 +1317,7 @@ declare class LoggingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -1336,7 +1336,7 @@ declare class LoggingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -1357,14 +1357,14 @@ declare class LoggingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -1376,7 +1376,7 @@ declare class LoggingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -1443,7 +1443,7 @@ declare class LoggingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -1483,7 +1483,7 @@ declare class LoggingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -1685,7 +1685,7 @@ declare class LoggingSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Return the configuration table for Logging settings
@@ -1712,7 +1712,7 @@ declare class LoggingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -1771,7 +1771,7 @@ declare class LoggingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -1871,7 +1871,7 @@ declare class ClusteringSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -1922,7 +1922,7 @@ declare class ClusteringSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -1941,7 +1941,7 @@ declare class ClusteringSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -1962,14 +1962,14 @@ declare class ClusteringSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -1981,7 +1981,7 @@ declare class ClusteringSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -2041,7 +2041,7 @@ declare class ClusteringSubsystem extends SubsystemEntity {
 	 * Return status of the cluster.
 	 * @return Cluster Status
 	 */
-	GetClusterStatus(args?:{}): JSON;
+	GetClusterStatus(args?:{}): TWJSON;
 
 	/**
 	 * Get the outgoing dependencies
@@ -2054,7 +2054,7 @@ declare class ClusteringSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -2094,7 +2094,7 @@ declare class ClusteringSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -2292,7 +2292,7 @@ declare class ClusteringSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -2313,7 +2313,7 @@ declare class ClusteringSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -2372,7 +2372,7 @@ declare class ClusteringSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -2478,7 +2478,7 @@ declare class OrderedEventProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -2529,7 +2529,7 @@ declare class OrderedEventProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -2548,7 +2548,7 @@ declare class OrderedEventProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -2569,14 +2569,14 @@ declare class OrderedEventProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -2588,7 +2588,7 @@ declare class OrderedEventProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -2655,7 +2655,7 @@ declare class OrderedEventProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -2695,7 +2695,7 @@ declare class OrderedEventProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -2887,7 +2887,7 @@ declare class OrderedEventProcessingSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -2908,7 +2908,7 @@ declare class OrderedEventProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -2967,7 +2967,7 @@ declare class OrderedEventProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -3067,7 +3067,7 @@ declare class AlertProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -3124,7 +3124,7 @@ declare class AlertProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -3143,7 +3143,7 @@ declare class AlertProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -3164,14 +3164,14 @@ declare class AlertProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -3183,7 +3183,7 @@ declare class AlertProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -3260,7 +3260,7 @@ declare class AlertProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -3300,7 +3300,7 @@ declare class AlertProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -3492,7 +3492,7 @@ declare class AlertProcessingSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -3513,7 +3513,7 @@ declare class AlertProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -3572,7 +3572,7 @@ declare class AlertProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -3672,7 +3672,7 @@ declare class UtilizationSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -3749,7 +3749,7 @@ declare class UtilizationSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -3777,7 +3777,7 @@ declare class UtilizationSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -3810,14 +3810,14 @@ declare class UtilizationSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -3829,7 +3829,7 @@ declare class UtilizationSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -3906,7 +3906,7 @@ declare class UtilizationSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -3946,7 +3946,7 @@ declare class UtilizationSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -4194,7 +4194,7 @@ declare class UtilizationSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Returns the entity statistics
@@ -4248,7 +4248,7 @@ declare class UtilizationSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -4307,7 +4307,7 @@ declare class UtilizationSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -4407,7 +4407,7 @@ declare class ExportImportSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -4458,7 +4458,7 @@ declare class ExportImportSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -4477,7 +4477,7 @@ declare class ExportImportSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -4498,14 +4498,14 @@ declare class ExportImportSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -4517,7 +4517,7 @@ declare class ExportImportSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -4584,7 +4584,7 @@ declare class ExportImportSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -4624,7 +4624,7 @@ declare class ExportImportSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -4816,7 +4816,7 @@ declare class ExportImportSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -4837,7 +4837,7 @@ declare class ExportImportSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -4896,7 +4896,7 @@ declare class ExportImportSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -4996,7 +4996,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -5047,7 +5047,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -5066,7 +5066,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -5087,14 +5087,14 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -5106,7 +5106,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -5179,7 +5179,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -5219,7 +5219,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -5234,7 +5234,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * @param MappingIds The mapping rule Ids
 	 * @return result
 	 */
-	DeleteMappings(args?:{MappingIds?: JSON}): NOTHING;
+	DeleteMappings(args?:{MappingIds?: TWJSON}): NOTHING;
 
 	/**
 	 * Add a run time permission
@@ -5259,7 +5259,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * @param MappingId The mapping rule Id
 	 * @return 
 	 */
-	GetMapping(args?:{MappingId?: STRING}): JSON;
+	GetMapping(args?:{MappingId?: STRING}): TWJSON;
 
 	/**
 	 * Get the description for an entity
@@ -5328,7 +5328,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * @param ConnectorName The connector on which this apiMap was generated.
 	 * @return result
 	 */
-	StoreMapping(args?:{MappingId?: STRING, ApiName?: JSON, MappingJSON?: JSON, ConnectorName?: STRING}): NOTHING;
+	StoreMapping(args?:{MappingId?: STRING, ApiName?: TWJSON, MappingJSON?: TWJSON, ConnectorName?: STRING}): NOTHING;
 
 	/**
 	 * Assign an owner to this entity
@@ -5454,7 +5454,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -5475,7 +5475,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -5534,7 +5534,7 @@ declare class IntegrationSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -5634,7 +5634,7 @@ declare class EventProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -5685,7 +5685,7 @@ declare class EventProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -5704,7 +5704,7 @@ declare class EventProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -5725,14 +5725,14 @@ declare class EventProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -5744,7 +5744,7 @@ declare class EventProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -5811,7 +5811,7 @@ declare class EventProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -5851,7 +5851,7 @@ declare class EventProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -6049,7 +6049,7 @@ declare class EventProcessingSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -6070,7 +6070,7 @@ declare class EventProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -6129,7 +6129,7 @@ declare class EventProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -6229,7 +6229,7 @@ declare class StreamProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -6280,7 +6280,7 @@ declare class StreamProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -6299,7 +6299,7 @@ declare class StreamProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -6320,14 +6320,14 @@ declare class StreamProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -6339,7 +6339,7 @@ declare class StreamProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -6406,7 +6406,7 @@ declare class StreamProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -6446,7 +6446,7 @@ declare class StreamProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -6638,7 +6638,7 @@ declare class StreamProcessingSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -6659,7 +6659,7 @@ declare class StreamProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -6718,7 +6718,7 @@ declare class StreamProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -6831,7 +6831,7 @@ declare class FileTransferSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -6882,7 +6882,7 @@ declare class FileTransferSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -6901,7 +6901,7 @@ declare class FileTransferSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -6922,14 +6922,14 @@ declare class FileTransferSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -6941,7 +6941,7 @@ declare class FileTransferSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get queued transfer job for transfer job id
@@ -7022,7 +7022,7 @@ declare class FileTransferSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -7070,7 +7070,7 @@ declare class FileTransferSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -7118,7 +7118,7 @@ declare class FileTransferSubsystem extends SubsystemEntity {
 	 * @param timeout How many seconds to wait for a result
 	 * @return Transfer information
 	 */
-	Copy(args?:{async?: BOOLEAN, sourceRepo?: STRING, metadata?: JSON, targetRepo?: STRING, targetFile?: STRING, targetPath?: STRING, queueable?: BOOLEAN, sourceFile?: STRING, sourcePath?: STRING, timeout?: INTEGER}): INFOTABLE<FileTransferJob>;
+	Copy(args?:{async?: BOOLEAN, sourceRepo?: STRING, metadata?: TWJSON, targetRepo?: STRING, targetFile?: STRING, targetPath?: STRING, queueable?: BOOLEAN, sourceFile?: STRING, sourcePath?: STRING, timeout?: INTEGER}): INFOTABLE<FileTransferJob>;
 
 	/**
 	 * Is the file transfer job active?
@@ -7314,7 +7314,7 @@ declare class FileTransferSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get a list of transfer jobs that are active
@@ -7347,7 +7347,7 @@ declare class FileTransferSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -7413,7 +7413,7 @@ declare class FileTransferSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get queued transfer job count by Thing name
@@ -7539,7 +7539,7 @@ declare class UserManagementSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -7590,7 +7590,7 @@ declare class UserManagementSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Returns whether concurrent user sessions are restricted
@@ -7621,7 +7621,7 @@ declare class UserManagementSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Sets if unauthenticated users should get redirect to Form Login instead of Basic Auth challenge
@@ -7649,14 +7649,14 @@ declare class UserManagementSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -7668,7 +7668,7 @@ declare class UserManagementSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -7741,7 +7741,7 @@ declare class UserManagementSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Sets how permissions are evaluated when services are executed on User entities
@@ -7788,7 +7788,7 @@ declare class UserManagementSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -8005,7 +8005,7 @@ declare class UserManagementSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -8026,7 +8026,7 @@ declare class UserManagementSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -8106,7 +8106,7 @@ declare class UserManagementSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -8213,7 +8213,7 @@ declare class TunnelSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -8264,7 +8264,7 @@ declare class TunnelSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -8283,7 +8283,7 @@ declare class TunnelSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -8304,14 +8304,14 @@ declare class TunnelSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -8323,7 +8323,7 @@ declare class TunnelSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -8396,7 +8396,7 @@ declare class TunnelSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Start a tunnel
@@ -8445,7 +8445,7 @@ declare class TunnelSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -8645,7 +8645,7 @@ declare class TunnelSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get a list of active tunnels
@@ -8673,7 +8673,7 @@ declare class TunnelSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -8732,7 +8732,7 @@ declare class TunnelSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -8832,7 +8832,7 @@ declare class MessageStoreSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -8898,7 +8898,7 @@ declare class MessageStoreSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -8917,7 +8917,7 @@ declare class MessageStoreSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -8938,14 +8938,14 @@ declare class MessageStoreSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -8957,7 +8957,7 @@ declare class MessageStoreSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -9038,7 +9038,7 @@ declare class MessageStoreSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -9084,7 +9084,7 @@ declare class MessageStoreSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -9317,7 +9317,7 @@ declare class MessageStoreSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -9338,7 +9338,7 @@ declare class MessageStoreSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -9397,7 +9397,7 @@ declare class MessageStoreSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -9476,7 +9476,7 @@ declare class LicensingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -9519,13 +9519,13 @@ declare class LicensingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * User group usage Info
@@ -9591,7 +9591,7 @@ declare class LicensingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Acquire License from License Server
@@ -9684,7 +9684,7 @@ declare class LicensingSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -9780,7 +9780,7 @@ declare class LicensingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -9799,7 +9799,7 @@ declare class LicensingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get the incoming dependencies as a network
@@ -9814,7 +9814,7 @@ declare class LicensingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -9863,7 +9863,7 @@ declare class LicensingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -10064,7 +10064,7 @@ declare class LicensingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -10107,7 +10107,7 @@ declare class LicensingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -10196,7 +10196,7 @@ declare class FederationSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -10255,7 +10255,7 @@ declare class FederationSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -10274,7 +10274,7 @@ declare class FederationSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -10295,14 +10295,14 @@ declare class FederationSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -10314,7 +10314,7 @@ declare class FederationSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -10381,7 +10381,7 @@ declare class FederationSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -10428,7 +10428,7 @@ declare class FederationSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -10632,7 +10632,7 @@ declare class FederationSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -10653,7 +10653,7 @@ declare class FederationSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -10719,7 +10719,7 @@ declare class FederationSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -10828,7 +10828,7 @@ declare class DataTableProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -10879,7 +10879,7 @@ declare class DataTableProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -10898,7 +10898,7 @@ declare class DataTableProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -10919,14 +10919,14 @@ declare class DataTableProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -10938,7 +10938,7 @@ declare class DataTableProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -11005,7 +11005,7 @@ declare class DataTableProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -11045,7 +11045,7 @@ declare class DataTableProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -11237,7 +11237,7 @@ declare class DataTableProcessingSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -11258,7 +11258,7 @@ declare class DataTableProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -11317,7 +11317,7 @@ declare class DataTableProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -11396,7 +11396,7 @@ declare class PlatformSubsystem extends SubsystemEntity {
 	 * Return the configuration settings for enabling/disabling mashup features
 	 * @return JSON object with mashup configuration values
 	 */
-	GetMashupConfiguration(args?:{}): JSON;
+	GetMashupConfiguration(args?:{}): TWJSON;
 
 	/**
 	 * Stops the sub-system
@@ -11408,7 +11408,7 @@ declare class PlatformSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -11457,13 +11457,13 @@ declare class PlatformSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get information on how the subsystem is performing
@@ -11521,13 +11521,13 @@ declare class PlatformSubsystem extends SubsystemEntity {
 	 * @param minimalSerialization Indicates if content should be minimized for mashup runtime
 	 * @return List of style themes
 	 */
-	GetAllStyleThemes(args?:{minimalSerialization?: BOOLEAN}): JSON;
+	GetAllStyleThemes(args?:{minimalSerialization?: BOOLEAN}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Returns the default property persistence provider name
@@ -11639,13 +11639,13 @@ declare class PlatformSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Return the learning connector configuration
 	 * @return Properties of the Learning Connector configuration
 	 */
-	GetLearningConnectorConfiguration(args?:{}): JSON;
+	GetLearningConnectorConfiguration(args?:{}): TWJSON;
 
 	/**
 	 * Deletes the specified ExtensionPackage and all associated Extensions if not in use
@@ -11799,7 +11799,7 @@ declare class PlatformSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Return a list of Extensions associated with the specified ExtensionPackage
@@ -11825,7 +11825,7 @@ declare class PlatformSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get the incoming dependencies as a network
@@ -11840,14 +11840,14 @@ declare class PlatformSubsystem extends SubsystemEntity {
 	 * @param minimalSerialization Indicates if content should be minimized for mashup runtime
 	 * @return List of style definitions
 	 */
-	GetAllStyleDefinitions(args?:{minimalSerialization?: BOOLEAN}): JSON;
+	GetAllStyleDefinitions(args?:{minimalSerialization?: BOOLEAN}): TWJSON;
 
 	/**
 	 * Set a list of assigned runtime permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -11891,13 +11891,13 @@ declare class PlatformSubsystem extends SubsystemEntity {
 	 * @param minimalSerialization Indicates if content should be minimized for mashup runtime
 	 * @return List of state definitions
 	 */
-	GetAllStateDefinitions(args?:{minimalSerialization?: BOOLEAN}): JSON;
+	GetAllStateDefinitions(args?:{minimalSerialization?: BOOLEAN}): TWJSON;
 
 	/**
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -12143,7 +12143,7 @@ declare class PlatformSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -12180,7 +12180,7 @@ declare class PlatformSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -12275,7 +12275,7 @@ declare class AuditSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -12338,7 +12338,7 @@ declare class AuditSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -12357,7 +12357,7 @@ declare class AuditSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -12378,14 +12378,14 @@ declare class AuditSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -12397,7 +12397,7 @@ declare class AuditSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -12464,7 +12464,7 @@ declare class AuditSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -12504,7 +12504,7 @@ declare class AuditSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -12715,7 +12715,7 @@ declare class AuditSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -12736,7 +12736,7 @@ declare class AuditSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -12801,7 +12801,7 @@ declare class AuditSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -12901,7 +12901,7 @@ declare class WSExecutionProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -12952,7 +12952,7 @@ declare class WSExecutionProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -12971,7 +12971,7 @@ declare class WSExecutionProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -12992,14 +12992,14 @@ declare class WSExecutionProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -13011,7 +13011,7 @@ declare class WSExecutionProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -13078,7 +13078,7 @@ declare class WSExecutionProcessingSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -13118,7 +13118,7 @@ declare class WSExecutionProcessingSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -13310,7 +13310,7 @@ declare class WSExecutionProcessingSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -13331,7 +13331,7 @@ declare class WSExecutionProcessingSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -13390,7 +13390,7 @@ declare class WSExecutionProcessingSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -13490,7 +13490,7 @@ declare class SCIMSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -13553,7 +13553,7 @@ declare class SCIMSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Set the User Provisioning Defaults
@@ -13579,7 +13579,7 @@ declare class SCIMSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -13600,14 +13600,14 @@ declare class SCIMSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -13619,7 +13619,7 @@ declare class SCIMSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -13686,7 +13686,7 @@ declare class SCIMSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -13733,7 +13733,7 @@ declare class SCIMSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -13957,7 +13957,7 @@ declare class SCIMSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Return the Group Provisioning Group Default Settings
@@ -13991,7 +13991,7 @@ declare class SCIMSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -14057,7 +14057,7 @@ declare class SCIMSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -14157,7 +14157,7 @@ declare class WorkflowSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -14208,7 +14208,7 @@ declare class WorkflowSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -14227,7 +14227,7 @@ declare class WorkflowSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -14248,14 +14248,14 @@ declare class WorkflowSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -14267,7 +14267,7 @@ declare class WorkflowSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -14334,7 +14334,7 @@ declare class WorkflowSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -14374,7 +14374,7 @@ declare class WorkflowSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -14566,7 +14566,7 @@ declare class WorkflowSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -14587,7 +14587,7 @@ declare class WorkflowSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -14646,7 +14646,7 @@ declare class WorkflowSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -14746,7 +14746,7 @@ declare class SolutionCentralSubsystem extends SubsystemEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -14809,7 +14809,7 @@ declare class SolutionCentralSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -14828,7 +14828,7 @@ declare class SolutionCentralSubsystem extends SubsystemEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -14849,14 +14849,14 @@ declare class SolutionCentralSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -14868,7 +14868,7 @@ declare class SolutionCentralSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -14935,7 +14935,7 @@ declare class SolutionCentralSubsystem extends SubsystemEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -14975,7 +14975,7 @@ declare class SolutionCentralSubsystem extends SubsystemEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -15181,7 +15181,7 @@ declare class SolutionCentralSubsystem extends SubsystemEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the expiration date of certificate used to communicate with Solution Central
@@ -15208,7 +15208,7 @@ declare class SolutionCentralSubsystem extends SubsystemEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -15267,7 +15267,7 @@ declare class SolutionCentralSubsystem extends SubsystemEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
