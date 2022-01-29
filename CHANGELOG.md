@@ -1,3 +1,9 @@
+# 29 Jan 2022
+
+Replaced all instances of the `JSON` type with the `TWJSON` type.
+
+Improved the formatting of the upload response message. Instead of printing out the JSON response that Thingworx provides, the build script will now try to extract and present the relevant information.
+
 # 29 Dec 2021
 
 Added the ability to generate debug builds by using the `--debug` argument.

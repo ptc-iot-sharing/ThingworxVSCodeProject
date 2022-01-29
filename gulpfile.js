@@ -302,49 +302,112 @@ async function removeExtension() {
     })
 }
 
+/**
+ * Returns a formatted string that contains the validation and installation status extracted
+ * from the given server response.
+ * @param {string} response         The server response.
+ * @returns {string}                The formatted upload status.
+ */
+function formattedUploadStatus(response) {
+    let infotable;
+    let result = '';
+    try {
+        infotable = JSON.parse(response);
+
+        // The upload response is an infotable with rows with two possible properties:
+        // validate - an infotable where each row contains the validation result for each attempted extension
+        // install - if validation passed, an infotable where each row contains the installation result for each attempted extension
+        const validations = infotable.rows.filter(r => r.validate);
+        const installations = infotable.rows.filter(r => r.install);
+
+        const validation = validations.length && {rows: Array.prototype.concat.apply([], validations.map(v => v.validate.rows))};
+        const installation = installations.length && {rows: Array.prototype.concat.apply([], installations.map(i => i.install.rows))};
+
+        // A value of 1 for extensionReportStatus indicates failure, 2 indicates warning, and 0 indicates success
+        for (const row of validation.rows) {
+            if (row.extensionReportStatus == 1) {
+                result += `🛑 \x1b[1;31mValidation failed\x1b[0m for "${row.extensionPackage.rows[0].name}-${row.extensionPackage.rows[0].packageVersion}": "${row.reportMessage}"\n`;
+            }
+            else if (row.extensionReportStatus == 2) {
+                result += `🔶 \x1b[1;33mValidation warning\x1b[0m for "${row.extensionPackage.rows[0].name}-${row.extensionPackage.rows[0].packageVersion}": "${row.reportMessage}"\n`;
+            }
+            else {
+                result += `✅ \x1b[1;32mValidation passed\x1b[0m for "${row.extensionPackage.rows[0].name}-${row.extensionPackage.rows[0].packageVersion}": "${row.reportMessage}"\n`;
+            }
+        }
+
+        if (!installation) return result;
+
+        // If an installation status is provided, display it as well; it has the same format as validation
+        for (const row of installation.rows) {
+            if (row.extensionReportStatus == 1) {
+                result += `🛑 \x1b[1;31mInstallation failed\x1b[0m for "${row.extensionPackage.rows[0].name}-${row.extensionPackage.rows[0].packageVersion}": "${row.reportMessage}"\n`;
+            }
+            else if (row.extensionReportStatus == 2) {
+                result += `🔶 \x1b[1;33mInstallation warning\x1b[0m for "${row.extensionPackage.rows[0].name}-${row.extensionPackage.rows[0].packageVersion}": "${row.reportMessage}"\n`;
+            }
+            else {
+                result += `✅ \x1b[1;32mInstalled\x1b[0m "${row.extensionPackage.rows[0].name}-${row.extensionPackage.rows[0].packageVersion}": "${row.reportMessage}"\n`;
+            }
+        }
+
+        return result;
+    }
+    catch (e) {
+        // If the response isn't a parsable response, it is most likely a simple message
+        // that may be printed directly.
+        return response;
+    }
+}
+
 async function upload() {
     const host = thingworxConnectionDetails.thingworxServer;
 
     console.log(`Uploading to ${thingworxConnectionDetails.thingworxServer}...`);
 
-    return new Promise((resolve, reject) => {
-        // load the file from the zip folder
-        let formData = {
-            file: fs.createReadStream(
-                path.join('zip', zipName)
-            )
-        };
-        // POST request to the ExtensionPackageUploader servlet
-        const twRequest = request.post(
-                {
-                    url: `${host}/Thingworx/ExtensionPackageUploader?purpose=import`,
-                    headers: {
-                        'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE',
-                        'Accept':'application/json'
+    try {
+
+        await new Promise((resolve, reject) => {
+            // load the file from the zip folder
+            let formData = {
+                file: fs.createReadStream(
+                    path.join('zip', zipName)
+                )
+            };
+            // POST request to the ExtensionPackageUploader servlet
+            const twRequest = request.post(
+                    {
+                        url: `${host}/Thingworx/ExtensionPackageUploader?purpose=import`,
+                        headers: {
+                            'X-XSRF-TOKEN': 'TWX-XSRF-TOKEN-VALUE',
+                            'Accept':'application/json'
+                        },
+                        formData: formData
                     },
-                    formData: formData
-                },
-                function (err, httpResponse, body) {
-                    if (err) {
-                        console.error("Failed to upload project to thingworx");
-                        reject(err);
-                        return;
+                    function (err, httpResponse, body) {
+                        if (err) {
+                            console.error("Failed to upload project to thingworx");
+                            reject(err);
+                            return;
+                        }
+                        if (httpResponse.statusCode != 200) {
+                            reject(`\x1b[1;31mFailed to upload project to thingworx with status code ${httpResponse.statusCode} (${httpResponse.statusMessage})\x1b[0m
+${formattedUploadStatus(httpResponse.body)}`);
+                        } else {
+                            console.log(`\x1b[1mUploaded project version ${package.version} to Thingworx!\x1b[0m`);
+                            console.log(formattedUploadStatus(body));
+                            resolve();
+                        }
                     }
-                    if (httpResponse.statusCode != 200) {
-                        reject(`Failed to upload project to thingworx. We got status code ${httpResponse.statusCode} (${httpResponse.statusMessage})
-body:
-${httpResponse.body}`);
-                    } else {
-                        console.log(`Uploaded project version ${package.version} to Thingworx!`);
-                        console.log(body);
-                        resolve();
-                    }
-                }
-            );
-
-        authorizeRequest(twRequest);
-
-    })
+                );
+    
+            authorizeRequest(twRequest);
+    
+        });
+    }
+    catch (err) {
+        console.error(err);
+    }
 }
 
 async function deploy() {
@@ -378,14 +441,12 @@ async function deploy() {
                 },
                 function (err, httpResponse, body) {
                     if (err) {
-                        console.error(`Deployment script "${endpoint}" failed:`);
+                        console.error(`🛑 \x1b[1;31mDeployment script "${endpoint}" failed:\x1b[0m`);
                         reject(err);
                         return;
                     }
                     if (httpResponse.statusCode != 200) {
-                        reject(`Deployment script "${endpoint}" failed with status code ${httpResponse.statusCode} (${httpResponse.statusMessage})
-    body:
-    ${httpResponse.body}`);
+                        reject(`🛑 \x1b[1;31mDeployment script "${endpoint}" failed with status code ${httpResponse.statusCode} (${httpResponse.statusMessage})\x1b[0m\n"${httpResponse.body}"`);
                     } else {
                         resolve();
                     }

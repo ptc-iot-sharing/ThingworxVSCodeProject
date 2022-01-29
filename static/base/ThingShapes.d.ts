@@ -657,7 +657,7 @@ declare class RemoteMetadataBrowsing extends ThingShapeBase {
 	 * Get the metadata for a thing
 	 * @return The thing's metadata
 	 */
-	GetRemoteMetadata(args?:{}): JSON;
+	GetRemoteMetadata(args?:{}): TWJSON;
 
 
 }

@@ -30,7 +30,7 @@ declare class DeviceFunctions extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -83,7 +83,7 @@ declare class DeviceFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -102,7 +102,7 @@ declare class DeviceFunctions extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -123,14 +123,14 @@ declare class DeviceFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -142,7 +142,7 @@ declare class DeviceFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -210,7 +210,7 @@ declare class DeviceFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -250,7 +250,7 @@ declare class DeviceFunctions extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -424,7 +424,7 @@ declare class DeviceFunctions extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get unbound federated things
@@ -453,7 +453,7 @@ declare class DeviceFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -512,7 +512,7 @@ declare class DeviceFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -619,7 +619,7 @@ declare class SecurityServices extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -664,7 +664,7 @@ declare class SecurityServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -683,7 +683,7 @@ declare class SecurityServices extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -704,14 +704,14 @@ declare class SecurityServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -723,7 +723,7 @@ declare class SecurityServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -784,7 +784,7 @@ declare class SecurityServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -833,7 +833,7 @@ declare class SecurityServices extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -1025,7 +1025,7 @@ declare class SecurityServices extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -1046,7 +1046,7 @@ declare class SecurityServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -1113,7 +1113,7 @@ declare class SecurityServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -1209,7 +1209,7 @@ declare class RuntimeLocalizationFunctions extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -1254,7 +1254,7 @@ declare class RuntimeLocalizationFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -1273,7 +1273,7 @@ declare class RuntimeLocalizationFunctions extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -1294,14 +1294,14 @@ declare class RuntimeLocalizationFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -1313,7 +1313,7 @@ declare class RuntimeLocalizationFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -1374,7 +1374,7 @@ declare class RuntimeLocalizationFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -1414,7 +1414,7 @@ declare class RuntimeLocalizationFunctions extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -1616,7 +1616,7 @@ declare class RuntimeLocalizationFunctions extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -1637,7 +1637,7 @@ declare class RuntimeLocalizationFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -1702,7 +1702,7 @@ declare class RuntimeLocalizationFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -1783,7 +1783,7 @@ declare class EntityServices extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -1872,13 +1872,13 @@ declare class EntityServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Add a thing shape to an existing thing
@@ -1937,7 +1937,7 @@ declare class EntityServices extends ResourceEntity {
 	 * @param tags Tags
 	 * @return result
 	 */
-	CreateStyleDefinition(args?:{name?: STRING, description?: STRING, projectName?: PROJECTNAME, content?: JSON, tags?: TAGS}): NOTHING;
+	CreateStyleDefinition(args?:{name?: STRING, description?: STRING, projectName?: PROJECTNAME, content?: TWJSON, tags?: TAGS}): NOTHING;
 
 	/**
 	 * Delete a style definition
@@ -1998,7 +1998,7 @@ declare class EntityServices extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete a user
@@ -2163,7 +2163,7 @@ declare class EntityServices extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Set run time permissions on a set of entities
@@ -2436,7 +2436,7 @@ declare class EntityServices extends ResourceEntity {
 	 * @param type Entity Collection Type (Things, Mashups, Users, etc)
 	 * @return Entity definition
 	 */
-	ReadEntityDefinitionAsJSON(args?:{name?: STRING, type?: STRING}): JSON;
+	ReadEntityDefinitionAsJSON(args?:{name?: STRING, type?: STRING}): TWJSON;
 
 	/**
 	 * Delete a thing shape
@@ -2517,13 +2517,13 @@ declare class EntityServices extends ResourceEntity {
 	 * @param key Encryption-Decryption key name
 	 * @return Entity definition
 	 */
-	ReadEntityAsJSON(args?:{name?: STRING, type?: STRING, key?: STRING}): JSON;
+	ReadEntityAsJSON(args?:{name?: STRING, type?: STRING, key?: STRING}): TWJSON;
 
 	/**
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Restart dependencies for an existing thing template
@@ -2549,7 +2549,7 @@ declare class EntityServices extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get the incoming dependencies as a network
@@ -2564,7 +2564,7 @@ declare class EntityServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -2635,7 +2635,7 @@ declare class EntityServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -2725,7 +2725,7 @@ declare class EntityServices extends ResourceEntity {
 	 * @param content Style definition content in JSON format
 	 * @return result
 	 */
-	UpdateStyleDefinition(args?:{name?: STYLEDEFINITIONNAME, content?: JSON}): NOTHING;
+	UpdateStyleDefinition(args?:{name?: STYLEDEFINITIONNAME, content?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the description for an entity
@@ -2972,7 +2972,7 @@ declare class EntityServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -3019,7 +3019,7 @@ declare class EntityServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Create a new model tag vocabulary
@@ -3128,7 +3128,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -3173,7 +3173,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -3192,7 +3192,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -3213,14 +3213,14 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -3232,7 +3232,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -3276,7 +3276,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param tags Tags
 	 * @return Matching entries
 	 */
-	SearchModelEntities(args?:{maxItems?: NUMBER, searchExpression?: STRING, types?: JSON, aspects?: JSON, excludedAspects?: JSON, maxSearchItems?: NUMBER, tags?: TAGS}): INFOTABLE<EntityDescriptor>;
+	SearchModelEntities(args?:{maxItems?: NUMBER, searchExpression?: STRING, types?: TWJSON, aspects?: TWJSON, excludedAspects?: TWJSON, maxSearchItems?: NUMBER, tags?: TAGS}): INFOTABLE<EntityDescriptor>;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific user
@@ -3295,7 +3295,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param term Term to search
 	 * @return Search Results
 	 */
-	SearchDataTagTerm(args?:{maxItems?: NUMBER, types?: JSON, names?: JSON, term?: STRING}): INFOTABLE<EntityDescriptor>;
+	SearchDataTagTerm(args?:{maxItems?: NUMBER, types?: TWJSON, names?: TWJSON, term?: STRING}): INFOTABLE<EntityDescriptor>;
 
 	/**
 	 * Add a visibility permission
@@ -3316,7 +3316,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -3356,7 +3356,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -3410,7 +3410,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param startDate Only return entities modified since this date
 	 * @return Matching entries
 	 */
-	SpotlightSearch(args?:{maxItems?: NUMBER, searchExpression?: STRING, types?: JSON, withPermissions?: BOOLEAN, endDate?: DATETIME, aspects?: JSON, excludedAspects?: JSON, tags?: TAGS, thingTemplates?: JSON, searchDescriptions?: BOOLEAN, thingShapes?: JSON, sortBy?: STRING, isAscending?: BOOLEAN, projectName?: PROJECTNAME, maxSearchItems?: NUMBER, startDate?: DATETIME}): INFOTABLE<SpotlightSearch>;
+	SpotlightSearch(args?:{maxItems?: NUMBER, searchExpression?: STRING, types?: TWJSON, withPermissions?: BOOLEAN, endDate?: DATETIME, aspects?: TWJSON, excludedAspects?: TWJSON, tags?: TAGS, thingTemplates?: TWJSON, searchDescriptions?: BOOLEAN, thingShapes?: TWJSON, sortBy?: STRING, isAscending?: BOOLEAN, projectName?: PROJECTNAME, maxSearchItems?: NUMBER, startDate?: DATETIME}): INFOTABLE<SpotlightSearch>;
 
 	/**
 	 * Retrieve a list of all collaboration entries filtered by keyword query and optional date range
@@ -3427,7 +3427,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param startDate Start time
 	 * @return Matching entries
 	 */
-	SearchCollaboration(args?:{dataTags?: TAGS, maxItems?: NUMBER, searchExpression?: STRING, types?: JSON, names?: JSON, sourceTags?: TAGS, sources?: JSON, modelTags?: TAGS, endDate?: DATETIME, maxSearchItems?: NUMBER, startDate?: DATETIME}): INFOTABLE<SearchResults>;
+	SearchCollaboration(args?:{dataTags?: TAGS, maxItems?: NUMBER, searchExpression?: STRING, types?: TWJSON, names?: TWJSON, sourceTags?: TAGS, sources?: TWJSON, modelTags?: TAGS, endDate?: DATETIME, maxSearchItems?: NUMBER, startDate?: DATETIME}): INFOTABLE<SearchResults>;
 
 	/**
 	 * Search data tag index for matches
@@ -3436,7 +3436,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param tags Tags to search
 	 * @return Search Results
 	 */
-	SearchDataTags(args?:{maxItems?: NUMBER, types?: JSON, tags?: TAGS}): INFOTABLE<EntityDescriptor>;
+	SearchDataTags(args?:{maxItems?: NUMBER, types?: TWJSON, tags?: TAGS}): INFOTABLE<EntityDescriptor>;
 
 	/**
 	 * Return a list of all the things that implement this template, including transient Things
@@ -3456,7 +3456,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param maxSearchItems Maximum number of items to search
 	 * @return Search Results
 	 */
-	SearchVocabularyTerms(args?:{maxItems?: NUMBER, searchExpression?: STRING, names?: JSON, type?: STRING, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
+	SearchVocabularyTerms(args?:{maxItems?: NUMBER, searchExpression?: STRING, names?: TWJSON, type?: STRING, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
 
 	/**
 	 * Has incoming dependencies
@@ -3485,7 +3485,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param tags Tags to search
 	 * @return Search Results
 	 */
-	SearchModelTags(args?:{maxItems?: NUMBER, types?: JSON, aspects?: JSON, excludedAspects?: JSON, tags?: TAGS}): INFOTABLE<EntityDescriptor>;
+	SearchModelTags(args?:{maxItems?: NUMBER, types?: TWJSON, aspects?: TWJSON, excludedAspects?: TWJSON, tags?: TAGS}): INFOTABLE<EntityDescriptor>;
 
 	/**
 	 * Search model tag index for matches based on a term
@@ -3506,7 +3506,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param tags Tags
 	 * @return Matching entries
 	 */
-	SearchModelEntitiesWithRestrictions(args?:{maxItems?: NUMBER, searchExpression?: STRING, types?: JSON, aspects?: JSON, excludedAspects?: JSON, maxSearchItems?: NUMBER, tags?: TAGS}): INFOTABLE<EntityDescriptor>;
+	SearchModelEntitiesWithRestrictions(args?:{maxItems?: NUMBER, searchExpression?: STRING, types?: TWJSON, aspects?: TWJSON, excludedAspects?: TWJSON, maxSearchItems?: NUMBER, tags?: TAGS}): INFOTABLE<EntityDescriptor>;
 
 	/**
 	 * Get the current service definitions for this thing
@@ -3593,7 +3593,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param maxSearchItems Maximum number of items to search
 	 * @return Search Results
 	 */
-	SearchThings(args?:{maxItems?: NUMBER, searchExpression?: STRING, types?: JSON, thingTemplates?: JSON, identifierSearchExpression?: STRING, modelTags?: TAGS, thingShapes?: JSON, query?: QUERY, aspects?: JSON, excludedAspects?: JSON, networks?: JSON, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
+	SearchThings(args?:{maxItems?: NUMBER, searchExpression?: STRING, types?: TWJSON, thingTemplates?: TWJSON, identifierSearchExpression?: STRING, modelTags?: TAGS, thingShapes?: TWJSON, query?: QUERY, aspects?: TWJSON, excludedAspects?: TWJSON, networks?: TWJSON, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
 
 	/**
 	 * Search model tag index for matches based on a term
@@ -3603,7 +3603,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param term Term to search
 	 * @return Search Results
 	 */
-	SearchModelTagTerm(args?:{maxItems?: NUMBER, types?: JSON, names?: JSON, term?: STRING}): INFOTABLE<EntityDescriptor>;
+	SearchModelTagTerm(args?:{maxItems?: NUMBER, types?: TWJSON, names?: TWJSON, term?: STRING}): INFOTABLE<EntityDescriptor>;
 
 	/**
 	 * Get the current event definitions for this thing
@@ -3623,7 +3623,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param maxSearchItems Maximum number of items to search
 	 * @return Search Results
 	 */
-	SearchAll(args?:{dataTags?: TAGS, maxItems?: NUMBER, searchExpression?: STRING, types?: JSON, modelTags?: TAGS, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
+	SearchAll(args?:{dataTags?: TAGS, maxItems?: NUMBER, searchExpression?: STRING, types?: TWJSON, modelTags?: TAGS, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
 
 	/**
 	 * Return a list of all the things that implement this template and their data
@@ -3692,7 +3692,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -3713,7 +3713,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Search everything matches based on a term
@@ -3731,7 +3731,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param startDate Start time
 	 * @return Search Results
 	 */
-	SearchData(args?:{dataShapes?: JSON, dataTags?: TAGS, dataTypes?: JSON, maxItems?: NUMBER, searchExpression?: STRING, names?: JSON, sources?: JSON, sourceTags?: TAGS, modelTags?: TAGS, endDate?: DATETIME, maxSearchItems?: NUMBER, startDate?: DATETIME}): INFOTABLE<SearchResults>;
+	SearchData(args?:{dataShapes?: TWJSON, dataTags?: TAGS, dataTypes?: TWJSON, maxItems?: NUMBER, searchExpression?: STRING, names?: TWJSON, sources?: TWJSON, sourceTags?: TAGS, modelTags?: TAGS, endDate?: DATETIME, maxSearchItems?: NUMBER, startDate?: DATETIME}): INFOTABLE<SearchResults>;
 
 	/**
 	 * Has outgoing dependencies
@@ -3782,7 +3782,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param maxSearchItems Maximum number of items to search
 	 * @return Search Results
 	 */
-	SearchMashups(args?:{maxItems?: NUMBER, searchExpression?: STRING, thingTemplates?: JSON, modelTags?: TAGS, thingShapes?: JSON, aspects?: JSON, excludedAspects?: JSON, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
+	SearchMashups(args?:{maxItems?: NUMBER, searchExpression?: STRING, thingTemplates?: TWJSON, modelTags?: TAGS, thingShapes?: TWJSON, aspects?: TWJSON, excludedAspects?: TWJSON, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
 
 	/**
 	 * Get the difference between this entity and another
@@ -3804,7 +3804,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -3824,7 +3824,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param maxSearchItems Maximum number of items to search
 	 * @return Search Results
 	 */
-	SearchPeople(args?:{maxItems?: NUMBER, searchExpression?: STRING, modelTags?: TAGS, query?: QUERY, aspects?: JSON, excludedAspects?: JSON, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
+	SearchPeople(args?:{maxItems?: NUMBER, searchExpression?: STRING, modelTags?: TAGS, query?: QUERY, aspects?: TWJSON, excludedAspects?: TWJSON, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
 
 	/**
 	 * Get the metadata in InfoTable format
@@ -3890,7 +3890,7 @@ declare class SearchFunctions extends ResourceEntity {
 	 * @param maxSearchItems Maximum number of items to search
 	 * @return Search Results
 	 */
-	SearchTags(args?:{maxItems?: NUMBER, searchExpression?: STRING, types?: JSON, names?: JSON, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
+	SearchTags(args?:{maxItems?: NUMBER, searchExpression?: STRING, types?: TWJSON, names?: TWJSON, maxSearchItems?: NUMBER}): INFOTABLE<SearchResults>;
 
 	/**
 	 * Get user permissions
@@ -3925,7 +3925,7 @@ declare class NotificationServices extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -3970,7 +3970,7 @@ declare class NotificationServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -3989,7 +3989,7 @@ declare class NotificationServices extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -4010,14 +4010,14 @@ declare class NotificationServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -4029,7 +4029,7 @@ declare class NotificationServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -4101,7 +4101,7 @@ declare class NotificationServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -4141,7 +4141,7 @@ declare class NotificationServices extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -4315,7 +4315,7 @@ declare class NotificationServices extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -4336,7 +4336,7 @@ declare class NotificationServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -4395,7 +4395,7 @@ declare class NotificationServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -4493,7 +4493,7 @@ declare class InfoTableFunctions extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -4551,13 +4551,13 @@ declare class InfoTableFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Not equal filter
@@ -4629,7 +4629,7 @@ declare class InfoTableFunctions extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Pattern matching filter
@@ -4761,7 +4761,7 @@ declare class InfoTableFunctions extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -4895,7 +4895,7 @@ declare class InfoTableFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -4927,7 +4927,7 @@ declare class InfoTableFunctions extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Convert an info table into JSON
@@ -4949,7 +4949,7 @@ declare class InfoTableFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -5019,7 +5019,7 @@ declare class InfoTableFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -5231,7 +5231,7 @@ declare class InfoTableFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -5268,7 +5268,7 @@ declare class InfoTableFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Less than filter
@@ -5347,7 +5347,7 @@ declare class EncryptionServices extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -5392,7 +5392,7 @@ declare class EncryptionServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -5411,7 +5411,7 @@ declare class EncryptionServices extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Returns decrypted data using the Base64 encoded key with valid sizes; 128, 192 or 256 bits
@@ -5440,14 +5440,14 @@ declare class EncryptionServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -5459,7 +5459,7 @@ declare class EncryptionServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -5520,7 +5520,7 @@ declare class EncryptionServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -5560,7 +5560,7 @@ declare class EncryptionServices extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Returns an encrypted password
@@ -5748,7 +5748,7 @@ declare class EncryptionServices extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Returns an decrypted string using a specified key
@@ -5777,7 +5777,7 @@ declare class EncryptionServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -5844,7 +5844,7 @@ declare class EncryptionServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -5948,7 +5948,7 @@ declare class SourceControlFunctions extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -6019,7 +6019,7 @@ declare class SourceControlFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -6038,7 +6038,7 @@ declare class SourceControlFunctions extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -6059,14 +6059,14 @@ declare class SourceControlFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -6078,7 +6078,7 @@ declare class SourceControlFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -6139,7 +6139,7 @@ declare class SourceControlFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -6179,7 +6179,7 @@ declare class SourceControlFunctions extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -6353,7 +6353,7 @@ declare class SourceControlFunctions extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Export a list of entities for source control
@@ -6388,7 +6388,7 @@ declare class SourceControlFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -6456,7 +6456,7 @@ declare class SourceControlFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -6554,7 +6554,7 @@ declare class ScriptServices extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -6599,7 +6599,7 @@ declare class ScriptServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -6618,7 +6618,7 @@ declare class ScriptServices extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -6639,14 +6639,14 @@ declare class ScriptServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -6658,7 +6658,7 @@ declare class ScriptServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Validate script syntax
@@ -6726,7 +6726,7 @@ declare class ScriptServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Validate script syntax, returns with the line and column number
@@ -6773,7 +6773,7 @@ declare class ScriptServices extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -6947,7 +6947,7 @@ declare class ScriptServices extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -6968,7 +6968,7 @@ declare class ScriptServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -7027,7 +7027,7 @@ declare class ScriptServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -7116,7 +7116,7 @@ declare class CollectionFunctions extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -7161,7 +7161,7 @@ declare class CollectionFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete a run time permission
@@ -7191,7 +7191,7 @@ declare class CollectionFunctions extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -7212,14 +7212,14 @@ declare class CollectionFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -7231,7 +7231,7 @@ declare class CollectionFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -7306,7 +7306,7 @@ declare class CollectionFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -7360,7 +7360,7 @@ declare class CollectionFunctions extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -7566,7 +7566,7 @@ declare class CollectionFunctions extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Import permissions for entities and collections
@@ -7596,7 +7596,7 @@ declare class CollectionFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -7665,7 +7665,7 @@ declare class CollectionFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -7784,7 +7784,7 @@ declare class CurrentSessionInfo extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -7829,7 +7829,7 @@ declare class CurrentSessionInfo extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Terminate all active sessions for a user
@@ -7863,7 +7863,7 @@ declare class CurrentSessionInfo extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -7884,14 +7884,14 @@ declare class CurrentSessionInfo extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -7903,7 +7903,7 @@ declare class CurrentSessionInfo extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -7976,7 +7976,7 @@ declare class CurrentSessionInfo extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -8024,7 +8024,7 @@ declare class CurrentSessionInfo extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -8113,7 +8113,7 @@ declare class CurrentSessionInfo extends ResourceEntity {
 	 * @param value Parameter value
 	 * @return result
 	 */
-	SetGlobalSessionJSONValue(args?:{name?: STRING, value?: JSON}): NOTHING;
+	SetGlobalSessionJSONValue(args?:{name?: STRING, value?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the license declined text
@@ -8252,7 +8252,7 @@ declare class CurrentSessionInfo extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -8273,7 +8273,7 @@ declare class CurrentSessionInfo extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -8363,7 +8363,7 @@ declare class CurrentSessionInfo extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -8453,7 +8453,7 @@ declare class DashboardFunctions extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -8504,13 +8504,13 @@ declare class DashboardFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific user
@@ -8557,7 +8557,7 @@ declare class DashboardFunctions extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Add a run time permission
@@ -8694,7 +8694,7 @@ declare class DashboardFunctions extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -8808,7 +8808,7 @@ declare class DashboardFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -8827,7 +8827,7 @@ declare class DashboardFunctions extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get the incoming dependencies as a network
@@ -8842,7 +8842,7 @@ declare class DashboardFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -8900,7 +8900,7 @@ declare class DashboardFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -9111,7 +9111,7 @@ declare class DashboardFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -9157,7 +9157,7 @@ declare class DashboardFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -9250,7 +9250,7 @@ declare class AlertFunctions extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -9301,7 +9301,7 @@ declare class AlertFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -9320,7 +9320,7 @@ declare class AlertFunctions extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -9341,14 +9341,14 @@ declare class AlertFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -9360,7 +9360,7 @@ declare class AlertFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -9421,7 +9421,7 @@ declare class AlertFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -9478,7 +9478,7 @@ declare class AlertFunctions extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Purge the alert history
@@ -9716,7 +9716,7 @@ declare class AlertFunctions extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -9737,7 +9737,7 @@ declare class AlertFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -9796,7 +9796,7 @@ declare class AlertFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -9884,7 +9884,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return result
 	 */
-	Delete(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): NOTHING;
+	Delete(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): NOTHING;
 
 	/**
 	 * Get the outgoing dependencies as a network
@@ -9913,7 +9913,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as XML document
 	 */
-	PutXML(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: XML, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): XML;
+	PutXML(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: XML, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): XML;
 
 	/**
 	 * Get ann event definitions for this thing
@@ -9926,7 +9926,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -9956,7 +9956,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as text content
 	 */
-	LoadText(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, appendHeader?: BOOLEAN, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): STRING;
+	LoadText(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, appendHeader?: BOOLEAN, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): STRING;
 
 	/**
 	 * Set an entire multi-row configuration table
@@ -9992,7 +9992,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -10011,7 +10011,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -10032,14 +10032,14 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -10051,7 +10051,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Issue a URL call and get the returned cookies back
@@ -10070,7 +10070,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Cookies
 	 */
-	GetCookies(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): STRING;
+	GetCookies(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): STRING;
 
 	/**
 	 * Get a service definition for this thing
@@ -10140,7 +10140,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as a string
 	 */
-	PutText(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, contentType?: STRING, username?: STRING}): STRING;
+	PutText(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, contentType?: STRING, username?: STRING}): STRING;
 
 	/**
 	 * Get the outgoing dependencies
@@ -10153,7 +10153,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -10182,7 +10182,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as text content
 	 */
-	GetJSON(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): JSON;
+	GetJSON(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): TWJSON;
 
 	/**
 	 * Update/add one or more rows in a multi-row configuration table
@@ -10213,7 +10213,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -10265,7 +10265,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as a JSON Object
 	 */
-	LoadJSON(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): JSON;
+	LoadJSON(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): TWJSON;
 
 	/**
 	 * Has incoming dependencies
@@ -10304,7 +10304,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as text content
 	 */
-	GetText(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, appendHeader?: BOOLEAN, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): STRING;
+	GetText(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, appendHeader?: BOOLEAN, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): STRING;
 
 	/**
 	 * Get the current service definitions for this thing
@@ -10335,7 +10335,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Response as JSON Object
 	 */
-	PostMultipart(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, partsToSend?: INFOTABLE, workstation?: STRING, useProxy?: BOOLEAN, repository?: STRING, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, pathOnRepository?: STRING, domain?: STRING, username?: STRING}): JSON;
+	PostMultipart(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, partsToSend?: INFOTABLE, workstation?: STRING, useProxy?: BOOLEAN, repository?: STRING, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, pathOnRepository?: STRING, domain?: STRING, username?: STRING}): TWJSON;
 
 	/**
 	 * Load JSON content from a URL via HTTP PUT
@@ -10356,7 +10356,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as JSON Object
 	 */
-	PutJSON(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: JSON, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): JSON;
+	PutJSON(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: TWJSON, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): TWJSON;
 
 	/**
 	 * Set home mashup
@@ -10406,7 +10406,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as XML document
 	 */
-	PostXML(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: XML, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): XML;
+	PostXML(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: XML, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): XML;
 
 	/**
 	 * Get home mashup
@@ -10454,7 +10454,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as BLOB Object
 	 */
-	PostBinary(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: BLOB, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): BLOB;
+	PostBinary(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: BLOB, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): BLOB;
 
 	/**
 	 * Set the project name of this entity
@@ -10518,7 +10518,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as JSON Object
 	 */
-	PostJSON(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: JSON, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): JSON;
+	PostJSON(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: TWJSON, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific design time permission for a specific user
@@ -10533,7 +10533,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Load Image content from a URL via HTTP POST
@@ -10554,7 +10554,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as BLOB Object
 	 */
-	PostImage(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, mimeType?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: IMAGE, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): BLOB;
+	PostImage(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, mimeType?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: IMAGE, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): BLOB;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -10575,7 +10575,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -10617,7 +10617,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as BLOB Object
 	 */
-	PutBinary(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: BLOB, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): BLOB;
+	PutBinary(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: BLOB, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): BLOB;
 
 	/**
 	 * Delete a design time permission
@@ -10646,7 +10646,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as text content
 	 */
-	GetXML(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): XML;
+	GetXML(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): XML;
 
 	/**
 	 * Get avatar image url
@@ -10681,7 +10681,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as image
 	 */
-	LoadMediaEntity(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, description?: STRING, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, tags?: TAGS, proxyPort?: INTEGER, password?: STRING, domain?: STRING, name?: STRING, username?: STRING}): IMAGELINK;
+	LoadMediaEntity(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, description?: STRING, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, tags?: TAGS, proxyPort?: INTEGER, password?: STRING, domain?: STRING, name?: STRING, username?: STRING}): IMAGELINK;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -10696,7 +10696,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Load binary content from a URL
@@ -10715,7 +10715,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as an blob/binary primitive
 	 */
-	LoadBinary(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): BLOB;
+	LoadBinary(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): BLOB;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -10744,7 +10744,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as string
 	 */
-	PostText(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, contentType?: STRING, username?: STRING}): STRING;
+	PostText(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, content?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, contentType?: STRING, username?: STRING}): STRING;
 
 	/**
 	 * Get the metadata in InfoTable format
@@ -10804,7 +10804,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as XML document
 	 */
-	LoadXML(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): XML;
+	LoadXML(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, withCookies?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): XML;
 
 	/**
 	 * Append additional tags to an entity
@@ -10830,7 +10830,7 @@ declare class ContentLoaderFunctions extends ResourceEntity {
 	 * @param username Optional user name credential
 	 * @return Loaded content as an image primitive
 	 */
-	LoadImage(args?:{proxyScheme?: STRING, headers?: JSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): IMAGE;
+	LoadImage(args?:{proxyScheme?: STRING, headers?: TWJSON, ignoreSSLErrors?: BOOLEAN, useNTLM?: BOOLEAN, workstation?: STRING, useProxy?: BOOLEAN, proxyHost?: STRING, url?: STRING, timeout?: NUMBER, proxyPort?: INTEGER, password?: STRING, domain?: STRING, username?: STRING}): IMAGE;
 
 	/**
 	 * Get user permissions
@@ -10865,7 +10865,7 @@ declare class MetricServices extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -10910,7 +10910,7 @@ declare class MetricServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -10929,7 +10929,7 @@ declare class MetricServices extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -10950,14 +10950,14 @@ declare class MetricServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -10969,7 +10969,7 @@ declare class MetricServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -11030,7 +11030,7 @@ declare class MetricServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -11077,7 +11077,7 @@ declare class MetricServices extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -11276,7 +11276,7 @@ declare class MetricServices extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * sets a Gauge metric to the given value
@@ -11335,7 +11335,7 @@ declare class MetricServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -11410,7 +11410,7 @@ declare class MetricServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -11515,7 +11515,7 @@ declare class SubsystemMonitoring extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -11560,7 +11560,7 @@ declare class SubsystemMonitoring extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -11579,7 +11579,7 @@ declare class SubsystemMonitoring extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -11600,14 +11600,14 @@ declare class SubsystemMonitoring extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -11619,7 +11619,7 @@ declare class SubsystemMonitoring extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get subsystem status
@@ -11686,7 +11686,7 @@ declare class SubsystemMonitoring extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -11726,7 +11726,7 @@ declare class SubsystemMonitoring extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -11900,7 +11900,7 @@ declare class SubsystemMonitoring extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -11921,7 +11921,7 @@ declare class SubsystemMonitoring extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -11980,7 +11980,7 @@ declare class SubsystemMonitoring extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
@@ -12069,7 +12069,7 @@ declare class DataManagementServices extends ResourceEntity {
 	 * Get a list of assigned designtime permissions
 	 * @return Permission list
 	 */
-	GetDesignTimePermissionsAsJSON(args?:{}): JSON;
+	GetDesignTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for a specific group
@@ -12114,7 +12114,7 @@ declare class DataManagementServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetInstanceMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Remove tags from an entity
@@ -12133,7 +12133,7 @@ declare class DataManagementServices extends ResourceEntity {
 	 * Get a list of assigned visibility permissions
 	 * @return Permission list
 	 */
-	GetVisibilityPermissionsAsJSON(args?:{}): JSON;
+	GetVisibilityPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a list of assigned runtime permissions
@@ -12154,14 +12154,14 @@ declare class DataManagementServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetRunTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetRunTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Set a list of assigned visibility permissions
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetVisibilityPermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetVisibilityPermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Get the date edit was last modified
@@ -12173,7 +12173,7 @@ declare class DataManagementServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataAsJSON(args?:{}): JSON;
+	GetMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Get a service definition for this thing
@@ -12234,7 +12234,7 @@ declare class DataManagementServices extends ResourceEntity {
 	 * Get the instance metadata in JSON format
 	 * @return Instance metadata
 	 */
-	GetInstanceMetadataAsJSON(args?:{}): JSON;
+	GetInstanceMetadataAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Delete one or more rows from a multi-row configuration table
@@ -12274,7 +12274,7 @@ declare class DataManagementServices extends ResourceEntity {
 	 * Get a list of assigned runtime permissions
 	 * @return Permission list
 	 */
-	GetRunTimePermissionsAsJSON(args?:{}): JSON;
+	GetRunTimePermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Check to see if an entity has a specific run time permission for the current user
@@ -12455,7 +12455,7 @@ declare class DataManagementServices extends ResourceEntity {
 	 * @param otherEntity Entity to compare
 	 * @return Created Infotable
 	 */
-	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): JSON;
+	GetDifferencesAsJSON(args?:{otherEntity?: STRING}): TWJSON;
 
 	/**
 	 * Get the current property definitions for this thing
@@ -12476,7 +12476,7 @@ declare class DataManagementServices extends ResourceEntity {
 	 * @param permissions Permissions in JSON format
 	 * @return result
 	 */
-	SetDesignTimePermissionsAsJSON(args?:{permissions?: JSON}): NOTHING;
+	SetDesignTimePermissionsAsJSON(args?:{permissions?: TWJSON}): NOTHING;
 
 	/**
 	 * Has outgoing dependencies
@@ -12535,7 +12535,7 @@ declare class DataManagementServices extends ResourceEntity {
 	 * Get the metadata in JSON format
 	 * @return  metadata
 	 */
-	GetMetadataWithPermissionsAsJSON(args?:{}): JSON;
+	GetMetadataWithPermissionsAsJSON(args?:{}): TWJSON;
 
 	/**
 	 * Overwrite/set the tags for an entity
