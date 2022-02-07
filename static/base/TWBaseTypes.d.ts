@@ -212,24 +212,24 @@ declare interface AndOrQueryFilter<T> {
     filters: QueryFilter<T>[];
 }
 
-declare interface SingleValueFilter<T, K extends keyof T> {
+type SingleValueFilter<T> = keyof T extends infer K ? K extends keyof T ? {
     type: 'EQ' | 'NEQ' | 'LIKE' | 'GT' | 'LT' | 'LE' | 'GE'
     fieldName: K;
     value: T[K];
-}
+} : never : never;
 
-declare interface RegexFilter<T, K extends keyof T> {
+type RegexFilter<T> = keyof T extends infer K ? K extends keyof T ? T[K] extends string ? {
     type: 'Matches' | 'NotMatches';
     fieldName: K;
     expression: string;
-}
+} : never : never : never;
 
-declare interface BetweenFilter<T, K extends keyof T> {
+type BetweenFilter<T> = keyof T extends infer K ? K extends keyof T ? {
     type: 'BETWEEN' | 'NOTBETWEEN' | 'Between' | 'NotBetween'
     fieldName: K;
     from: T[K];
     to: T[K];
-}
+} : never : never;
 
 declare interface TaggedFilter<T, K extends keyof T> {
     type: 'TAGGED' | 'NOTTAGGED';
@@ -237,33 +237,33 @@ declare interface TaggedFilter<T, K extends keyof T> {
     tags: {vocabulary: keyof ModelTags, vocabularyTerm: string}[] | string;
 }
 
-declare interface ContainsFilter<T, K extends keyof T> {
+type ContainsFilter<T> = keyof T extends infer K ? K extends keyof T ?  {
     type: 'IN' | 'NOTIN';
     fieldName: K;
     values: T[K][];
-}
+} : never : never;
 
 declare interface MissingValueFilter<T, K extends keyof T> {
     type: 'MissingValue' | 'NotMissingValue';
     fieldName: K;
 }
 
-declare interface LocationFilter<T, K extends keyof {[L in keyof T]: T[L] extends LOCATION ? T[L] : never}> {
+type LocationFilter<T> = keyof T extends infer K ? K extends keyof T ? T[K] extends LOCATION ?  {
     type: 'Near' | 'NotNear';
     fieldName: K;
     distance: number;
     units: 'M' | 'K' | 'N';
-    location: LOCATION;
-}
+    location: T[K];
+} : never : never : never;
 
 type QueryFilter<T> = AndOrQueryFilter<T> | 
-                        SingleValueFilter<T, keyof T> | 
-                        BetweenFilter<T, keyof T> | 
-                        RegexFilter<T, keyof T> | 
+                        SingleValueFilter<T> | 
+                        BetweenFilter<T> | 
+                        RegexFilter<T> | 
                         TaggedFilter<T, keyof T> | 
-                        ContainsFilter<T, keyof T> |
+                        ContainsFilter<T> |
                         MissingValueFilter<T, keyof T> |
-                        LocationFilter<T, keyof T>;
+                        LocationFilter<T>;
 
 declare const _event: unique symbol;
 
