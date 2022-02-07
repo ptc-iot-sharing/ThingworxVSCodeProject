@@ -1289,6 +1289,62 @@ declare class ThingShapeEntity<T extends ThingShapeBase> extends RootEntity {
 	QueryImplementingThingsWithData(args?:{maxItems?: NUMBER, nameMask?: STRING, query?: QUERY<Struct<T>>, tags?: TAGS}): INFOTABLE<Struct<T>>;
 
 	/**
+	 * Return a list of all the things that implement this shape
+	 * @param networkParentNode Name of the top network node
+	 * @param networkMaxDepth Max depth to search in the network
+	 * @param maxItems Maximum number of items to return
+	 * @param basicPropertyNames nclude Basic Properties such as {isSystemObject, name, description, homeMashup, avatar, tags, projectName}
+	 * @param withPermissions whether or not to include read / update / delete permission information in the result 
+	 * @param offset the number of rows to skip before starting to return rows from the query
+	 * @param nameMask Name pattern
+	 * @param propertyNames Include propertyNames
+	 * @param query Query definition
+	 * @param networkName Name of network
+	 * @param tags Tags to search on
+	 */
+	 QueryImplementingThingsOptimized(args?: {
+		networkParentNode?: STRING;
+		networkMaxDepth?: INTEGER;
+		maxItems?: NUMBER;
+		basicPropertyNames?: INFOTABLE<EntityList>;
+		withPermissions?: BOOLEAN;
+		offset?: NUMBER;
+		nameMask?: STRING;
+		propertyNames?: INFOTABLE<EntityList>;
+		query?: QUERY<Struct<T>>;
+		networkName?: STRING;
+		tags?: TAGS;
+	}): INFOTABLE<Partial<Struct<T>>>;
+
+	/**
+	 * Return a list of all the things that implement this shape
+	 * @param networkParentNode Name of the top network node
+	 * @param networkMaxDepth Max depth to search in the network
+	 * @param maxItems Maximum number of items to return
+	 * @param basicPropertyNames nclude Basic Properties such as {isSystemObject, name, description, homeMashup, avatar, tags, projectName}
+	 * @param withPermissions whether or not to include read / update / delete permission information in the result 
+	 * @param offset the number of rows to skip before starting to return rows from the query
+	 * @param nameMask Name pattern
+	 * @param propertyNames Include propertyNames
+	 * @param query Query definition
+	 * @param networkName Name of network
+	 * @param tags Tags to search on
+	 */
+	QueryImplementingThingsOptimizedWithTotalCount(args?: {
+		networkParentNode?: STRING;
+		networkMaxDepth?: INTEGER;
+		maxItems?: NUMBER;
+		basicPropertyNames?: INFOTABLE<EntityList>;
+		withPermissions?: BOOLEAN;
+		offset?: NUMBER;
+		nameMask?: STRING;
+		propertyNames?: INFOTABLE<EntityList>;
+		query?: QUERY<Struct<T>>;
+		networkName?: STRING;
+		tags?: TAGS;
+	}): INFOTABLE<ImplementedThingsWithTotalCount<Partial<Struct<T>>>>;
+
+	/**
 	 * Set the property binding for a property
 	 * @param propertyName Property name
 	 * @param aspects Aspects for the local binding
@@ -3006,6 +3062,62 @@ declare class ThingTemplateEntity<T extends GenericThing> extends RootEntity {
 	 * @return Implementing Things With Data
 	 */
 	QueryImplementingThingsWithData(args?:{maxItems?: NUMBER, nameMask?: STRING, query?: QUERY<Struct<T>>, tags?: TAGS}): INFOTABLE<Struct<T>>;
+
+	/**
+	 * Return a list of all the things that implement this shape
+	 * @param networkParentNode Name of the top network node
+	 * @param networkMaxDepth Max depth to search in the network
+	 * @param maxItems Maximum number of items to return
+	 * @param basicPropertyNames nclude Basic Properties such as {isSystemObject, name, description, homeMashup, avatar, tags, projectName}
+	 * @param withPermissions whether or not to include read / update / delete permission information in the result 
+	 * @param offset the number of rows to skip before starting to return rows from the query
+	 * @param nameMask Name pattern
+	 * @param propertyNames Include propertyNames
+	 * @param query Query definition
+	 * @param networkName Name of network
+	 * @param tags Tags to search on
+	 */
+	QueryImplementingThingsOptimized(args?: {
+		networkParentNode?: STRING;
+		networkMaxDepth?: INTEGER;
+		maxItems?: NUMBER;
+		basicPropertyNames?: INFOTABLE<EntityList>;
+		withPermissions?: BOOLEAN;
+		offset?: NUMBER;
+		nameMask?: STRING;
+		propertyNames?: INFOTABLE<EntityList>;
+		query?: QUERY<Struct<T>>;
+		networkName?: STRING;
+		tags?: TAGS;
+	}): INFOTABLE<Partial<Struct<T>>>;
+
+	/**
+	 * Return a list of all the things that implement this shape
+	 * @param networkParentNode Name of the top network node
+	 * @param networkMaxDepth Max depth to search in the network
+	 * @param maxItems Maximum number of items to return
+	 * @param basicPropertyNames nclude Basic Properties such as {isSystemObject, name, description, homeMashup, avatar, tags, projectName}
+	 * @param withPermissions whether or not to include read / update / delete permission information in the result 
+	 * @param offset the number of rows to skip before starting to return rows from the query
+	 * @param nameMask Name pattern
+	 * @param propertyNames Include propertyNames
+	 * @param query Query definition
+	 * @param networkName Name of network
+	 * @param tags Tags to search on
+	 */
+	QueryImplementingThingsOptimizedWithTotalCount(args?: {
+		networkParentNode?: STRING;
+		networkMaxDepth?: INTEGER;
+		maxItems?: NUMBER;
+		basicPropertyNames?: INFOTABLE<EntityList>;
+		withPermissions?: BOOLEAN;
+		offset?: NUMBER;
+		nameMask?: STRING;
+		propertyNames?: INFOTABLE<EntityList>;
+		query?: QUERY<Struct<T>>;
+		networkName?: STRING;
+		tags?: TAGS;
+	}): INFOTABLE<ImplementedThingsWithTotalCount<Partial<Struct<T>>>>;
 
 	/**
 	 * Set an entire shared multi-row configuration table
@@ -14254,6 +14366,11 @@ declare interface DataShapes {
 	 */
 	EdgeThingEndpoint: DataShapeEntity<EdgeThingEndpoint>;
 
+	/**
+	 * Datashape for ImplementedThing with total count
+	 */ 
+	ImplementedThingsWithTotalCount: DataShapeEntity<ImplementedThingsWithTotalCount>;
+
 }
 
 declare const DataShapes: DataShapes;
@@ -22794,6 +22911,21 @@ declare const Projects: Projects;
 	 */
 	tags: TAGS;
 
+
+}
+
+declare class ImplementedThingsWithTotalCount<T = {}> extends DataShapeBase {
+
+
+    /**
+     * List of implemeted things
+     */
+    rootEntityList: INFOTABLE<RootEntityList & T>;
+
+    /**
+     * Total count of implemented things
+     */
+    totalCount: NUMBER;
 
 }
 
