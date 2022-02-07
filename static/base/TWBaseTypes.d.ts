@@ -197,8 +197,14 @@ declare class DataShapeDefinition<T> {
 type XML = Object;
 
 declare interface QUERY<T = any> {
-    sort?: 'ascending' | 'descending';
+    sorts?: SortFilter<T, keyof T>[];
     filters: QueryFilter<T>;
+}
+
+declare interface SortFilter<T, K extends keyof T> {
+    fieldName: K;
+    isAscending?: boolean;
+    isCaseSensitive?: boolean;
 }
 
 declare interface AndOrQueryFilter<T> {
@@ -212,14 +218,52 @@ declare interface SingleValueFilter<T, K extends keyof T> {
     value: T[K];
 }
 
+declare interface RegexFilter<T, K extends keyof T> {
+    type: 'Matches' | 'NotMatches';
+    fieldName: K;
+    expression: string;
+}
+
 declare interface BetweenFilter<T, K extends keyof T> {
-    type: 'BETWEEN' | 'NOTBETWEEN'
+    type: 'BETWEEN' | 'NOTBETWEEN' | 'Between' | 'NotBetween'
     fieldName: K;
     from: T[K];
     to: T[K];
 }
 
-type QueryFilter<T> = AndOrQueryFilter<T> | SingleValueFilter<T, keyof T> | BetweenFilter<T, keyof T>;
+declare interface TaggedFilter<T, K extends keyof T> {
+    type: 'TAGGED' | 'NOTTAGGED';
+    fieldName: K;
+    tags: {vocabulary: keyof ModelTags, vocabularyTerm: string}[] | string;
+}
+
+declare interface ContainsFilter<T, K extends keyof T> {
+    type: 'IN' | 'NOTIN';
+    fieldName: K;
+    values: T[K][];
+}
+
+declare interface MissingValueFilter<T, K extends keyof T> {
+    type: 'MissingValue' | 'NotMissingValue';
+    fieldName: K;
+}
+
+declare interface LocationFilter<T, K extends keyof {[L in keyof T]: T[L] extends LOCATION ? T[L] : never}> {
+    type: 'Near' | 'NotNear';
+    fieldName: K;
+    distance: number;
+    units: 'M' | 'K' | 'N';
+    location: LOCATION;
+}
+
+type QueryFilter<T> = AndOrQueryFilter<T> | 
+                        SingleValueFilter<T, keyof T> | 
+                        BetweenFilter<T, keyof T> | 
+                        RegexFilter<T, keyof T> | 
+                        TaggedFilter<T, keyof T> | 
+                        ContainsFilter<T, keyof T> |
+                        MissingValueFilter<T, keyof T> |
+                        LocationFilter<T, keyof T>;
 
 declare const _event: unique symbol;
 
@@ -238,7 +282,7 @@ type TWJSON<T = any> = T extends (...args: any[]) => any ? never : (T extends Ob
 type json<T = any> = TWJSON<T>;
 
 // This is technically a Location object, but it doesn't contain any relevant methods
-type LOCATION = {latitude: number, longitude: number, altitude?: number};
+type LOCATION = {latitude: number, longitude: number, altitude?: number, units?: string};
 type location = LOCATION;
 
 type IMAGE = string;
