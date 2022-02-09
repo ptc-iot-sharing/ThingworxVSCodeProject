@@ -231,9 +231,9 @@ type BetweenFilter<T> = keyof T extends infer K ? K extends keyof T ? {
     to: T[K];
 } : never : never;
 
-declare interface TaggedFilter<T, K extends keyof T> {
+type TaggedFilter<T> = {
     type: 'TAGGED' | 'NOTTAGGED';
-    fieldName: K;
+    fieldName: keyof {[K in keyof T]: T[K] extends TAGS ? T[K] : never};
     tags: {vocabulary: keyof ModelTags, vocabularyTerm: string}[] | string;
 }
 
@@ -243,9 +243,9 @@ type ContainsFilter<T> = keyof T extends infer K ? K extends keyof T ?  {
     values: T[K][];
 } : never : never;
 
-declare interface MissingValueFilter<T, K extends keyof T> {
+type MissingValueFilter<T> = {
     type: 'MissingValue' | 'NotMissingValue';
-    fieldName: K;
+    fieldName: keyof T;
 }
 
 type LocationFilter<T> = keyof T extends infer K ? K extends keyof T ? T[K] extends LOCATION ?  {
@@ -260,9 +260,9 @@ type QueryFilter<T> = AndOrQueryFilter<T> |
                         SingleValueFilter<T> | 
                         BetweenFilter<T> | 
                         RegexFilter<T> | 
-                        TaggedFilter<T, keyof T> | 
+                        TaggedFilter<T> | 
                         ContainsFilter<T> |
-                        MissingValueFilter<T, keyof T> |
+                        MissingValueFilter<T> |
                         LocationFilter<T>;
 
 declare const _event: unique symbol;
