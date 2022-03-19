@@ -1,3 +1,43 @@
+# 9 Mar 2022
+
+Moved the various build and dependency tasks into an external `bm-thing-cli` command line tool and removed `gulpfile.js` as well as the gulp-related dependencies. Additionally, the decorator and default entity declarations have been moved into `bm-thing-transformer`. These changes should make it easier to update to new verions as fewer local files will need to be updated. Existing gulp projects can use the `npx twc upgrade` command to update to the new format.
+
+Added support for creating and building multiple thingworx projects from the same typescript project. These can be built into either separate extensions for each project or a single extension containing all projects. Multi-project mode can be enabled by using the `npx twc add-project` command. Local project dependencies can be specified in each project's `tsconfig.json` file, by adding a relative to another project's source folder (e.g. `"../<MyProjectDependency>"`).
+
+Added support for SQL services using the `@SQLQuery` and `@SQLCommand` decorators, and the `SQLQuery` and `SQLCommand` tagged literal functions. Added an example database thing using them.
+
+Added a new `generateThingInstances` option to `twconfig.json` that, when enabled, will cause a number of random things to be declared whenever a thing template or thing shape is defined. This allows types that use subsets of `keyof Things` to not resolve to `never` and enable proper autocomplete and type checking for `THINGNAME` values for types that have no instances by default. The generated names change during every build to prevent referencing those virtual entities directly by accident.
+
+The `GROUPNAME` type is now properly defined as `keyof Groups` instead of `string`.
+
+The `minimumThingWorxVersion` option can now be specified in `twconfig.json` instead of `package.json`.
+
+Added the type definitions for the following filter types: `Matches`, `NotMatches`, `TAGGED`, `NOTTAGGED`, `IN`, `NOTIN`, `MissingValue`, `NotMissingValue`, `Near`, `NotNear`.
+
+Improved type checking on queries by matching the type of the property specified by `fieldName` to the type of the values specified in the filter. For example, the following query will report a type error if the `"pressure"` property is a `NUMBER`:
+```ts
+ThingShapes.ExampleThingShape.QueryImplementingThingsWithData({query: {
+    filters: {
+        type: 'EQ',
+        fieldName: 'pressure', // An error is reported here because '3' cannot be assigned to 'pressure' property
+        value: '3',
+    }
+}})
+```
+
+Resolves various issues with importing declarations from a thingworx server:
+ - When importing declaration from thingworx, importing entities with the same names but different types will no longer lead to duplicate identifiers.
+ - Importing entities whose names contain non-alphanumeric characters is now supported.
+ - Importing data things using data shapes whose names are not valid typescript identifiers will now no longer lead to compile time errors.
+ - Importing templates no longer causes some superclass members to be redeclared.
+ - Importing entities whose member names are not valid typescript identifiers is now supported.
+
+Added the definitions for the `QueryImplementingThingsOptimized` and `QueryImplementingThingsOptimizedWithTotalCount` services on thing templates and thing shapes. Additionally improved the typings for `GetImplementingThingsWithData` so that intellisense can autocomplete all property names on the resulting infotable rows.
+
+Added the definitions for a `StyleThemeEntity` to resolve compilation errors when style theme entities were imported from a thingworx server.
+
+Added the definition for the standard `ThingNames` data shape.
+
 # 29 Jan 2022
 
 Replaced all instances of the `JSON` type with the `TWJSON` type.

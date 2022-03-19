@@ -1,8 +1,6 @@
 {
 	"name": "bm-thingworx-vscode",
-	"packageName": "bm-thingworx-vscode",
-	"moduleName": "bm-thingworx-vscode",
-	"version": "1.7.1-beta.1",
+	"version": "2.0.0",
 	"description": "Develop in ThingWorx with a proper IDE.",
 	"author": "Thingworx RoIcenter",
 	"thingworxProjectName": "MyProject",
@@ -21,10 +19,11 @@
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "gulp build",
-		"buildDebug": "gulp build --debug",
-		"upload": "gulp upload",
-		"uploadDebug": "gulp upload --debug"
+		"build": "twc build",
+		"buildDebug": "twc build --debug",
+		"upload": "twc upload",
+		"uploadDebug": "twc upload --debug",
+		"watch:declarations": "twc watch"
 	},
 	"license": "MIT",
 	"files": [
@@ -34,20 +33,6 @@
 	],
 	"devDependencies": {
 		"@types/node": "^8.10.11",
-		"babel-plugin-remove-import-export": "^1.1.0",
-		"bm-thing-transformer": "^0.17.0-beta.1",
-		"cli-progress": "^3.6.1",
-		"del": "^5.0.0",
-		"delete-empty": "^3.0.0",
-		"dotenv": "^10.0.0",
-		"gulp": "^4.0.2",
-		"gulp-babel": "^8.0.0",
-		"gulp-concat": "^2.6.1",
-		"gulp-terser": "^1.2.0",
-		"gulp-typescript": "^6.0.0-alpha.1",
-		"gulp-zip": "^5.0.0",
-		"request": "^2.85.0",
-		"typescript": "~4.3.4",
-		"xml2js": "^0.4.19"
+		"bm-thing-cli": "^1.0.1"
 	}
 }
