@@ -48,7 +48,7 @@ By default, the project contains the declarations for all the out of the box ent
  - `projectDependencies`: An array where you specify the Thingworx project names on which your local projects depends. This will download the declaration for all of the entities that are included in the project.
  - `entityDependencies`: An array where you specify entity types and names (e.g. `"Things/MyThing"`). This can be used to download specific entities, such as extension templates.
 
-Whenever you change `twconfig.json`, run `gulp install` to pull the declarations from the Thingworx server specified in `package.json`.
+Whenever you change `twconfig.json`, run `npx twc install` to pull the declarations from the Thingworx server specified in `package.json`.
 
 Whenever entities are downloaded in this way, all other dependencies are downloaded as well, so if your `MyThing` thing depends on the `MyDataShape` data shape, you don't need to specify both in `twconfig.json`.
 
@@ -101,13 +101,13 @@ Any TypeScript file you add to the `src` folder will be compiled into a Thingwor
 
 ## Build
 
-To build the extension, run `gulp build` in the root of the project. This will generate an extension .zip file in the zip folder in the root of the project.
+To build the extension, run `npm run build` in the root of the project. This will generate an extension .zip file in the zip folder in the root of the project.
 
-To build the extension and upload it to Thingworx, run `gulp upload` in the root of the project. The details of the Thingworx server to which the script will upload the extension are declared in the project's `package.json` file. These are:
+To build the extension and upload it to Thingworx, run `npm run upload` in the root of the project. The details of the Thingworx server to which the script will upload the extension are declared in the project's environment or `package.json` file. These are:
  * `thingworxServer` - The server to which the extension will be uploaded.
  * `thingworxAppKey` or `thingworxUser` and `thingworxPassword` - The credentials used for uploading. This should be a user that has permission to install extensions.
 
-To create a debug build that can be used for debugging, add the `--debug` argument to any task. For example, to create and upload a debug build, run `gulp upload --debug`. For more information about debugging and debug builds, see [BMDebugServer](https://github.com/BogdanMihaiciuc/BMDebugServer) and [ThingworxVSCodeDebugger](https://github.com/BogdanMihaiciuc/ThingworxVSCodeDebugger).
+To create a debug build that can be used for debugging, add the `--debug` argument to any task. For example, to create and upload a debug build, run `npx twc upload --debug`. For more information about debugging and debug builds, see [BMDebugServer](https://github.com/BogdanMihaiciuc/BMDebugServer) and [ThingworxVSCodeDebugger](https://github.com/BogdanMihaiciuc/ThingworxVSCodeDebugger).
 
 ## Deployment
 
