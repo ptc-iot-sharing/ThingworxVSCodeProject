@@ -27,7 +27,6 @@ There are many advantages to this, and here are some of them:
 The following software is required:
 
 * [NodeJS](https://nodejs.org/en/): needs to be installed and added to the `PATH`. You should use the LTS version (v14+).
-* [gulp command line utility](https://gulpjs.com/docs/en/getting-started/quick-start): is needed to run the build script.
 
 The following software is recommended:
 
@@ -37,10 +36,11 @@ The following software is recommended:
 
 In order to develop with this project you need to do the following:
 1. Clone this repository
-2. Open `package.json` and configure the `thingworxServer`, `thingworxUser`, `thingworxPassword` and other fields as needed.
-3. Run `npm install`. This will install the development dependencies for the project.
-4. Run `gulp`. This will start a background process that is needed for generating certain files. **Don't forget this as compilation can fail if the generated files become stale.**
-5. Start working on the project.
+2. Copy `.env.sample` to `.env` and configure the `THINGWORX_SERVER` and either `THINGWORX_USER` and `THINGWORX_PASSWORD` or `THINGWORX_APP_KEY` and other fields as needed.
+3. Open `package.json` and `twconfig.json` and change the fields as needed.
+4. Run `npm install`. This will install the development dependencies for the project.
+5. Run `npm run watch:declarations`. This will start a background process that is needed for generating certain files. **Don't forget this as compilation can fail if the generated files become stale.**
+6. Start working on the project.
 
 ## Entity Dependencies
 
@@ -48,25 +48,32 @@ By default, the project contains the declarations for all the out of the box ent
  - `projectDependencies`: An array where you specify the Thingworx project names on which your local projects depends. This will download the declaration for all of the entities that are included in the project.
  - `entityDependencies`: An array where you specify entity types and names (e.g. `"Things/MyThing"`). This can be used to download specific entities, such as extension templates.
 
-Whenever you change `twconfig.json`, run `gulp install` to pull the declarations from the Thingworx server specified in `package.json`.
+Whenever you change `twconfig.json`, run `npx twc install` to pull the declarations from the Thingworx server specified in `package.json`.
 
 Whenever entities are downloaded in this way, all other dependencies are downloaded as well, so if your `MyThing` thing depends on the `MyDataShape` data shape, you don't need to specify both in `twconfig.json`.
 
 ## File Structure
 ```
 ThingworxVSCodeProject
-│   README.md         // this file
-│   package.json      // here you specify Thingworx connection details
-│   metadata.xml      // thingworx metadata file for this widget. This is automatically updated based on your package.json and build settings
-│   LICENSE           // license file
-│   gulpfile.js       // build script
-└───src               // main folder where your development will take place
-│   │   file1.ts            // thingworx entity file
-|   |   ...
-└───static            // supporting files required for compilation. Don't change these.
-└───tw_imports        // entity dependencies downloaded from a Thingworx server
-└───build             // temporary folder used during compilation
-└───zip               // location of the built extension
+│   README.md              // This file
+│   package.json           // Standard npm package details; the package name is also used as the extension name
+│   tsconfig.json          // Standard typescript configuration file
+│   twconfig.json          // Thingworx-specific configuration
+│   metadata.xml           // Thingworx metadata file for this extension; This is automatically updated based on your package.json and build settings
+│   LICENSE                // License file
+│   .env                   // Contains environment variables and thingworx connection details
+└───src                    // Main folder where your development will take place
+│   └───file1.ts           // Thingworx entity file
+│   │   ...
+│   └───[Project1]         // In multi-project mode, each subfolder represents a thingworx project
+│   │   └───src            // Project's source folder
+│   │   │   └───file2.ts   // Thingworx entity file
+│   │   │   ...
+│   │   └───tsconfig.json  // Project's typescript configuration file; Project dependencies are extracted from this
+└───static                 // Supporting files required for compilation; Don't change these
+└───tw_imports             // Entity dependencies downloaded from a Thingworx server
+└───build                  // Temporary folder used during compilation
+└───zip                    // Location of the built extension
 ```
 
 ## Source Files
@@ -87,26 +94,34 @@ Any TypeScript file you add to the `src` folder will be compiled into a Thingwor
 
  - Only Things, ThingTemplates, ThingShapes, DataShapes, Users, Groups, Organizations and Projects are supported currently. For other types of entities you will still need to use the composer.
  - <strike>Description currently cannot be specified. In the future, JSDoc comments will be used for this purpose.</strike> (1 Apr 2020)
- - Non-javascript services such as SQL or Flow services are not supported.
+ - <strike>Non-javascript services such as SQL</strike> or Flow services are not supported. (19 Mar 2022)
  - <strike>Projects and </strike>tags cannot be specified currently. </strike>Note that your project will however be packaged as an extension that can be easily installed, updated and removed.</strike> (27 Jul 2020)
  - <strike>Configuration tables are not currently supported, but this likely to be supported in some manner soon.</strike> (23 Mar 2020)
  - XML handling via E4X is not and will not be supported. Using E4X syntax will lead to a compilation error. You should use the various XML methods to work around this limitation.
 
 ## Build
 
-To build the extension, run `gulp build` in the root of the project. This will generate an extension .zip file in the zip folder in the root of the project.
+To build the extension, run `npm run build` in the root of the project. This will generate an extension .zip file in the zip folder in the root of the project.
 
-To build the extension and upload it to Thingworx, run `gulp upload` in the root of the project. The details of the Thingworx server to which the script will upload the extension are declared in the project's `package.json` file. These are:
+To build the extension and upload it to Thingworx, run `npm run upload` in the root of the project. The details of the Thingworx server to which the script will upload the extension are declared in the project's environment or `package.json` file. These are:
  * `thingworxServer` - The server to which the extension will be uploaded.
  * `thingworxAppKey` or `thingworxUser` and `thingworxPassword` - The credentials used for uploading. This should be a user that has permission to install extensions.
 
-To create a debug build that can be used for debugging, add the `--debug` argument to any task. For example, to create and upload a debug build, run `gulp upload --debug`. For more information about debugging and debug builds, see [BMDebugServer](https://github.com/BogdanMihaiciuc/BMDebugServer) and [ThingworxVSCodeDebugger](https://github.com/BogdanMihaiciuc/ThingworxVSCodeDebugger).
+To create a debug build that can be used for debugging, add the `--debug` argument to any task. For example, to create and upload a debug build, run `npx twc upload --debug`. For more information about debugging and debug builds, see [BMDebugServer](https://github.com/BogdanMihaiciuc/BMDebugServer) and [ThingworxVSCodeDebugger](https://github.com/BogdanMihaiciuc/ThingworxVSCodeDebugger).
 
 ## Deployment
 
 Deployment to Thingworx is part of the build process as explained above. Alternatively, you can manually install the extension that is generated in the zip folder in the root of the project.
 
 # Recent Changes
+
+For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
+
+## 19 Mar 2022
+
+- Support for multiple projects
+- Support for SQL services
+- Support for using environment variables in configuration table values
 
 ## 28 Dec 2021
 
@@ -155,7 +170,7 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 
 # Credit/Acknowledgment
 
-[Petrisor Lacatus](https://github.com/stefan-lacatus) - had the original idea of using `tsc` to create Thingworx entities. This uses some definitions and ideas from [MonacoEditorTWX](https://github.com/ptc-iot-sharing/MonacoEditorTWX).
+[Petrisor Lacatus](https://github.com/stefan-lacatus) - had the original idea of using tyescript transformers to create Thingworx entities. This uses some definitions and ideas from [MonacoEditorTWX](https://github.com/ptc-iot-sharing/MonacoEditorTWX).
 
 [Bogdan Mihaiciuc](https://github.com/BogdanMihaiciuc) - main developer.
 
