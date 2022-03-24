@@ -33,6 +33,6 @@
 	],
 	"devDependencies": {
 		"@types/node": "^8.10.11",
-		"bm-thing-cli": "^1.0.1"
+		"bm-thing-cli": "^1.0.2"
 	}
 }
