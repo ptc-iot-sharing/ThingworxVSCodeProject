@@ -139,38 +139,9 @@ For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
 - Support for using an app key instead of username/password when deploying.
 
-## 6 Nov 2020
-
- - Support for specifying an ordinal value for data shape fields
- - Support for automatically generating ordinal values for data shape fields
-
-## 27 Jul 2020
-
- - Resolves an issue that caused ThingShapes to not be applied properly
- - Added support for external names and external reference types
- - Added support for using regular TypeScript types (e.g. `number` instead of `NUMBER`)
- - Added experimental support for global code
-
-## 3 Apr 2020
-
- - Added support for importing declarations from Thingworx
-
-## 2 Apr 2020
-
- - Added support for ES6 features that require helper functions
- - Added support for using JSDoc as descriptions
- - Added support for using and inlining const enums
- - Added support for specifying constraints for string, number and JSON types
-
-## 23 Mar 2020
-
- - Added support for configuration table definitions
- - Resolves import bug when creating thing templates
- - Resolves compilation when specifying certain default values
-
 # Credit/Acknowledgment
 
-[Petrisor Lacatus](https://github.com/stefan-lacatus) - had the original idea of using tyescript transformers to create Thingworx entities. This uses some definitions and ideas from [MonacoEditorTWX](https://github.com/ptc-iot-sharing/MonacoEditorTWX).
+[Petrisor Lacatus](https://github.com/stefan-lacatus) - had the original idea for this, inferred property types and bug fixes.
 
 [Bogdan Mihaiciuc](https://github.com/BogdanMihaiciuc) - main developer.
 
@@ -178,7 +149,7 @@ For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
 [carlo-quinonez](https://github.com/carlo-quinonez) - bug fixes and documentation improvements.
 
-[dwil618](https://github.com/dwil618): support for min/max aspects and date initializers.
+[dwil618](https://github.com/dwil618) - support for min/max aspects and date initializers.
 
 # Disclaimer
 
