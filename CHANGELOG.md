@@ -1,4 +1,14 @@
-# 9 Mar 2022
+# 28 Mar 2022
+
+Resolves an issue that caused multiproject builds to fail on windows systems.
+
+Added support for using inferred types in property declarations and data shape field declarations. ([stefan-lacatus](https://github.com/stefan-lacatus))
+
+Resolved an issue that cause base type errors to report the invalid base types as `undefined` rather than the actual types.
+
+Resolved an issue that caused permission decorators applied to templates to be incorrectly emitted as runtime permissions instead of instance runtime permissions. ([stefan-lacatus](https://github.com/stefan-lacatus))
+
+# 19 Mar 2022
 
 Moved the various build and dependency tasks into an external `bm-thing-cli` command line tool and removed `gulpfile.js` as well as the gulp-related dependencies. Additionally, the decorator and default entity declarations have been moved into `bm-thing-transformer`. These changes should make it easier to update to new verions as fewer local files will need to be updated. Existing gulp projects can use the `npx twc upgrade` command to update to the new format.
 
