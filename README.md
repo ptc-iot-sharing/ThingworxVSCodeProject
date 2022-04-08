@@ -141,7 +141,7 @@ For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
 # Credit/Acknowledgment
 
-[Petrisor Lacatus](https://github.com/stefan-lacatus) - had the original idea for this, inferred property types and bug fixes.
+[Petrisor Lacatus](https://github.com/stefan-lacatus) - had the original idea for this, inferred property types and bug fixes, support for method helpers.
 
 [Bogdan Mihaiciuc](https://github.com/BogdanMihaiciuc) - main developer.
 
