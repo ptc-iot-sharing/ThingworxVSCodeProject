@@ -1,3 +1,7 @@
+# 8 Apr 2022
+
+Adds support for generating method helpers, that are useful variables that can be used for logging. The following variables can be enabled: `METHOD_NAME`, `CLASS_NAME`, `FILE_PATH` and `LOG_PREFIX`. Added support for a new property `"methodHelpers"` in `twconfig.json` to control which of these are generated. ([stefan-lacatus](https://github.com/stefan-lacatus))
+
 # 28 Mar 2022
 
 Resolves an issue that caused multiproject builds to fail on windows systems.
