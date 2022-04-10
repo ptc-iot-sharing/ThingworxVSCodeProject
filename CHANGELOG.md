@@ -1,3 +1,7 @@
+# 2.3
+
+Adds support for declaring and using global functions. Whenever a service makes a call to a global function, that global function's definition will be copied to the service's code during compilation. This will also copy over any other global functions that the initial function calls. Added support for a new property `"globalFunctions"` in `twconfig.json` to control whether these declarations are allowed.
+
 # 8 Apr 2022
 
 Adds support for generating method helpers, that are useful variables that can be used for logging. The following variables can be enabled: `METHOD_NAME`, `CLASS_NAME`, `FILE_PATH` and `LOG_PREFIX`. Added support for a new property `"methodHelpers"` in `twconfig.json` to control which of these are generated. ([stefan-lacatus](https://github.com/stefan-lacatus))
