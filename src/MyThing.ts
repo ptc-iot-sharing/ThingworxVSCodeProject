@@ -19,6 +19,17 @@ const enum Status {
 }
 
 /**
+ * Global functions may make use of any thingworx entities like any regular service.
+ * @param message       The message to save.
+ */
+function logToFile(message: string) {
+    Things.SystemRepository.AppendToTextFile({
+        path: process.env.LOG_FILE_PATH,
+        data: message + '\n'
+    });
+}
+
+/**
  * This example file shows how to define a Thing using TypeScript.
  * 
  * A Thing is identified via the `@ThingDefinition` decorator.
@@ -160,6 +171,8 @@ const enum Status {
         if (this.status == Status.Running) {
             logger.debug('Thing is running');
         }
+
+        logToFile(`${LOG_PREFIX} State changed to ${this.status}`);
     }
 
     /**
