@@ -10,6 +10,22 @@ interface StatusResponse {
 }
 
 /**
+ * Global functions can be declared and used throughout the project.
+ * Whenever a global function is used in any service, it will be copied
+ * to the service during compilation.
+ * @param message       The message to log.
+ */
+function log(message: string): void {
+    // Method helpers may be used from within global functions; if any is used
+    // its declaration will be added to all of the services using it
+    logger.debug(`${LOG_PREFIX} ${message}`);
+
+    // Global functions may also call other global functions, in this case
+    // all of their dependencies will be inlined as well
+    logToFile(message);
+}
+
+/**
  * This example class demonstrates how Thing Shapes are created.
  * 
  * Thing shapes are classes that extend from the `ThingShapeBase` class; they follow
@@ -34,6 +50,9 @@ class ExampleThingShape extends ThingShapeBase {
     }
 
     SetPressure({pressure}: {pressure: number}): void {
+        // At runtime, this service will gain a copy of the log function
+        // and any other global functions it calls.
+        log(`Setting pressure to ${pressure}`);
         this.pressure = pressure;
     }
 
