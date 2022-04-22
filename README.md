@@ -117,6 +117,16 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 
 For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
+## 22 Apr 2022
+- Support for global functions
+- Experimental support for API types generation
+
+## 8 Apr 2022
+- Support for method helpers such as METHOD_NAME and LOG_PREFIX
+
+## 28 Mar 2022
+- Support for inferred types in property declarations and data shape field declarations
+
 ## 19 Mar 2022
 
 - Support for multiple projects
@@ -141,7 +151,7 @@ For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
 # Credit/Acknowledgment
 
-[Petrisor Lacatus](https://github.com/stefan-lacatus) - had the original idea for this, inferred property types and bug fixes, support for method helpers.
+[Petrisor Lacatus](https://github.com/stefan-lacatus) - had the original idea for this, inferred property types and bug fixes, support for method helpers, API generation.
 
 [Bogdan Mihaiciuc](https://github.com/BogdanMihaiciuc) - main developer.
 
