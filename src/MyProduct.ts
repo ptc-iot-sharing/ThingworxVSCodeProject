@@ -5,10 +5,15 @@ class MyProduct extends DataShapeBase {
     /**
      * The name of the product.
      */
-    name!: string;
+    product_name!: string;
 
     /**
      * The price of the product.
      */
     price!: number;
+
+    /**
+     * The product's id.
+     */
+    id!: string;
 }

@@ -9,7 +9,7 @@ class MyOrganization extends OrganizationBase {
      * 
      * Each organization must have a single root unit.
      */
-    units: OrganizationUnit = {
+    override units: OrganizationUnit = {
         /**
          * A description can be provided for the organizational unit by adding a JSDoc tag to its name property.
          */

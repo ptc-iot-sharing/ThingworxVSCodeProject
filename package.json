@@ -1,6 +1,6 @@
 {
 	"name": "bm-thingworx-vscode",
-	"version": "2.3.0",
+	"version": "2.4.0",
 	"description": "Develop in ThingWorx with a proper IDE.",
 	"author": "Thingworx RoIcenter",
 	"thingworxProjectName": "MyProject",
@@ -33,6 +33,6 @@
 	],
 	"devDependencies": {
 		"@types/node": "^8.10.11",
-		"bm-thing-cli": "^1.2.0"
+		"bm-thing-cli": "^1.3.0"
 	}
 }
