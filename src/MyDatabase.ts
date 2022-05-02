@@ -71,7 +71,6 @@
     /**
      * Similar to commands, the timeout and max rows can be configured on queries as arguments to the `@SQLQuery` decorator.
      * If omitted, they will use the default values of 60 seconds for the timeout and 500 max rows.
-     * @param table         The name of the table from which to get products.
      */
     @SQLQuery(600, 5000) getAllProducts(): INFOTABLE<MyProduct> {
         /*sql*/
@@ -82,6 +81,54 @@
         FROM
             products
         `;
+    }
+
+    /**
+     * When inline SQL is enabled, it is possible to write SQL commands and queries directly within javascript services.
+     * The transformer will extract the sql statements and convert them into service.
+     * @param name          The name of the product whose info should be retrieved. A value of "*" will update the prices of all products.
+     * @param percent       A percentage by which to increase the product's price.
+     * @returns             An infotable containing the products that were updated.
+     */
+    increaseProductPrice({name, percent}: {name: string, percent: number}): INFOTABLE<MyProduct> {
+        // If the name is "*" update all prices
+        if (name == '*') {
+            /*sql*/
+            SQLCommand`UPDATE products SET price = price * ${1 + percent}`;
+
+            /*sql*/
+            return SQLQuery<MyProduct>`SELECT * from products`;
+        }
+
+        // Find the product to update
+        let productToUpdate: Struct<MyProduct> | undefined;
+
+        // Inefficiently loop through a query of all products to find the one whose
+        // price should be updated
+        // Inline SQL statements can be used anywhere within a database service, for example
+        // within a for-loop
+        // For SQLQuery it is required to specify the type of the return value as a generic argument
+        for (const product of SQLQuery<MyProduct>/*sql*/`SELECT * FROM products`) {
+            if (product.product_name == name) {
+                productToUpdate = product;
+                break;
+            }
+        }
+
+        // If the product wasn't found, throw an error
+        if (!productToUpdate) {
+            throw new Error(`${LOG_PREFIX} The product "${name}" does not exist.`);
+        }
+
+        // Update the database; when using inline commands it is possible to use javascript expressions in substitutions
+        // but note that these must have a valid inferred type (e.g. cannot be any, unknown, or a non-thingworx type)
+        /*sql*/
+        SQLCommand`UPDATE products SET price = ${productToUpdate.price + productToUpdate.price * percent} WHERE id = ${productToUpdate.id}`;
+
+        // Return the updated product
+        // For queries and commands, it is possible to specify the timeout and max rows properties as additional generic arguments
+        /*sql*/
+        return SQLQuery<MyProduct, 600, 5000>`SELECT * FROM products WHERE id = ${productToUpdate.id}`;
     }
 
     

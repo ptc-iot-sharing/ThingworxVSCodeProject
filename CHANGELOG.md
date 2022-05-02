@@ -1,3 +1,17 @@
+# 2 May 2022
+
+Adds support for using inline SQL statements in database services. These are extracted into their own SQL services when building.
+
+Adds support for using Typescript's built-in `override` keyword in place of the `@override` decorator and sets the `noImplicitOverride` flag to `true` in `tsconfig.json`.
+
+Adds a schema to `twconfig.json` for better documentation and validation.
+
+Improves the speed with which declarations and api exports are generated.
+
+Adds additional validation to overriden members, reporting certain errors that would lead to a failed import during build time.
+
+Adds support for generating static field definitions objects and a function to create an infotable given an array of row objects and a data shape name when generating an API declarations file, to be used when invoking thingworx endpoints. ([stefan-lacatus](https://github.com/stefan-lacatus))
+
 # 22 Apr 2022
 
 Adds support for declaring and using global functions. Whenever a service makes a call to a global function, that global function's definition will be copied to the service's code during compilation. This will also copy over any other global functions that the initial function calls. Added support for a new property `"globalFunctions"` in `twconfig.json` to control whether these declarations are allowed.
