@@ -117,6 +117,12 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 
 For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
+## 2 May 2022
+
+- Support for inline SQL
+- Support for generating `fieldDefinitions` exports
+- Support for the `override` keyword
+
 ## 22 Apr 2022
 - Support for global functions
 - Experimental support for API types generation
@@ -136,18 +142,6 @@ For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 ## 28 Dec 2021
 
 - Support for creating debug builds.
-
-## 28 Jun 2021
-
-- Support for using an `.env` file for thingworx connection details and other variables.
-- Support for inlining environment variables.
-- Support for specifying runtime and visibility permissions.
-- Support for creating users, groups and organizations.
-- Support for automatically invoking certain services after installation.
-
-## 8 Mar 2021
-
-- Support for using an app key instead of username/password when deploying.
 
 # Credit/Acknowledgment
 
