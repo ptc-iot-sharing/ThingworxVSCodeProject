@@ -1,3 +1,7 @@
+# 4 May 2022
+
+Resolves an issue with inline SQL statements where code with syntax errors was generated.
+
 # 2 May 2022
 
 Adds support for using inline SQL statements in database services. These are extracted into their own SQL services when building.
