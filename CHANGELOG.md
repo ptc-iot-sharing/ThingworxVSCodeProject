@@ -1,3 +1,9 @@
+# 15 May 2022
+
+Adds support for data shape inheritance. ([stefan-lacatus](https://github.com/stefan-lacatus))
+
+Adds support for using the `declare` modifier on class fields, which are ignored when emitting. ([stefan-lacatus](https://github.com/stefan-lacatus))
+
 # 4 May 2022
 
 Resolves an issue with inline SQL statements where code with syntax errors was generated.
