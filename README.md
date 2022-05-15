@@ -19,6 +19,7 @@ There are many advantages to this, and here are some of them:
  * **Typescript features**: You can also make use of typescript features that don't exist in thingworx, such as creating and using interfaces, marking methods and properties as private and using newer javascript features that can be transpiled. Note that some of these are erased on the Thingworx side, but they can nevertheless be useful while developing.
  * **Separate development and runtime**: In thingworx, any change happens immediately and can affect the system. When using this project template, you have to first build & publish your updated code for it to take effect.
  * **Debug support**: By using the `ThingworxVSCodeDebugger` visual studio code extension and the `BMDebugServer` thingworx extension, developers can also debug their thingworx typescript projects directly from visual studio code. The debugger supports most common features including setting breakpoints, exception breakpoints, stepping, evaluating expressions and changing variable values. For more information about setting up debugging, see [Usage Guide](https://github.com/BogdanMihaiciuc/ThingworxVSCodeDebugger/wiki/Usage-Guide)
+ * **Additional features**: The transformer also supports some additional features not directly available in Thingworx that make development easier such as providing useful constants like `METHOD_NAME`, giving developers the ability to declare and use global functions, writing inline SQL queries on Database things and extending data shapes.
 
 # Development
 
