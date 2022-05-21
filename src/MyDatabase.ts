@@ -84,6 +84,16 @@
     }
 
     /**
+     * Gets the increased price of the given product after applying the given percent increase.
+     * @param product           The product whose increased price should be determined.
+     * @param percent           The percent by which to increase the price.
+     * @returns                 The increased price.
+     */
+    getIncreasedProductPrice({product, percent}: {product: INFOTABLE<MyProduct>, percent: number}): number {
+        return product.price + product.price * percent;
+    }
+
+    /**
      * When inline SQL is enabled, it is possible to write SQL commands and queries directly within javascript services.
      * The transformer will extract the sql statements and convert them into service.
      * @param name          The name of the product whose info should be retrieved. A value of "*" will update the prices of all products.
@@ -101,7 +111,7 @@
         }
 
         // Find the product to update
-        let productToUpdate: Struct<MyProduct> | undefined;
+        let productToUpdate: INFOTABLE<MyProduct> | undefined;
 
         // Inefficiently loop through a query of all products to find the one whose
         // price should be updated
@@ -110,7 +120,7 @@
         // For SQLQuery it is required to specify the type of the return value as a generic argument
         for (const product of SQLQuery<MyProduct>/*sql*/`SELECT * FROM products`) {
             if (product.product_name == name) {
-                productToUpdate = product;
+                productToUpdate = product.toInfoTable();
                 break;
             }
         }
@@ -123,7 +133,7 @@
         // Update the database; when using inline commands it is possible to use javascript expressions in substitutions
         // but note that these must have a valid inferred type (e.g. cannot be any, unknown, or a non-thingworx type)
         /*sql*/
-        SQLCommand`UPDATE products SET price = ${productToUpdate.price + productToUpdate.price * percent} WHERE id = ${productToUpdate.id}`;
+        SQLCommand`UPDATE products SET price = ${this.getIncreasedProductPrice({product: productToUpdate, percent})} WHERE id = ${productToUpdate.id}`;
 
         // Return the updated product
         // For queries and commands, it is possible to specify the timeout and max rows properties as additional generic arguments
