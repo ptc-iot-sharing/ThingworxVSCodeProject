@@ -1,3 +1,11 @@
+# 21 May 2022
+
+Improved the error messages that appear when declaring a service parameter with certain unsupported types. ([stefan-lacatus](https://github.com/stefan-lacatus))
+
+Adds support for the `@category` decorator to specify the category of properties, events and services. ([stefan-lacatus](https://github.com/stefan-lacatus))
+
+Improves the type inferrence of expressions used in inline SQL statements.
+
 # 15 May 2022
 
 Adds support for data shape inheritance. ([stefan-lacatus](https://github.com/stefan-lacatus))
