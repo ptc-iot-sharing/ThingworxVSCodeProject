@@ -18,7 +18,8 @@ There are many advantages to this, and here are some of them:
  * **Developer friendly**: Creating entities in thingworx isn't very comfortable for developers. Common features found in IDEs, such as finding references, project-wide searching for code and even having multiple services open at the same time are not really possible. Since this project is just a typescript project, you can make use of all of your IDE's features.
  * **Typescript features**: You can also make use of typescript features that don't exist in thingworx, such as creating and using interfaces, marking methods and properties as private and using newer javascript features that can be transpiled. Note that some of these are erased on the Thingworx side, but they can nevertheless be useful while developing.
  * **Separate development and runtime**: In thingworx, any change happens immediately and can affect the system. When using this project template, you have to first build & publish your updated code for it to take effect.
- * **Debug support**: By using the `ThingworxVSCodeDebugger` visual studio code extension and the `BMDebugServer` thingworx extension, developers can also debug their thingworx typescript projects directly from visual studio code. The debugger supports most common features including setting breakpoints, exception breakpoints, stepping, evaluating expressions and changing variable values. For more information about setting up debugging, see [Usage Guide](https://github.com/BogdanMihaiciuc/ThingworxVSCodeDebugger/wiki/Usage-Guide)
+ * **Debug support**: By using the `ThingworxVSCodeDebugger` visual studio code extension and the `BMDebugServer` thingworx extension, developers can also debug their thingworx typescript projects directly from visual studio code. The debugger supports most common features including setting breakpoints, exception breakpoints, stepping, evaluating expressions and changing variable values. For more information about setting up debugging, see [Usage Guide](https://github.com/BogdanMihaiciuc/ThingworxVSCodeDebugger/wiki/Usage-Guide).
+ * **Profiling support**: By using the `BMProfiler` thingworx extension, developers can also profile their thingworx typescript projects to quickly identify performance bottlenecks. The profiler is a simple tracing profiler that shows the amount of time spent executing each service or function within a service. The profiler generates reports that can be viewed in the chrome performance inspector. For more information about setting up profiling, see [BMProfiler](https://github.com/BogdanMihaiciuc/BMProfiler).
  * **Additional features**: The transformer also supports some additional features not directly available in Thingworx that make development easier such as providing useful constants like `METHOD_NAME`, giving developers the ability to declare and use global functions, writing inline SQL queries on Database things and extending data shapes.
 
 # Development
@@ -40,7 +41,7 @@ In order to develop with this project you need to do the following:
 2. Copy `.env.sample` to `.env` and configure the `THINGWORX_SERVER` and either `THINGWORX_USER` and `THINGWORX_PASSWORD` or `THINGWORX_APP_KEY` and other fields as needed.
 3. Open `package.json` and `twconfig.json` and change the fields as needed.
 4. Run `npm install`. This will install the development dependencies for the project.
-5. Run `npm run watch:declarations`. This will start a background process that is needed for generating certain files. **Don't forget this as compilation can fail if the generated files become stale.**
+5. Run `npm run watch:declarations`. This will start a background process that is needed for generating certain files.
 6. Start working on the project.
 
 ## Entity Dependencies
@@ -118,6 +119,10 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 
 For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
+## 11 Dec 2022
+- Support for trace builds
+- Support for XML entities
+
 ## 2 May 2022
 
 - Support for inline SQL
@@ -139,10 +144,6 @@ For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 - Support for multiple projects
 - Support for SQL services
 - Support for using environment variables in configuration table values
-
-## 28 Dec 2021
-
-- Support for creating debug builds.
 
 # Credit/Acknowledgment
 
