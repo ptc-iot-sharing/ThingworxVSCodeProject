@@ -1,3 +1,13 @@
+# 11 Dec 2022
+
+Added support for generating trace builds by using the `--trace` flag.
+
+Added type guards for the built-in `ImplementsShape` and `IsDerivedFromTemplate` methods.
+
+Added a new `copyEntities` option to `twconfig.json` that, when specified, will add any XML file in the project's src directory to the build output, allowing unsupported entities to be included in the extension.
+
+Fixed incorrect code generation when specifying default values for service parameters.
+
 # 21 May 2022
 
 Improved the error messages that appear when declaring a service parameter with certain unsupported types. ([stefan-lacatus](https://github.com/stefan-lacatus))
