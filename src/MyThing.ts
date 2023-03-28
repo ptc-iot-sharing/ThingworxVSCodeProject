@@ -133,7 +133,23 @@ function logToFile(message: string) {
 
         this.streamToUse = 'AnomalyMonitorStateStream';
 
-        const data = x.QueryStreamEntriesWithData();
+        // Sections of code can be conditionally excluded from the build based on environment variables
+        // In this example, the if branch will be removed if the `MOCK_STREAM_DATA` environment variable
+        // is false or missing
+        let data: INFOTABLE;
+        if (process.env.MOCK_STREAM_DATA) {
+            data = DataShapes.AnomalyMonitorStatusEvent.CreateValues();
+            data.AddRow({
+                watcherStatus: 'Test Status',
+                alertType: 'Warning',
+                alertName: 'Test Alert',
+                message: 'This is only return when stream data is mocked.',
+                timestamp: new Date(),
+            });
+        }
+        else {
+            data = x.QueryStreamEntriesWithData();
+        }
 
         const y = Things.DownloadedSolutions;
         y.AnyAlertAck();
@@ -154,7 +170,7 @@ function logToFile(message: string) {
     @localSubscription('DataChange', 'streamToUse') streamToUseChanged(alertName: STRING, eventData: INFOTABLE<DataChangeEvent>, eventName: STRING, eventTime: DATETIME, source: STRING, sourceProperty: STRING) {
         const table = Resources.InfoTableFunctions.CreateInfoTableFromDataShape({dataShapeName: 'LinkedList'});
 
-        table.AddRow({name: 'EntityCount'});
+        table.AddRow({name: 'EntityCount', next: DataShapes.LinkedList.CreateValues()});
 
         const table2 = Resources.InfoTableFunctions.Clone({t1: table});
         logger.info(`Name is ${table2.name}`);

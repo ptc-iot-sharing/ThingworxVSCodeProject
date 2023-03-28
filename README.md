@@ -119,6 +119,11 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 
 For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
+## 28 Mar 2023
+ - Support conditionally compiled branches
+ - Support for calling superclass implementations
+ - Support for inline SQL on non-database entities
+
 ## 11 Dec 2022
 - Support for trace builds
 - Support for XML entities
@@ -138,12 +143,6 @@ For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
 ## 28 Mar 2022
 - Support for inferred types in property declarations and data shape field declarations
-
-## 19 Mar 2022
-
-- Support for multiple projects
-- Support for SQL services
-- Support for using environment variables in configuration table values
 
 # Credit/Acknowledgment
 
