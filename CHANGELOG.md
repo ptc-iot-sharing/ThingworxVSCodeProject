@@ -1,3 +1,11 @@
+# 28 Mar 2023
+
+Adds support for removing entities or branches of code from the final build based on environment variables.
+
+Adds support for invoking superclass implementation of services if the superclass is part of the project.
+
+Adds support for inline SQL statements on non-database entities by specifying the database on which the SQL code will run.
+
 # 11 Dec 2022
 
 Added support for generating trace builds by using the `--trace` flag.
