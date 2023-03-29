@@ -32,6 +32,6 @@
 		"LICENSE"
 	],
 	"devDependencies": {
-		"bm-thing-cli": "^1.7.0"
+		"bm-thing-cli": "^1.7.1"
 	}
 }
