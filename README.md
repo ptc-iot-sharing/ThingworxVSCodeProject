@@ -156,6 +156,8 @@ For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
 [dwil618](https://github.com/dwil618) - support for min/max aspects and date initializers.
 
+[CozminM](https://github.com/CozminM), [elena-bi](https://github.com/elena-bi) - bug fixes
+
 # Disclaimer
 
 The Thingworx VSCode Project is not an official Thingworx product. It is something developed to improve the life of a Thingworx developer and they need to understand that it is not supported and any issues encountered are their own responsibility.
