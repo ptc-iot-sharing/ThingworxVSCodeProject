@@ -1,3 +1,7 @@
+# 6 Dec 2023
+
+Resolves an issue where resulting extensions were not compatible with Thingworx 8.5 even when avoiding 9.0+ features.
+
 # 28 Mar 2023
 
 Adds support for removing entities or branches of code from the final build based on environment variables.
