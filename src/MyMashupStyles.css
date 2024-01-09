@@ -1,0 +1,12 @@
+.app-header {
+    border-bottom: 1px solid gray;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.app-header > .widget-content {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.app-details {
+    border-left: 1px solid gray;
+}

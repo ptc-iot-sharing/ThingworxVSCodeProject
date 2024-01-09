@@ -94,7 +94,7 @@ Any TypeScript file you add to the `src` folder will be compiled into a Thingwor
 
 ## Current Limitations
 
- - Only Things, ThingTemplates, ThingShapes, DataShapes, Users, Groups, Organizations and Projects are supported currently. For other types of entities you will still need to use the composer.
+ - Only Things, ThingTemplates, ThingShapes, DataShapes, Users, Groups, Organizations, Mashups, StyleDefinitions, StateDefinitions and Projects are supported currently. For other types of entities you will still need to use the composer.
  - <strike>Description currently cannot be specified. In the future, JSDoc comments will be used for this purpose.</strike> (1 Apr 2020)
  - <strike>Non-javascript services such as SQL</strike> or Flow services are not supported. (19 Mar 2022)
  - <strike>Projects and </strike>tags cannot be specified currently. </strike>Note that your project will however be packaged as an extension that can be easily installed, updated and removed.</strike> (27 Jul 2020)
@@ -118,6 +118,10 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 # Recent Changes
 
 For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
+
+ - Support for mashups, Core UI mashups and CSS
+ - Support for style definitions
+ - Support for state definitions
 
 ## 28 Mar 2023
  - Support conditionally compiled branches
