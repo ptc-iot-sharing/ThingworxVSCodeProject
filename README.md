@@ -95,11 +95,10 @@ Any TypeScript file you add to the `src` folder will be compiled into a Thingwor
 ## Current Limitations
 
  - Only Things, ThingTemplates, ThingShapes, DataShapes, Users, Groups, Organizations, Mashups, StyleDefinitions, StateDefinitions and Projects are supported currently. For other types of entities you will still need to use the composer.
- - <strike>Description currently cannot be specified. In the future, JSDoc comments will be used for this purpose.</strike> (1 Apr 2020)
- - <strike>Non-javascript services such as SQL</strike> or Flow services are not supported. (19 Mar 2022)
- - <strike>Projects and </strike>tags cannot be specified currently. </strike>Note that your project will however be packaged as an extension that can be easily installed, updated and removed.</strike> (27 Jul 2020)
- - <strike>Configuration tables are not currently supported, but this likely to be supported in some manner soon.</strike> (23 Mar 2020)
+ - Flow services and other service types except javascript and SQL are not supported.
+ - Tags cannot be specified currently.
  - XML handling via E4X is not and will not be supported. Using E4X syntax will lead to a compilation error. You should use the various XML methods to work around this limitation.
+ - Session variables and user extensions are not currently supported as data sources in mashups. You should instead obtain this information via services if needed.
 
 ## Build
 
@@ -137,16 +136,6 @@ For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 - Support for inline SQL
 - Support for generating `fieldDefinitions` exports
 - Support for the `override` keyword
-
-## 22 Apr 2022
-- Support for global functions
-- Experimental support for API types generation
-
-## 8 Apr 2022
-- Support for method helpers such as METHOD_NAME and LOG_PREFIX
-
-## 28 Mar 2022
-- Support for inferred types in property declarations and data shape field declarations
 
 # Credit/Acknowledgment
 
