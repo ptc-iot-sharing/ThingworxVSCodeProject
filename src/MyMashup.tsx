@@ -54,6 +54,7 @@ export class MyMashup extends MashupBase {
             // Custom CSS can be specified for the mashup via the CustomCSS property
             // This isn't written inline, but takes a path to a CSS file that contains the actual styles
             CustomCSS="./MyMashupStyles.css"
+            // Properties can be bound by specifying the property of any previously declared widget reference
             thingName={QueryImplementingThings.AllData.name}
             // Bindings to specific fields in an infotable mashup parameter use the infotable parameter
             // name as a namespace before the field name
@@ -67,7 +68,8 @@ export class MyMashup extends MashupBase {
                 ref={QueryImplementingThings}
                 // Note that any JSON values you specify must be written as a JSON string
                 query={{"filters": {"type": "LIKE", "fieldName": "name", "value": "%i%"}}} 
-                maxItems={MaxItemsInput.Value}
+                // Properties can be initialized using both a static value and a binding source by using the "bindProperty" function
+                maxItems={bindProperty(10, MaxItemsInput.Value)}
                 SelectedRowsChanged={[ExampleProperty]}
             />
             {/* All JSX expressions, such as this one, cause a compilation error if they contain more than comments. */}
