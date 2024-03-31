@@ -90,7 +90,7 @@ function logToFile(message: string) {
 
     /**
      * Remotely bound properties are specified via the 
-     * `@remote(name, {cacheTime?, pushType?, pushThreshold?, startType?,foldType?, imeout?})` decorator. From this decorator only
+     * `@remote(name, {cacheTime?, pushType?, pushThreshold?, startType?,foldType?, timeout?})` decorator. From this decorator only
      * the first parameter is required. It represents the name of the remote property.
      */
     @remote('test', {cacheTime: 0, foldType: 'NONE', pushType: "Value"}) 

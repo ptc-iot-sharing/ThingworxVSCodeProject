@@ -25,5 +25,8 @@
     "entityDependencies": [
     ],
     "extensionDependencies": [
-    ]
+    ],
+    "UIPlugins": {
+        "D3RangeGraph": "./ui-static/MyCustomUIPlugin"
+    }
 }

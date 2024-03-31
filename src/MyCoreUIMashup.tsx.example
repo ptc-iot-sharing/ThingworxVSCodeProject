@@ -1,0 +1,232 @@
+/**
+ * This file contains an example of a mashup that also uses Core UI to enable custom code
+ * beyond just the mashup JSX structure and the global declarations.
+ * 
+ * Since these mashups can use the DOM library it might be a good ideea to create
+ * a separate UI sub-project, otherwise the DOM types will also be available in all other
+ * backend files where they won't work.
+ * 
+ * Additionally, it is also required to set the compilation target to ES6 or higher, since the Typescript Class
+ * widget requires support for extending classes using typical ES6 syntax.
+ * 
+ * This example imports the dom library via a triple slash directive.
+ * 
+ * NOTE: To get this example file to work, it is needed to change its extension to .tsx AND set the compilation target
+ * to ES6 or newer.
+ */
+///<reference lib="dom" />
+// Mashup files need an additional import for UI definitions. Core UI mashups import from a 
+// different file than plain mashups.
+import "bm-thing-transformer/ui/core-ui"
+// A second import may be used for any non-standard widgets to be used.
+// These are imported from a Thingworx server via the "install-widgets" command.
+import "../ui-static/widgets"
+
+/**
+ * All services that are referenced by the mashup must be declared in advance as global constants.
+ * Their value must be the result of invoking `defineService`, passing in the service to use as the argument.
+ */
+const QueryImplementingThings = defineService(ThingTemplates.GenericThing.QueryImplementingThings);
+
+/**
+ * Dynamic services can be defined with a different `defineDynamicService` function. Specifically for thing templates
+ * and thing shapes, their dynamic entity types can be obtained through a `dyanmicEntity` service
+ */
+const ExampleProperty = defineDynamicService(dynamicEntity(ThingTemplates.ExampleThingTemplate).GetExampleProperty);
+
+/**
+ * All widgets that act as binding sources for service inputs or other widget properties must also
+ * be declared in advance as global constants. Their value must be the result of invoking `defineWidget`, passing
+ * in the name of the widget to use as the argument.
+ */
+const MaxItemsInput = defineWidget(Numericentry);
+
+const WindowView = defineWidget<"MyMashup">(BMWindowController);
+
+
+/** 
+ * Mashup parameters, if needed, are similarly defined as global constants, this time using the `defineMashup`
+ * function. This takes a class definition as an argument, similar to configuration tables, that describes
+ * the parameters defined on this mashup. All parameters are always both binding sources and targets.
+ */
+const MashupParameters = defineMashup(class {
+    thingName!: STRING;
+    selectedThing!: INFOTABLE<GenericStringList>;
+});
+
+/**
+ * Collection view interfaces require two optional type arguments:
+ * - The first is the data shape of the data infotable. This needs to be set to use
+ *   the event properties as binding sources. This will also restrict the data property
+ *   to an infotable using the specified data shape.
+ * 
+ * - The second is an interface that describes the global parameters. This needs to be set
+ *   to use the global parameters as binding sources.
+ */
+const ItemsCollection = defineWidget<RootEntityList, StatusResponse>(BMCollectionView);
+
+/**
+ * The mashup content itself is defined in a class that extends from `MashupController` and
+ * contains at least a `renderMashup` method that returns the mashup structure.
+ */
+class MyCoreUIMashup extends MashupController {
+
+    /**
+     * Unlike with typical typescript class properties, it's no longer necessary to annotate properties
+     * with the `@property` decorator, unless a specific aspect such as `canBind` is required. Even when
+     * the decorator is specified, it is not required to mark the property as a binding source or target
+     * since this is inferred automatically by the compiler.
+     */
+    titleLabel!: STRING;
+
+    /**
+     * A reference to the grid widget.
+     */
+    gridWidget!: TWRuntimeWidget;
+
+    /**
+     * The `@property` decorator is required, however, to bind properties from other widgets to the controller
+     * property. Otherwise, regular typescript class features such as setters can be used.
+     */
+    @property(bind(MaxItemsInput.Value)) set maxItems(value: number) {
+        this.titleLabel = `${value} Items`;
+    }
+
+    /**
+     * Services similarly don't need to be annotated.
+     */
+    alertValue(): void {
+        alert(this.maxItems);
+
+        // Specifying any kind of JSX element outside of the renderMashup function will cause a runtime
+        // error when loading this mashup e.g.:
+        // const widget = <Mashup /> // Runtime error
+    }
+
+    deleteItem(): void {
+        confirm('Are you sure you want to delete this item?');
+    }
+
+    /**
+     * Events do need to be annotated. Their bindings are similarly specified as an argument to the decorator.
+     */
+    @twevent([QueryImplementingThings]) gridClicked!: TWEvent;
+
+    /**
+     * When working with infotable property types, use the JSONInfoTable type rather than INFOTABLE.
+     */
+    @property(bind(QueryImplementingThings.AllData), didBind('dataDidBind')) data!: JSONInfoTable<EntityList>;
+
+    dataDidBind(prevousValue: JSONInfoTable<EntityList>, info: TWUpdatePropertyInfo) {
+        console.log(`Data property was updated!`);
+    }
+
+    renderMashup() {
+        return <Mashup
+            // The parameters are associated to the mashup via the ref property
+            ref={MashupParameters}
+            // Events can be used by specifying an array of services or widget services that they invoke
+            Loaded={[QueryImplementingThings]}
+            // Custom CSS can be specified for the mashup via the CustomCSS property
+            // This isn't written inline, but takes a path to a CSS file that contains the actual styles
+            CustomCSS="./MyMashupStyles.css"
+            thingName={QueryImplementingThings.AllData.name}
+            // Bindings to specific fields in an infotable mashup parameter use the infotable parameter
+            // name as a namespace before the field name
+            selectedThing:item={QueryImplementingThings.SelectedRows.name}
+        >
+            {/*
+                Services must always be specified as children of the Mashup element; this is where parameters are bound or specified.
+                They must be associated with their output sources via the "ref" property.
+            */}
+            <Service
+                ref={QueryImplementingThings}
+                // Note that any JSON values you specify must be written as a JSON string
+                query={{"filters": {"type": "EQ", "fieldName": "name", "value": "MyThing"}}} 
+                maxItems={MaxItemsInput.Value}
+                SelectedRowsChanged={[ExampleProperty]}
+                ServiceInvokeCompleted={[ControllerInterface.alertValue]}
+            />
+            {/* All JSX expressions, such as this one, cause a compilation error if they contain more than comments. */}
+            <Service ref={ExampleProperty} EntityName={QueryImplementingThings.SelectedRows.name} />
+
+            {/* 
+                Widgets are specified as a tree structure under the mashup. Unlike typical thingworx mashups you are not actually required 
+                to use a flex container as the root widget. For simpler mashups (e.g. to use in a collection view cell) it can be any other
+                widget, like a chart.
+            */}
+            <Flexcontainer flex-direction="column">
+                <Flexcontainer
+                    flex-min-height="72px"
+                    flex-max-height="72px"
+                    flex-size="fixed"
+                    align-items="center"
+                    justify-content="space-between"
+                >
+                    <Ptcslabel LabelType="large-header" LabelText={ControllerInterface.titleLabel} CustomClass="MyLabel" />
+                    <Ptcsbutton ButtonType="primary" Label="Open Windowed" Clicked={[WindowView.bringToFront]} />
+                    <Ptcsbutton ButtonType="primary" Label="Refresh" Clicked={[QueryImplementingThings]} />
+                    <BMWindowController
+                        ref={WindowView}
+                        mashupName="MyMashup"
+                        thingName={MashupParameters.thingName}
+                        resizable={false}
+                        controllerWidth={800}
+                        controllerHeight={600}
+                    />
+                </Flexcontainer>
+                <Flexcontainer>
+                    <Flexcontainer flex-direction="column">
+                        {/*
+                            A widget output source that was previously defined must be associated with a widget instance via the "ref" property,
+                            similar to how services are associated to their output sources.
+                        */}
+                        <Numericentry
+                            ref={MaxItemsInput}
+                            Value={ExampleProperty.AllData.result}
+                            Maximum={10}
+                            Label="Items to return"
+                            Changed={[QueryImplementingThings]}
+                        />
+                        <Ptcsgrid
+                            // Because of how awkward it is to type large JSON content into mashup properties, they can also be defined
+                            // in separate files and loaded using the "importJSON" function.
+                            Configuration={importJSON("./MyMashupGridConfiguration.json")}
+                            Data={QueryImplementingThings.AllData}
+                            AddButtonText={ItemsCollection['Event:avatar']}
+                            IsEditable={false}
+                        />
+                        <BMCollectionView
+                            // When a ref is used for a collection view it imposes restriction on what can be bound
+                            // to data based on the generic argument specified when creating the ref
+                            ref={ItemsCollection}
+                            Data={QueryImplementingThings.AllData}
+                            UIDField="name"
+                            CellMashupName="MyMashup"
+                            CellMashupGlobalPropertyBinding={{
+                                // When a ref is used that defines a global interface, the object specified
+                                // here must match that interface
+                                humidity: 'NUMBER',
+                                pressure: 'NUMBER'
+                            }}
+                            CellMashupPropertyBinding={{
+                                avatar: 'selectedThing'
+                            }}
+                            CellSlideMenu="MenuItems"
+                            Menu:Delete={[ControllerInterface.deleteItem]}
+                        />
+                    </Flexcontainer>
+                    <Flexcontainer flex-size="fixed" flex-min-width="256px" flex-max-width="256px" flex-direction="column">
+                        <Ptcslabel LabelText={QueryImplementingThings.SelectedRows.name} LabelType="header" />
+                    </Flexcontainer>
+                </Flexcontainer>
+            </Flexcontainer>
+        </Mashup>;
+    }
+};
+
+/**
+ * For the controller to participate in bindings, it needs a reference variable, same as widgets and services.
+ * This takes the mashup class as its argument, so it must be defined after the class itself.
+ */ 
+const ControllerInterface = defineController(MyCoreUIMashup);

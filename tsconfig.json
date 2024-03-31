@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "composite": true,
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": false,
@@ -10,6 +11,11 @@
         "noImplicitOverride": true,
         "strict": true,
         "declaration": true,
+        "jsx": "react",
+        "jsxFactory": "defineWidget",
+        "jsxFragmentFactory": "defineWidget",
+        "skipLibCheck": true,
+        "moduleResolution": "Node",
         "lib": [
             "esnext"
         ],
@@ -18,10 +24,12 @@
             "./node_modules/@types/"
         ]
     },
+    "references": [],
     "include": [
         "./static/**/*.d.ts",
         "./src/**/*.d.ts",
         "./src/**/*.ts",
+        "./src/**/*.tsx",
         "./tw_imports/**/*.d.ts",
         "./node_modules/bm-thing-transformer/static/**/*.d.ts",
         "./node_modules/bm-thing-cli/node_modules/bm-thing-transformer/static/**/*.d.ts"
