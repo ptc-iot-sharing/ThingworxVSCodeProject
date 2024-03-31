@@ -118,6 +118,8 @@ Deployment to Thingworx is part of the build process as explained above. Alterna
 
 For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
+## 31 Mar 2024
+
  - Support for mashups, Core UI mashups and CSS
  - Support for style definitions
  - Support for state definitions

@@ -1,3 +1,7 @@
+# 31 Mar 2024
+
+Adds support for creating Mashups, StyleDefinitions and StateFormatting entities and for importing CSS and JSON files into mashup entities.
+
 # 6 Dec 2023
 
 Resolves an issue where resulting extensions were not compatible with Thingworx 8.5 even when avoiding 9.0+ features.
