@@ -1,3 +1,7 @@
+# 6 Apr 2024
+
+Resolves an issue where certain global functions were not properly copied over into services.
+
 # 31 Mar 2024
 
 Adds support for creating Mashups, StyleDefinitions and StateFormatting entities and for importing CSS and JSON files into mashup entities.
