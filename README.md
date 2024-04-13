@@ -153,6 +153,8 @@ For a complete changelog see [CHANGELOG.md](CHANGELOG.md).
 
 [CozminM](https://github.com/CozminM), [elena-bi](https://github.com/elena-bi) - bug fixes
 
+[kklorenzotesta](https://github.com/kklorenzotesta) - thingworx API typing updates
+
 # Disclaimer
 
 The Thingworx VSCode Project is not an official Thingworx product. It is something developed to improve the life of a Thingworx developer and they need to understand that it is not supported and any issues encountered are their own responsibility.

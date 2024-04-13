@@ -1,3 +1,9 @@
+# 13 Apr 2024
+
+Fixes a bug where enum members were not properly inlined when referenced by global functions defined on the first line of a file.
+
+Update the typings for the `DisableSubscription` and `EnableSubscription` to support the new signatures in Thingworx 9. ([kklorenzotesta](https://github.com/kklorenzotesta))
+
 # 6 Apr 2024
 
 Resolves an issue where certain global functions were not properly copied over into services.
