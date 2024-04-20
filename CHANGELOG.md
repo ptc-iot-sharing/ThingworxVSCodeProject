@@ -1,3 +1,13 @@
+# 20 Apr 2024
+
+Updates the Typescript version to 5.4. ([stefan-lacatus](https://github.com/stefan-lacatus))
+
+Fixes a build error when using recursive global functions. ([stefan-lacatus](https://github.com/stefan-lacatus))
+
+Fixes a build error when certain binding types such as `MASHUPNAME` were used.
+
+Adds the typings for the widgets added in Thingworx 9.4.
+
 # 13 Apr 2024
 
 Fixes a bug where enum members were not properly inlined when referenced by global functions defined on the first line of a file.
