@@ -1,3 +1,9 @@
+# 25 May 2024
+
+Adds support for specifying visibility permissions on mashups. ([kklorenzotesta](https://github.com/kklorenzotesta))
+
+Resolves an issue where using `this` in an arrow function produced incorrect code. ([kklorenzotesta](https://github.com/kklorenzotesta))
+
 # 20 Apr 2024
 
 Updates the Typescript version to 5.4. ([stefan-lacatus](https://github.com/stefan-lacatus))
